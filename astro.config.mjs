@@ -1,12 +1,11 @@
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 import mdx from '@astrojs/mdx';
-import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   site: 'https://proplogai.com',
   base: '/blogs',
-  integrations: [tailwind(), mdx(), sitemap()],
+  integrations: [tailwind(), mdx()],
   markdown: {
     shikiConfig: {
       theme: 'github-dark',
