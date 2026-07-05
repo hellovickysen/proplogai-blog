@@ -1,0 +1,24 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#07070b"/>
+  <circle cx="170" cy="130" r="220" fill="#8b5cf6" fill-opacity="0.18"/>
+  <circle cx="1020" cy="470" r="260" fill="#22d3ee" fill-opacity="0.14"/>
+  <rect x="78" y="74" width="1044" height="482" rx="34" fill="white" fill-opacity="0.025" stroke="white" stroke-opacity="0.10"/>
+  <path d="M118 454C237 370 334 398 443 324C541 257 638 189 768 234C895 278 935 202 1082 158" stroke="url(#line)" stroke-width="3" stroke-linecap="round" stroke-opacity="0.8"/>
+  <rect x="118" y="120" width="154" height="34" rx="17" fill="white" fill-opacity="0.06"/>
+  <text x="140" y="143" fill="#22d3ee" font-family="JetBrains Mono, monospace" font-size="14" letter-spacing="3">PROPLOG AI</text>
+  <text x="118" y="255" fill="white" font-family="Space Grotesk, Inter, sans-serif" font-size="64" font-weight="700" letter-spacing="-2">Trading Journal</text>
+  <text x="118" y="330" fill="white" font-family="Space Grotesk, Inter, sans-serif" font-size="64" font-weight="700" letter-spacing="-2">Education</text>
+  <text x="120" y="390" fill="white" fill-opacity="0.58" font-family="Inter, sans-serif" font-size="24">Discipline, psychology, prop firm expenses, and AI-powered self-review.</text>
+  <g transform="translate(820 338)">
+    <rect width="230" height="118" rx="22" fill="white" fill-opacity="0.045" stroke="white" stroke-opacity="0.10"/>
+    <rect x="24" y="28" width="76" height="14" rx="7" fill="#34d399" fill-opacity="0.75"/>
+    <rect x="24" y="56" width="132" height="14" rx="7" fill="#8b5cf6" fill-opacity="0.75"/>
+    <rect x="24" y="84" width="182" height="14" rx="7" fill="#f87171" fill-opacity="0.75"/>
+  </g>
+  <defs>
+    <linearGradient id="line" x1="118" y1="454" x2="1082" y2="158" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8b5cf6"/>
+      <stop offset="1" stop-color="#22d3ee"/>
+    </linearGradient>
+  </defs>
+</svg>

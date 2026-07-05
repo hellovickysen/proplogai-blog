@@ -1,12 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
-
 @layer base {
   html {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Inter', sans-serif;
     scroll-behavior: smooth;
   }
 
@@ -18,7 +18,7 @@
   }
 
   ::selection {
-    background: rgba(167, 139, 250, 0.3);
+    background: rgba(139, 92, 246, 0.3);
     color: white;
   }
 }
@@ -75,16 +75,16 @@
   background: rgba(255, 255, 255, 0.04);
   box-shadow:
     0 20px 40px -12px rgba(0, 0, 0, 0.5),
-    0 0 0 1px rgba(167, 139, 250, 0.1);
+    0 0 0 1px rgba(139, 92, 246, 0.1);
 }
 
 .card-premium:hover::before {
-  background: linear-gradient(135deg, rgba(167, 139, 250, 0.4), rgba(34, 211, 238, 0.4));
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.4), rgba(34, 211, 238, 0.4));
 }
 
 /* ── Gradient Text ── */
 .gradient-text {
-  background: linear-gradient(120deg, #a78bfa, #22d3ee);
+  background: linear-gradient(120deg, #8b5cf6, #22d3ee);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -93,7 +93,7 @@
 /* ── Gradient Divider ── */
 .gradient-divider {
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(167, 139, 250, 0.3), rgba(34, 211, 238, 0.3), transparent);
+  background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.3), rgba(34, 211, 238, 0.3), transparent);
 }
 
 /* ── Blog Prose ── */
@@ -107,7 +107,7 @@
 .prose-blog h2,
 .prose-blog h3,
 .prose-blog h4 {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   font-weight: 600;
   color: white;
   margin-top: 2.25em;
@@ -128,7 +128,7 @@
   left: 0;
   width: 3rem;
   height: 2px;
-  background: linear-gradient(90deg, #a78bfa, #22d3ee);
+  background: linear-gradient(90deg, #8b5cf6, #22d3ee);
   border-radius: 1px;
 }
 .prose-blog h3 { font-size: 1.25rem; }
@@ -139,9 +139,9 @@
 }
 
 .prose-blog a {
-  color: #a78bfa;
+  color: #8b5cf6;
   text-decoration: none;
-  border-bottom: 1px solid rgba(167, 139, 250, 0.3);
+  border-bottom: 1px solid rgba(139, 92, 246, 0.3);
   transition: all 0.2s;
 }
 .prose-blog a:hover {
@@ -170,20 +170,20 @@
 }
 
 .prose-blog ul li::marker {
-  color: #a78bfa;
+  color: #8b5cf6;
 }
 
 .prose-blog ol li::marker {
-  color: #a78bfa;
+  color: #8b5cf6;
   font-weight: 600;
 }
 
 .prose-blog blockquote {
   border-left: 3px solid transparent;
-  border-image: linear-gradient(to bottom, #a78bfa, #22d3ee) 1;
+  border-image: linear-gradient(to bottom, #8b5cf6, #22d3ee) 1;
   padding: 1.25em 1.5em;
   margin: 2em 0;
-  background: rgba(167, 139, 250, 0.04);
+  background: rgba(139, 92, 246, 0.04);
   border-radius: 0 0.75rem 0.75rem 0;
   color: rgba(255, 255, 255, 0.8);
   font-style: italic;
@@ -191,12 +191,12 @@
 
 .prose-blog code {
   font-family: 'JetBrains Mono', monospace;
-  background: rgba(167, 139, 250, 0.08);
+  background: rgba(139, 92, 246, 0.08);
   padding: 0.15em 0.45em;
   border-radius: 0.375rem;
   font-size: 0.875em;
   color: #22d3ee;
-  border: 1px solid rgba(167, 139, 250, 0.1);
+  border: 1px solid rgba(139, 92, 246, 0.1);
 }
 
 .prose-blog pre {
@@ -260,9 +260,9 @@
 ::-webkit-scrollbar { width: 5px; height: 5px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb {
-  background: rgba(167, 139, 250, 0.2);
+  background: rgba(139, 92, 246, 0.2);
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(167, 139, 250, 0.35);
+  background: rgba(139, 92, 246, 0.35);
 }

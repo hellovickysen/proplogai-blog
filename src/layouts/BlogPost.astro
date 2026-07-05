@@ -7,12 +7,31 @@ interface Props {
 }
 
 const { post } = Astro.props;
-const { title, description, author, tags, coverImage } = post.data;
+const {
+  title,
+  description,
+  author,
+  tags,
+  coverImage,
+  seoTitle,
+  metaTitle,
+  primaryKeyword,
+  secondaryKeywords,
+  searchIntent,
+  funnelStage,
+  internalLinks,
+  externalCitations,
+  cta,
+  disclaimer,
+} = post.data;
+
+const pageTitle = metaTitle || seoTitle || title;
+const hasEditorialNotes = primaryKeyword || secondaryKeywords.length > 0 || searchIntent || funnelStage;
 ---
 
-<BaseLayout title={title} description={description} ogImage={coverImage}>
+<BaseLayout title={pageTitle} description={description} ogImage={coverImage} type="article">
   <!-- Reading Progress Bar -->
-  <div id="progress-bar" class="fixed top-0 left-0 h-[3px] z-[60] transition-none" style="width: 0%; background: linear-gradient(90deg, #a78bfa, #22d3ee);"></div>
+  <div id="progress-bar" class="fixed top-0 left-0 h-[3px] z-[60] transition-none" style="width: 0%; background: linear-gradient(90deg, #8b5cf6, #22d3ee);"></div>
 
   <article class="mx-auto max-w-3xl px-5 py-12 sm:py-16" id="article-content">
     <!-- Back -->
@@ -41,6 +60,18 @@ const { title, description, author, tags, coverImage } = post.data;
       <p class="text-base text-white/40 leading-relaxed pb-6 border-b border-white/[0.06]">
         {description}
       </p>
+
+      <div class="flex flex-wrap items-center gap-x-4 gap-y-2 pt-5 text-xs text-white/25">
+        <span>{author}</span>
+        <span aria-hidden="true">•</span>
+        <time datetime={post.data.date.toISOString()}>{post.data.date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</time>
+        {post.data.updatedDate && (
+          <>
+            <span aria-hidden="true">•</span>
+            <span>Updated {post.data.updatedDate.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
+          </>
+        )}
+      </div>
     </header>
 
     <!-- Cover -->
@@ -50,19 +81,76 @@ const { title, description, author, tags, coverImage } = post.data;
       </div>
     )}
 
+    <!-- Editorial context for readers -->
+    {hasEditorialNotes && (
+      <aside class="rounded-2xl border border-white/[0.06] bg-white/[0.015] p-5 mb-10 animate-fade-in-up stagger-1">
+        <p class="font-mono text-[10px] uppercase tracking-[0.18em] text-cyan mb-3">Article guide</p>
+        <dl class="grid gap-3 text-sm">
+          {primaryKeyword && (
+            <div>
+              <dt class="text-white/30">Primary topic</dt>
+              <dd class="text-white/70">{primaryKeyword}</dd>
+            </div>
+          )}
+          {searchIntent && (
+            <div>
+              <dt class="text-white/30">Search intent</dt>
+              <dd class="text-white/70">{searchIntent}</dd>
+            </div>
+          )}
+          {funnelStage && (
+            <div>
+              <dt class="text-white/30">Reader stage</dt>
+              <dd class="text-white/70">{funnelStage}</dd>
+            </div>
+          )}
+        </dl>
+      </aside>
+    )}
+
     <!-- Content -->
     <div class="prose-blog animate-fade-in-up stagger-2">
       <slot />
     </div>
 
+    <!-- Disclaimer -->
+    {disclaimer && (
+      <aside class="rounded-2xl border border-amber/20 bg-amber/5 p-5 mt-12 text-sm text-white/55 leading-relaxed">
+        <strong class="text-amber">Disclaimer:</strong> {disclaimer}
+      </aside>
+    )}
+
+    <!-- Editorial links and citations -->
+    {(internalLinks.length > 0 || externalCitations.length > 0) && (
+      <section class="border-t border-white/[0.06] mt-12 pt-8 space-y-6">
+        {internalLinks.length > 0 && (
+          <div>
+            <h2 class="font-display text-lg font-semibold text-white mb-3">Related PropLog AI resources</h2>
+            <ul class="space-y-2 text-sm text-white/50">
+              {internalLinks.map((link) => <li>{link}</li>)}
+            </ul>
+          </div>
+        )}
+        {externalCitations.length > 0 && (
+          <div>
+            <h2 class="font-display text-lg font-semibold text-white mb-3">Sources and further reading</h2>
+            <ul class="space-y-2 text-sm text-white/50">
+              {externalCitations.map((citation) => <li>{citation}</li>)}
+            </ul>
+            <p class="mt-3 text-xs text-white/25">Outbound citation links should be marked nofollow in publishing notes or final HTML.</p>
+          </div>
+        )}
+      </section>
+    )}
+
     <!-- Footer CTA -->
     <div class="border-t border-white/[0.06] mt-14 mb-10 pt-10">
       <div class="rounded-2xl border border-white/[0.06] bg-white/[0.015] p-7 sm:p-9 text-center">
         <h3 class="font-display text-xl font-bold text-white mb-2.5 tracking-tight">
-          Start your trading journal
+          {cta || 'Start your trading journal'}
         </h3>
         <p class="text-sm text-white/35 mb-6 max-w-md mx-auto leading-relaxed">
-          Track trades, understand your psychology, and get personalized AI coaching.
+          Track trades, understand your psychology, and get personalized AI coaching. No signals, no financial advice — just better self-review from your own data.
         </p>
         <a
           href="https://proplogai.com/login"
@@ -88,7 +176,6 @@ const { title, description, author, tags, coverImage } = post.data;
         const windowHeight = window.innerHeight;
         const scrollY = window.scrollY;
 
-        // Calculate progress from article start to article end
         const start = articleTop;
         const end = articleTop + articleHeight - windowHeight;
         const progress = Math.min(100, Math.max(0, ((scrollY - start) / (end - start)) * 100));
