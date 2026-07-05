@@ -5,7 +5,7 @@ date: 2026-07-06
 updatedDate: 2026-07-06
 author: "PropLogAI Team"
 tags: ["journaling", "prop firm", "discipline", "risk awareness"]
-coverImage: "/blogs/images/cover-journal.png"
+coverImage: "/blogs/images/cover-best-trading-journal.png"
 draft: false
 seoTitle: "Best Trading Journal for Prop Firm Traders: What to Track and Why"
 metaTitle: "Best Trading Journal for Prop Firm Traders: What to Track and Why"
@@ -155,12 +155,6 @@ A journal can reveal tendencies and support better reflection, but it cannot gua
 PropLog AI is designed around the idea that journal data should become a practical feedback system. Trade notes, P&L calendar views, tags, weekly reviews, and AI-assisted reflection can help traders understand their behavior more clearly.
 
 The value is educational: better organization, more consistent review, and clearer questions. It does not remove risk, provide financial advice, or guarantee trading results.
-
-## Educational sources
-
-- [SEC Investor Bulletin: Performance Claims](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-47) — explains why past performance does not predict future results and why performance guarantees can be misleading.
-- [CFTC Customer Advisory: Eight Things You Should Know Before Trading Forex](https://www.cftc.gov/LearnAndProtect/AdvisoriesAndArticles/CustomerAdvisory_MustKnowForex.html) — outlines forex risk, leverage risk, registration checks, and fraud warning signs.
-- [FINRA: Watch for Red Flags](https://www.finra.org/investors/protect-your-money/watch-red-flags) — notes that guarantees and promises of lofty returns are warning signs because all investments carry risk.
 
 ## Conclusion
 

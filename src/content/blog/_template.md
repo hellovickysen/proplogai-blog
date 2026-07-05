@@ -5,7 +5,7 @@ date: 2026-01-01
 updatedDate: 2026-01-01
 author: "PropLogAI Team"
 tags: ["journaling", "discipline"]
-coverImage: "/blogs/images/example-cover.png"
+coverImage: "/blogs/images/unique-article-cover.png"
 draft: true
 seoTitle: "SEO Title for the Article"
 metaTitle: "Meta Title for Search and Social"
@@ -41,3 +41,5 @@ Naturally connect the topic to journaling, psychology tracking, expense tracking
 ### Question?
 
 Short, direct answer.
+
+<!-- Do not add public sections titled Article Guide, Educational sources, Related PropLog AI resources, or Sources and further reading. Keep citations and internal-link notes in Airtable/frontmatter for editorial tracking only. The article layout automatically shows three related blog cards. -->

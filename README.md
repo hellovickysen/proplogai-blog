@@ -51,6 +51,13 @@ Recommended fields:
 - `cta`
 - `disclaimer`
 
+Notes:
+
+- `internalLinks` and `externalCitations` are retained for editorial tracking and SEO review, but they are not rendered as public article sections.
+- Do not add public article body sections titled `Article Guide`, `Educational sources`, `Related PropLog AI resources`, or `Sources and further reading`.
+- The article layout automatically renders up to three related blog cards below the CTA.
+- Every new article should use a unique `coverImage`. Do not reuse an existing cover unless intentionally updating or republishing that same article.
+
 ## Publishing safety rules
 
 - Never publish directly from an unreviewed draft.
