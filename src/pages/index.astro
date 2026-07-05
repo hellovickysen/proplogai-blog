@@ -6,97 +6,134 @@ import { getCollection } from 'astro:content';
 const posts = (await getCollection('blog', ({ data }) => !data.draft))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
-// Extract unique tags
+// Estimate reading time (~200 wpm)
+function getReadTime(body: string) {
+  return Math.max(1, Math.ceil(body.split(/\s+/).length / 200));
+}
+
 const allTags = [...new Set(posts.flatMap((p) => p.data.tags))].sort();
+
+const featuredPost = posts[0];
+const restPosts = posts.slice(1);
 ---
 
 <BaseLayout title="Blog">
-  <!-- Hero -->
-  <section class="relative mx-auto max-w-6xl px-5 pt-16 sm:pt-24 pb-10 overflow-hidden">
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-gradient-to-b from-violet/[0.07] via-cyan/[0.04] to-transparent rounded-full blur-3xl pointer-events-none" style="animation: pulse-glow 6s ease-in-out infinite;"></div>
-
-    <div class="relative max-w-2xl animate-fade-in-up">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.06] mb-6">
-        <span class="w-1.5 h-1.5 rounded-full bg-profit animate-pulse"></span>
-        <span class="font-mono text-[11px] uppercase tracking-widest text-white/45">PropLogAI Blog</span>
-      </div>
-
-      <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-5 tracking-tight leading-[1.1]">
-        Trading <span class="gradient-text">Insights</span>
+  <!-- Hero Section -->
+  <section class="mx-auto max-w-6xl px-5 pt-16 sm:pt-20 pb-6">
+    <div class="animate-fade-in-up">
+      <p class="font-mono text-[11px] uppercase tracking-[0.2em] text-violet mb-4">Blog</p>
+      <h1 class="font-display text-3xl sm:text-4xl font-bold text-white tracking-tight mb-3">
+        Insights & Resources
       </h1>
-
-      <p class="text-lg sm:text-xl text-white/45 leading-relaxed max-w-xl">
-        Psychology, discipline, and performance — everything you need to become a consistently profitable trader.
+      <p class="text-base text-white/40 max-w-xl leading-relaxed">
+        Trading psychology, discipline, and performance — from the PropLogAI team.
       </p>
     </div>
   </section>
 
-  <!-- Search + Filter Bar (left-aligned) -->
+  <!-- Filter Bar -->
   <section class="mx-auto max-w-6xl px-5 pb-8 animate-fade-in-up stagger-1">
-    <div class="flex items-center gap-3 flex-wrap">
+    <div class="flex items-center gap-3 border-b border-white/[0.06] pb-5">
       <!-- Search -->
-      <div class="relative w-full sm:w-64">
-        <svg class="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-white/25 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <div class="relative w-full sm:w-56">
+        <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/20 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
         </svg>
         <input
           type="text"
           id="blog-search"
-          placeholder="Search posts..."
-          class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-white/[0.03] border border-white/[0.06] text-sm text-white placeholder-white/25 focus:outline-none focus:border-violet/30 focus:bg-white/[0.05] transition-all duration-300"
+          placeholder="Search..."
+          class="w-full pl-9 pr-3 py-2 rounded-lg bg-transparent border border-white/[0.06] text-sm text-white placeholder-white/20 focus:outline-none focus:border-violet/30 transition-all duration-300"
         />
       </div>
 
-      <!-- Tag Dropdown -->
+      <!-- Tag dropdown -->
       <div class="relative" id="tag-dropdown-wrapper">
         <button
           id="tag-dropdown-btn"
-          class="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/[0.03] border border-white/[0.06] text-sm text-white/50 hover:border-violet/30 hover:text-white/70 transition-all duration-300 cursor-pointer min-w-[140px]"
+          class="flex items-center gap-2 px-3 py-2 rounded-lg border border-white/[0.06] text-sm text-white/40 hover:border-violet/30 hover:text-white/60 transition-all duration-300 cursor-pointer"
         >
-          <svg class="w-4 h-4 text-white/30 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
-          </svg>
-          <span id="tag-dropdown-label" class="flex-1 text-left">All Topics</span>
-          <svg class="w-3.5 h-3.5 text-white/25 flex-shrink-0 transition-transform duration-200" id="tag-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <span id="tag-dropdown-label">All Topics</span>
+          <svg class="w-3 h-3 text-white/20 transition-transform duration-200" id="tag-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
           </svg>
         </button>
 
-        <!-- Dropdown menu -->
-        <div id="tag-dropdown-menu" class="hidden absolute top-full left-0 mt-2 w-52 rounded-xl bg-[#12121a] border border-white/[0.08] shadow-2xl shadow-black/50 overflow-hidden z-50">
-          <div class="py-1.5">
-            <button data-tag="all" class="tag-option active w-full text-left px-4 py-2 text-sm transition-colors duration-200">
-              All Topics
-            </button>
+        <div id="tag-dropdown-menu" class="hidden absolute top-full left-0 mt-1.5 w-48 rounded-xl bg-[#12121a] border border-white/[0.08] shadow-2xl shadow-black/50 overflow-hidden z-50">
+          <div class="py-1">
+            <button data-tag="all" class="tag-option active w-full text-left px-4 py-2 text-sm transition-colors duration-200">All Topics</button>
             {allTags.map((tag) => (
-              <button data-tag={tag} class="tag-option w-full text-left px-4 py-2 text-sm transition-colors duration-200 capitalize">
-                {tag}
-              </button>
+              <button data-tag={tag} class="tag-option w-full text-left px-4 py-2 text-sm transition-colors duration-200 capitalize">{tag}</button>
             ))}
           </div>
         </div>
       </div>
 
-      <!-- Result count -->
-      <p id="result-count" class="text-xs text-white/25 font-mono ml-1">
-        {posts.length} {posts.length === 1 ? 'post' : 'posts'}
+      <p id="result-count" class="text-[11px] text-white/20 font-mono ml-auto">
+        {posts.length} articles
       </p>
-
-      <!-- Clear -->
-      <button
-        id="clear-filters"
-        class="hidden text-xs text-violet/70 hover:text-violet transition-colors duration-300 font-medium ml-auto"
-      >
-        Clear filters
-      </button>
     </div>
   </section>
 
-  <!-- Posts grid -->
+  <!-- Featured Post (Lyrafin-style hero) -->
+  {featuredPost && (
+    <section class="mx-auto max-w-6xl px-5 pb-12 animate-fade-in-up stagger-2">
+      <a href={`/blogs/${featuredPost.slug}`} class="group block">
+        <article class="rounded-2xl border border-white/[0.06] bg-white/[0.015] overflow-hidden hover:border-white/[0.12] transition-all duration-500">
+          <div class="grid grid-cols-1 lg:grid-cols-2">
+            {featuredPost.data.coverImage && (
+              <div class="aspect-[16/10] lg:aspect-auto overflow-hidden">
+                <img
+                  src={featuredPost.data.coverImage}
+                  alt={featuredPost.data.title}
+                  class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700 ease-out"
+                />
+              </div>
+            )}
+
+            <div class="p-7 sm:p-9 flex flex-col justify-center">
+              {featuredPost.data.tags.length > 0 && (
+                <p class="font-mono text-[10px] uppercase tracking-[0.15em] text-violet font-medium mb-4">
+                  {featuredPost.data.tags[0]}
+                </p>
+              )}
+
+              <h2 class="font-display text-xl sm:text-2xl font-bold text-white leading-snug mb-3 group-hover:text-violet/90 transition-colors duration-300">
+                {featuredPost.data.title}
+              </h2>
+
+              <p class="text-sm text-white/40 leading-relaxed mb-6 line-clamp-3">
+                {featuredPost.data.description}
+              </p>
+
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2 text-[11px] text-white/30 font-mono">
+                  <time datetime={featuredPost.data.date.toISOString()}>
+                    {featuredPost.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+                  </time>
+                  <span class="text-white/15">&bull;</span>
+                  <span>{getReadTime(featuredPost.body)} min read</span>
+                </div>
+
+                <span class="flex items-center gap-1.5 text-xs text-violet/70 font-medium group-hover:text-violet transition-colors duration-300">
+                  Read article
+                  <svg class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </span>
+              </div>
+            </div>
+          </div>
+        </article>
+      </a>
+    </section>
+  )}
+
+  <!-- Rest of posts grid -->
   <section class="mx-auto max-w-6xl px-5 pb-20">
-    {posts.length > 0 ? (
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7" id="posts-grid">
-        {posts.map((post, i) => (
+    {restPosts.length > 0 && (
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="posts-grid">
+        {restPosts.map((post, i) => (
           <div
             class={`blog-post-item animate-fade-in-up stagger-${Math.min(i + 1, 4)}`}
             data-tags={post.data.tags.join(',')}
@@ -110,80 +147,60 @@ const allTags = [...new Set(posts.flatMap((p) => p.data.tags))].sort();
               slug={post.slug}
               tags={post.data.tags}
               coverImage={post.data.coverImage}
-              author={post.data.author}
+              readTime={getReadTime(post.body)}
             />
           </div>
         ))}
       </div>
-
-      <!-- No results -->
-      <div id="no-results" class="hidden text-center py-16">
-        <div class="w-14 h-14 mx-auto mb-4 rounded-2xl bg-white/[0.03] border border-white/[0.06] flex items-center justify-center">
-          <svg class="w-6 h-6 text-white/20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-          </svg>
-        </div>
-        <p class="text-white/35 text-sm mb-1">No posts found</p>
-        <p class="text-white/20 text-xs">Try a different search or topic</p>
-      </div>
-    ) : (
-      <div class="text-center py-20">
-        <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-white/[0.03] border border-white/[0.06] flex items-center justify-center">
-          <svg class="w-7 h-7 text-white/20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
-          </svg>
-        </div>
-        <p class="text-white/35 text-sm">No posts yet. Check back soon!</p>
-      </div>
     )}
+
+    <!-- Featured is also filterable (hidden wrapper) -->
+    {featuredPost && (
+      <div
+        id="featured-wrapper"
+        class="blog-post-item"
+        data-tags={featuredPost.data.tags.join(',')}
+        data-title={featuredPost.data.title.toLowerCase()}
+        data-description={featuredPost.data.description.toLowerCase()}
+        data-is-featured="true"
+        style="display:none;"
+      ></div>
+    )}
+
+    <!-- No results -->
+    <div id="no-results" class="hidden text-center py-16">
+      <p class="text-white/30 text-sm">No posts found</p>
+      <p class="text-white/15 text-xs mt-1">Try a different search or topic</p>
+    </div>
   </section>
 
   <!-- CTA -->
   <section class="mx-auto max-w-6xl px-5 pb-20">
-    <div class="relative rounded-2xl overflow-hidden">
-      <div class="absolute inset-0 bg-gradient-to-r from-violet/20 via-cyan/20 to-violet/20 rounded-2xl"></div>
-      <div class="relative m-[1px] rounded-2xl bg-[#0b0b14] p-8 sm:p-12 text-center">
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[300px] h-[200px] bg-gradient-to-b from-violet/[0.06] to-transparent rounded-full blur-3xl pointer-events-none"></div>
-
-        <h2 class="relative font-display text-2xl sm:text-3xl font-bold text-white mb-3 tracking-tight">
-          Ready to trade <span class="gradient-text">smarter</span>?
-        </h2>
-        <p class="relative text-sm sm:text-base text-white/45 mb-7 max-w-lg mx-auto leading-relaxed">
-          Start your AI-powered trading journal. Track emotions, identify patterns, and get personalized coaching from Propol AI.
-        </p>
-        <a
-          href="https://proplogai.com/login"
-          class="relative inline-flex px-7 py-3 rounded-xl bg-gradient-brand text-[#08080f] text-sm font-semibold hover:shadow-lg hover:shadow-violet/25 transition-all duration-300 hover:-translate-y-0.5"
-        >
-          Start Free Trading Journal
-          <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-          </svg>
-        </a>
-      </div>
+    <div class="rounded-2xl border border-white/[0.06] bg-white/[0.015] p-8 sm:p-12 text-center">
+      <h2 class="font-display text-2xl sm:text-3xl font-bold text-white mb-3 tracking-tight">
+        Start your trading journal
+      </h2>
+      <p class="text-sm text-white/40 mb-7 max-w-lg mx-auto leading-relaxed">
+        Track trades, understand your psychology, and get personalized coaching from Propol AI.
+      </p>
+      <a
+        href="https://proplogai.com/login"
+        class="inline-flex items-center gap-2 px-7 py-3 rounded-xl bg-gradient-brand text-[#08080f] text-sm font-semibold hover:shadow-lg hover:shadow-violet/25 transition-all duration-300 hover:-translate-y-0.5"
+      >
+        Get Started Free
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+        </svg>
+      </a>
     </div>
   </section>
 </BaseLayout>
 
 <style>
-  .tag-option {
-    color: rgba(255, 255, 255, 0.45);
-  }
-  .tag-option:hover {
-    background: rgba(167, 139, 250, 0.06);
-    color: rgba(255, 255, 255, 0.8);
-  }
-  .tag-option.active {
-    background: rgba(167, 139, 250, 0.1);
-    color: #a78bfa;
-  }
-
-  .blog-post-item {
-    transition: opacity 0.3s ease, transform 0.3s ease;
-  }
-  .blog-post-item.hidden-by-filter {
-    display: none;
-  }
+  .tag-option { color: rgba(255, 255, 255, 0.4); }
+  .tag-option:hover { background: rgba(167, 139, 250, 0.06); color: rgba(255, 255, 255, 0.7); }
+  .tag-option.active { background: rgba(167, 139, 250, 0.1); color: #a78bfa; }
+  .blog-post-item.hidden-by-filter { display: none; }
 </style>
 
 <script>
@@ -197,7 +214,7 @@ const allTags = [...new Set(posts.flatMap((p) => p.data.tags))].sort();
   const resultCount = document.getElementById('result-count');
   const noResults = document.getElementById('no-results');
   const postsGrid = document.getElementById('posts-grid');
-  const clearBtn = document.getElementById('clear-filters');
+  const featuredSection = document.querySelector('section:has([data-is-featured])')?.previousElementSibling?.previousElementSibling as HTMLElement | null;
 
   let activeTag = 'all';
   let searchQuery = '';
@@ -209,81 +226,54 @@ const allTags = [...new Set(posts.flatMap((p) => p.data.tags))].sort();
     chevron?.classList.toggle('rotate-180', menuOpen);
   }
 
-  // Toggle dropdown
-  dropdownBtn?.addEventListener('click', (e) => {
-    e.stopPropagation();
-    toggleMenu();
-  });
-
-  // Close on outside click
+  dropdownBtn?.addEventListener('click', (e) => { e.stopPropagation(); toggleMenu(); });
   document.addEventListener('click', () => toggleMenu(false));
   dropdownMenu?.addEventListener('click', (e) => e.stopPropagation());
 
   function filterPosts() {
     let visible = 0;
+    const isFiltering = activeTag !== 'all' || searchQuery !== '';
 
     postItems.forEach((item) => {
       const el = item as HTMLElement;
       const tags = el.dataset.tags || '';
       const title = el.dataset.title || '';
-      const description = el.dataset.description || '';
+      const desc = el.dataset.description || '';
+      const isFeatured = el.dataset.isFeatured === 'true';
 
       const matchesTag = activeTag === 'all' || tags.split(',').includes(activeTag);
-      const matchesSearch = !searchQuery ||
-        title.includes(searchQuery) ||
-        description.includes(searchQuery) ||
-        tags.toLowerCase().includes(searchQuery);
+      const matchesSearch = !searchQuery || title.includes(searchQuery) || desc.includes(searchQuery) || tags.toLowerCase().includes(searchQuery);
 
       if (matchesTag && matchesSearch) {
-        el.classList.remove('hidden-by-filter');
+        if (!isFeatured) el.classList.remove('hidden-by-filter');
         visible++;
       } else {
-        el.classList.add('hidden-by-filter');
+        if (!isFeatured) el.classList.add('hidden-by-filter');
       }
     });
 
-    if (resultCount) {
-      resultCount.textContent = `${visible} ${visible === 1 ? 'post' : 'posts'}`;
-    }
+    // Hide featured hero when filtering (cards only)
+    const heroSection = document.getElementById('featured-hero');
+    if (heroSection) heroSection.style.display = isFiltering ? 'none' : '';
 
+    if (resultCount) resultCount.textContent = `${visible} article${visible !== 1 ? 's' : ''}`;
     if (noResults) noResults.classList.toggle('hidden', visible > 0);
     if (postsGrid) postsGrid.classList.toggle('hidden', visible === 0);
-
-    if (clearBtn) {
-      clearBtn.classList.toggle('hidden', activeTag === 'all' && !searchQuery);
-    }
   }
 
-  // Tag option click
   tagOptions.forEach((opt) => {
     opt.addEventListener('click', () => {
       tagOptions.forEach((o) => o.classList.remove('active'));
       opt.classList.add('active');
       activeTag = (opt as HTMLElement).dataset.tag || 'all';
-      if (dropdownLabel) {
-        dropdownLabel.textContent = activeTag === 'all' ? 'All Topics' : activeTag.charAt(0).toUpperCase() + activeTag.slice(1);
-      }
+      if (dropdownLabel) dropdownLabel.textContent = activeTag === 'all' ? 'All Topics' : activeTag.charAt(0).toUpperCase() + activeTag.slice(1);
       toggleMenu(false);
       filterPosts();
     });
   });
 
-  // Search handler
   searchInput?.addEventListener('input', (e) => {
     searchQuery = (e.target as HTMLInputElement).value.toLowerCase().trim();
-    filterPosts();
-  });
-
-  // Clear handler
-  clearBtn?.addEventListener('click', () => {
-    activeTag = 'all';
-    searchQuery = '';
-    if (searchInput) searchInput.value = '';
-    if (dropdownLabel) dropdownLabel.textContent = 'All Topics';
-    tagOptions.forEach((o) => {
-      o.classList.remove('active');
-      if ((o as HTMLElement).dataset.tag === 'all') o.classList.add('active');
-    });
     filterPosts();
   });
 </script>

@@ -6,59 +6,52 @@ interface Props {
   slug: string;
   tags?: string[];
   coverImage?: string;
-  author?: string;
+  readTime?: number;
 }
 
-const { title, description, date, slug, tags = [], coverImage, author = 'PropLogAI Team' } = Astro.props;
+const { title, description, date, slug, tags = [], coverImage, readTime = 5 } = Astro.props;
 
 const formattedDate = date.toLocaleDateString('en-US', {
   year: 'numeric',
-  month: 'short',
+  month: 'long',
   day: 'numeric',
 });
 ---
 
-<a href={`/blogs/${slug}`} class="group block">
-  <article class="card-premium overflow-hidden h-full flex flex-col">
+<a href={`/blogs/${slug}`} class="group block h-full">
+  <article class="h-full flex flex-col rounded-2xl border border-white/[0.06] bg-white/[0.015] overflow-hidden hover:border-white/[0.12] transition-all duration-500">
     {coverImage && (
-      <div class="aspect-[16/9] overflow-hidden relative">
+      <div class="aspect-[16/9] overflow-hidden">
         <img
           src={coverImage}
           alt={title}
-          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+          class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700 ease-out"
           loading="lazy"
         />
-        <div class="absolute inset-0 bg-gradient-to-t from-[#07070b] via-transparent to-transparent opacity-60"></div>
       </div>
     )}
 
-    <div class="p-5 sm:p-6 flex-1 flex flex-col">
+    <div class="p-6 flex-1 flex flex-col">
       {tags.length > 0 && (
-        <div class="flex flex-wrap gap-2 mb-3">
-          {tags.slice(0, 3).map((tag) => (
-            <span class="font-mono text-[10px] uppercase tracking-widest px-2.5 py-1 rounded-full bg-violet/[0.08] text-violet/90 border border-violet/[0.12]">
-              {tag}
-            </span>
-          ))}
+        <div class="mb-3">
+          <span class="font-mono text-[10px] uppercase tracking-[0.15em] text-violet font-medium">
+            {tags[0]}
+          </span>
         </div>
       )}
 
-      <h2 class="font-display font-semibold text-lg text-white mb-2.5 leading-snug group-hover:text-violet transition-colors duration-300 line-clamp-2">
+      <h3 class="font-display text-[1.05rem] font-semibold text-white leading-snug mb-2.5 group-hover:text-violet/90 transition-colors duration-300 line-clamp-2">
         {title}
-      </h2>
+      </h3>
 
-      <p class="text-sm text-white/45 mb-5 line-clamp-2 leading-relaxed flex-1">
+      <p class="text-[13px] text-white/40 leading-relaxed mb-5 line-clamp-2 flex-1">
         {description}
       </p>
 
-      <div class="flex items-center justify-between text-[11px] text-white/30 pt-4 border-t border-white/[0.04]">
-        <div class="flex items-center gap-2">
-          <div class="w-5 h-5 rounded-full bg-gradient-brand flex items-center justify-center flex-shrink-0">
-            <span class="text-[#08080f] font-bold text-[8px]">{author?.charAt(0) || 'P'}</span>
-          </div>
-          <span class="font-medium text-white/40">{author}</span>
-        </div>
-        <time datetime={date.toISOString()} class="font-mono tracking-wider">{formattedDate}</time>
+      <div class="flex items-center gap-2 text-[11px] text-white/30 font-mono">
+        <time datetime={date.toISOString()}>{formattedDate}</time>
+        <span class="text-white/15">&bull;</span>
+        <span>{readTime} min read</span>
       </div>
     </div>
   </article>
