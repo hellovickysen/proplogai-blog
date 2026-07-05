@@ -5,12 +5,17 @@ const currentPath = Astro.url.pathname;
 <header class="fixed top-0 left-0 right-0 z-50 bg-[#07070b]/70 backdrop-blur-2xl backdrop-saturate-150">
   <div class="gradient-divider"></div>
   <div class="mx-auto max-w-6xl px-5 h-16 flex items-center justify-between">
-    <!-- Logo -->
+    <!-- Logo (matches PropLogAI Open Journal mark) -->
     <a href="https://proplogai.com" class="flex items-center gap-2.5 group">
-      <div class="w-8 h-8 rounded-lg bg-gradient-brand flex items-center justify-center shadow-lg shadow-violet/20">
-        <span class="text-[#08080f] font-bold text-sm">P</span>
-      </div>
-      <span class="font-display font-semibold text-white text-lg tracking-tight">
+      <span class="grid flex-shrink-0 place-items-center rounded-lg" style="width:32px;height:32px;background:linear-gradient(135deg,#a78bfa,#22d3ee);box-shadow:0 0 18px rgba(139,92,246,0.5);">
+        <svg width="32" height="32" viewBox="0 0 100 100" aria-hidden="true">
+          <polygon points="22,42 50,49 50,75 22,69" fill="#08080f" />
+          <polygon points="78,42 50,49 50,75 78,69" fill="#08080f" />
+          <polyline points="50,49 63,39 74,27" fill="none" stroke="#08080f" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" />
+          <circle cx="74" cy="27" r="4.5" fill="#08080f" />
+        </svg>
+      </span>
+      <span class="font-display font-bold text-white text-lg tracking-tight">
         PropLog<span class="gradient-text">AI</span>
       </span>
     </a>

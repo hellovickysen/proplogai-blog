@@ -31,11 +31,11 @@ const allTags = [...new Set(posts.flatMap((p) => p.data.tags))].sort();
     </div>
   </section>
 
-  <!-- Search + Filter Bar -->
+  <!-- Search + Filter Bar (left-aligned) -->
   <section class="mx-auto max-w-6xl px-5 pb-8 animate-fade-in-up stagger-1">
-    <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+    <div class="flex items-center gap-3 flex-wrap">
       <!-- Search -->
-      <div class="relative w-full sm:w-72">
+      <div class="relative w-full sm:w-64">
         <svg class="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-white/25 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
         </svg>
@@ -47,33 +47,45 @@ const allTags = [...new Set(posts.flatMap((p) => p.data.tags))].sort();
         />
       </div>
 
-      <!-- Tags -->
-      <div class="flex items-center gap-2 flex-wrap" id="tag-filters">
+      <!-- Tag Dropdown -->
+      <div class="relative" id="tag-dropdown-wrapper">
         <button
-          data-tag="all"
-          class="tag-btn active font-mono text-[10px] uppercase tracking-widest px-3 py-1.5 rounded-full border transition-all duration-300 cursor-pointer"
+          id="tag-dropdown-btn"
+          class="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/[0.03] border border-white/[0.06] text-sm text-white/50 hover:border-violet/30 hover:text-white/70 transition-all duration-300 cursor-pointer min-w-[140px]"
         >
-          All
+          <svg class="w-4 h-4 text-white/30 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
+          </svg>
+          <span id="tag-dropdown-label" class="flex-1 text-left">All Topics</span>
+          <svg class="w-3.5 h-3.5 text-white/25 flex-shrink-0 transition-transform duration-200" id="tag-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
         </button>
-        {allTags.map((tag) => (
-          <button
-            data-tag={tag}
-            class="tag-btn font-mono text-[10px] uppercase tracking-widest px-3 py-1.5 rounded-full border transition-all duration-300 cursor-pointer"
-          >
-            {tag}
-          </button>
-        ))}
-      </div>
-    </div>
 
-    <!-- Result count -->
-    <div class="mt-4 flex items-center justify-between">
-      <p id="result-count" class="text-xs text-white/25 font-mono">
+        <!-- Dropdown menu -->
+        <div id="tag-dropdown-menu" class="hidden absolute top-full left-0 mt-2 w-52 rounded-xl bg-[#12121a] border border-white/[0.08] shadow-2xl shadow-black/50 overflow-hidden z-50">
+          <div class="py-1.5">
+            <button data-tag="all" class="tag-option active w-full text-left px-4 py-2 text-sm transition-colors duration-200">
+              All Topics
+            </button>
+            {allTags.map((tag) => (
+              <button data-tag={tag} class="tag-option w-full text-left px-4 py-2 text-sm transition-colors duration-200 capitalize">
+                {tag}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- Result count -->
+      <p id="result-count" class="text-xs text-white/25 font-mono ml-1">
         {posts.length} {posts.length === 1 ? 'post' : 'posts'}
       </p>
+
+      <!-- Clear -->
       <button
         id="clear-filters"
-        class="hidden text-xs text-violet/70 hover:text-violet transition-colors duration-300 font-medium"
+        class="hidden text-xs text-violet/70 hover:text-violet transition-colors duration-300 font-medium ml-auto"
       >
         Clear filters
       </button>
@@ -112,7 +124,7 @@ const allTags = [...new Set(posts.flatMap((p) => p.data.tags))].sort();
           </svg>
         </div>
         <p class="text-white/35 text-sm mb-1">No posts found</p>
-        <p class="text-white/20 text-xs">Try a different search or tag</p>
+        <p class="text-white/20 text-xs">Try a different search or topic</p>
       </div>
     ) : (
       <div class="text-center py-20">
@@ -154,19 +166,15 @@ const allTags = [...new Set(posts.flatMap((p) => p.data.tags))].sort();
 </BaseLayout>
 
 <style>
-  .tag-btn {
-    background: rgba(255, 255, 255, 0.02);
-    border-color: rgba(255, 255, 255, 0.06);
-    color: rgba(255, 255, 255, 0.4);
+  .tag-option {
+    color: rgba(255, 255, 255, 0.45);
   }
-  .tag-btn:hover {
+  .tag-option:hover {
     background: rgba(167, 139, 250, 0.06);
-    border-color: rgba(167, 139, 250, 0.2);
-    color: rgba(167, 139, 250, 0.8);
+    color: rgba(255, 255, 255, 0.8);
   }
-  .tag-btn.active {
+  .tag-option.active {
     background: rgba(167, 139, 250, 0.1);
-    border-color: rgba(167, 139, 250, 0.3);
     color: #a78bfa;
   }
 
@@ -180,7 +188,11 @@ const allTags = [...new Set(posts.flatMap((p) => p.data.tags))].sort();
 
 <script>
   const searchInput = document.getElementById('blog-search') as HTMLInputElement;
-  const tagButtons = document.querySelectorAll('.tag-btn');
+  const dropdownBtn = document.getElementById('tag-dropdown-btn');
+  const dropdownMenu = document.getElementById('tag-dropdown-menu');
+  const dropdownLabel = document.getElementById('tag-dropdown-label');
+  const chevron = document.getElementById('tag-chevron');
+  const tagOptions = document.querySelectorAll('.tag-option');
   const postItems = document.querySelectorAll('.blog-post-item');
   const resultCount = document.getElementById('result-count');
   const noResults = document.getElementById('no-results');
@@ -189,6 +201,23 @@ const allTags = [...new Set(posts.flatMap((p) => p.data.tags))].sort();
 
   let activeTag = 'all';
   let searchQuery = '';
+  let menuOpen = false;
+
+  function toggleMenu(open?: boolean) {
+    menuOpen = open !== undefined ? open : !menuOpen;
+    dropdownMenu?.classList.toggle('hidden', !menuOpen);
+    chevron?.classList.toggle('rotate-180', menuOpen);
+  }
+
+  // Toggle dropdown
+  dropdownBtn?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    toggleMenu();
+  });
+
+  // Close on outside click
+  document.addEventListener('click', () => toggleMenu(false));
+  dropdownMenu?.addEventListener('click', (e) => e.stopPropagation());
 
   function filterPosts() {
     let visible = 0;
@@ -213,32 +242,28 @@ const allTags = [...new Set(posts.flatMap((p) => p.data.tags))].sort();
       }
     });
 
-    // Update count
     if (resultCount) {
       resultCount.textContent = `${visible} ${visible === 1 ? 'post' : 'posts'}`;
     }
 
-    // Toggle no results
-    if (noResults) {
-      noResults.classList.toggle('hidden', visible > 0);
-    }
-    if (postsGrid) {
-      postsGrid.classList.toggle('hidden', visible === 0);
-    }
+    if (noResults) noResults.classList.toggle('hidden', visible > 0);
+    if (postsGrid) postsGrid.classList.toggle('hidden', visible === 0);
 
-    // Show/hide clear button
     if (clearBtn) {
-      const hasFilters = activeTag !== 'all' || searchQuery !== '';
-      clearBtn.classList.toggle('hidden', !hasFilters);
+      clearBtn.classList.toggle('hidden', activeTag === 'all' && !searchQuery);
     }
   }
 
-  // Tag click handler
-  tagButtons.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      tagButtons.forEach((b) => b.classList.remove('active'));
-      btn.classList.add('active');
-      activeTag = (btn as HTMLElement).dataset.tag || 'all';
+  // Tag option click
+  tagOptions.forEach((opt) => {
+    opt.addEventListener('click', () => {
+      tagOptions.forEach((o) => o.classList.remove('active'));
+      opt.classList.add('active');
+      activeTag = (opt as HTMLElement).dataset.tag || 'all';
+      if (dropdownLabel) {
+        dropdownLabel.textContent = activeTag === 'all' ? 'All Topics' : activeTag.charAt(0).toUpperCase() + activeTag.slice(1);
+      }
+      toggleMenu(false);
       filterPosts();
     });
   });
@@ -254,9 +279,10 @@ const allTags = [...new Set(posts.flatMap((p) => p.data.tags))].sort();
     activeTag = 'all';
     searchQuery = '';
     if (searchInput) searchInput.value = '';
-    tagButtons.forEach((b) => {
-      b.classList.remove('active');
-      if ((b as HTMLElement).dataset.tag === 'all') b.classList.add('active');
+    if (dropdownLabel) dropdownLabel.textContent = 'All Topics';
+    tagOptions.forEach((o) => {
+      o.classList.remove('active');
+      if ((o as HTMLElement).dataset.tag === 'all') o.classList.add('active');
     });
     filterPosts();
   });
