@@ -4,7 +4,9 @@ description: "One or two sentences that explain the article promise in plain lan
 date: 2026-01-01
 updatedDate: 2026-01-01
 author: "PropLogAI Team"
-tags: ["journaling", "discipline"]
+category: "Trading Journaling"
+silo: "Trading Journal for Prop Firm Forex Traders"
+tags: []
 coverImage: "/blogs/images/unique-article-cover.png"
 draft: true
 seoTitle: "SEO Title for the Article"
@@ -42,4 +44,4 @@ Naturally connect the topic to journaling, psychology tracking, expense tracking
 
 Short, direct answer.
 
-<!-- Do not add public sections titled Article Guide, Educational sources, Related PropLog AI resources, or Sources and further reading. Keep citations and internal-link notes in Airtable/frontmatter for editorial tracking only. The article layout automatically shows three related blog cards. -->
+<!-- Use category and silo for taxonomy. Keep tags empty; tags are legacy only and are not used for display, filtering, or related posts. Add strategic internal links naturally inside the article body where they help the reader. Do not add public sections titled Article Guide, Educational sources, Related PropLog AI resources, or Sources and further reading. Keep citations and internal-link notes in Airtable/frontmatter for editorial tracking only. The article layout automatically shows three related blog cards, prioritized by same category and silo relevance. -->

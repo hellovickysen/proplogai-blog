@@ -6,7 +6,7 @@ import { getCollection } from 'astro:content';
 const posts = (await getCollection('blog', ({ data }) => !data.draft))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
-const allTags = [...new Set(posts.flatMap((p) => p.data.tags))].sort();
+const allCategories = [...new Set(posts.map((p) => p.data.category))].sort();
 
 const featuredPost = posts[0];
 const restPosts = posts.slice(1);
@@ -21,7 +21,7 @@ const restPosts = posts.slice(1);
         Insights & Resources
       </h1>
       <p class="text-base text-white/40 max-w-xl leading-relaxed">
-        Trading psychology, discipline, and performance — from the PropLogAI team.
+        Trading psychology, discipline, journaling, and prop firm systems — organized by content silo.
       </p>
     </div>
   </section>
@@ -41,22 +41,22 @@ const restPosts = posts.slice(1);
         />
       </div>
 
-      <div class="relative" id="tag-dropdown-wrapper">
+      <div class="relative" id="category-dropdown-wrapper">
         <button
-          id="tag-dropdown-btn"
+          id="category-dropdown-btn"
           class="flex items-center gap-2 px-3 py-2 rounded-lg border border-white/[0.06] text-sm text-white/40 hover:border-violet/30 hover:text-white/60 transition-all duration-300 cursor-pointer"
         >
-          <span id="tag-dropdown-label">All Topics</span>
-          <svg class="w-3 h-3 text-white/20 transition-transform duration-200" id="tag-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <span id="category-dropdown-label">All Categories</span>
+          <svg class="w-3 h-3 text-white/20 transition-transform duration-200" id="category-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
           </svg>
         </button>
 
-        <div id="tag-dropdown-menu" class="hidden absolute top-full left-0 mt-1.5 w-48 rounded-xl bg-[#12121a] border border-white/[0.08] shadow-2xl shadow-black/50 overflow-hidden z-50">
+        <div id="category-dropdown-menu" class="hidden absolute top-full left-0 mt-1.5 w-64 rounded-xl bg-[#12121a] border border-white/[0.08] shadow-2xl shadow-black/50 overflow-hidden z-50">
           <div class="py-1">
-            <button data-tag="all" class="tag-option active w-full text-left px-4 py-2 text-sm transition-colors duration-200">All Topics</button>
-            {allTags.map((tag) => (
-              <button data-tag={tag} class="tag-option w-full text-left px-4 py-2 text-sm transition-colors duration-200 capitalize">{tag}</button>
+            <button data-category="all" class="category-option active w-full text-left px-4 py-2 text-sm transition-colors duration-200">All Categories</button>
+            {allCategories.map((category) => (
+              <button data-category={category} class="category-option w-full text-left px-4 py-2 text-sm transition-colors duration-200">{category}</button>
             ))}
           </div>
         </div>
@@ -85,11 +85,9 @@ const restPosts = posts.slice(1);
             )}
 
             <div class="p-7 sm:p-9 flex flex-col justify-center">
-              {featuredPost.data.tags.length > 0 && (
-                <p class="font-mono text-[10px] uppercase tracking-[0.15em] text-violet font-medium mb-4">
-                  {featuredPost.data.tags[0]}
-                </p>
-              )}
+              <p class="font-mono text-[10px] uppercase tracking-[0.15em] text-violet font-medium mb-4">
+                {featuredPost.data.category}
+              </p>
 
               <h2 class="font-display text-xl sm:text-2xl font-bold text-white leading-snug mb-3 group-hover:text-violet/90 transition-colors duration-300">
                 {featuredPost.data.title}
@@ -119,7 +117,8 @@ const restPosts = posts.slice(1);
         {restPosts.map((post, i) => (
           <div
             class={`blog-post-item animate-fade-in-up stagger-${Math.min(i + 1, 4)}`}
-            data-tags={post.data.tags.join(',')}
+            data-category={post.data.category}
+            data-silo={post.data.silo}
             data-title={post.data.title.toLowerCase()}
             data-description={post.data.description.toLowerCase()}
           >
@@ -128,7 +127,7 @@ const restPosts = posts.slice(1);
               description={post.data.description}
               date={post.data.date}
               slug={post.slug}
-              tags={post.data.tags}
+              category={post.data.category}
               coverImage={post.data.coverImage}
             />
           </div>
@@ -139,7 +138,8 @@ const restPosts = posts.slice(1);
     {featuredPost && (
       <div
         class="blog-post-item"
-        data-tags={featuredPost.data.tags.join(',')}
+        data-category={featuredPost.data.category}
+        data-silo={featuredPost.data.silo}
         data-title={featuredPost.data.title.toLowerCase()}
         data-description={featuredPost.data.description.toLowerCase()}
         data-is-featured="true"
@@ -149,7 +149,7 @@ const restPosts = posts.slice(1);
 
     <div id="no-results" class="hidden text-center py-16">
       <p class="text-white/30 text-sm">No posts found</p>
-      <p class="text-white/15 text-xs mt-1">Try a different search or topic</p>
+      <p class="text-white/15 text-xs mt-1">Try a different search or category</p>
     </div>
   </section>
 
@@ -176,25 +176,25 @@ const restPosts = posts.slice(1);
 </BaseLayout>
 
 <style>
-  .tag-option { color: rgba(255, 255, 255, 0.4); }
-  .tag-option:hover { background: rgba(167, 139, 250, 0.06); color: rgba(255, 255, 255, 0.7); }
-  .tag-option.active { background: rgba(167, 139, 250, 0.1); color: #a78bfa; }
+  .category-option { color: rgba(255, 255, 255, 0.4); }
+  .category-option:hover { background: rgba(167, 139, 250, 0.06); color: rgba(255, 255, 255, 0.7); }
+  .category-option.active { background: rgba(167, 139, 250, 0.1); color: #a78bfa; }
   .blog-post-item.hidden-by-filter { display: none; }
 </style>
 
 <script>
   const searchInput = document.getElementById('blog-search') as HTMLInputElement;
-  const dropdownBtn = document.getElementById('tag-dropdown-btn');
-  const dropdownMenu = document.getElementById('tag-dropdown-menu');
-  const dropdownLabel = document.getElementById('tag-dropdown-label');
-  const chevron = document.getElementById('tag-chevron');
-  const tagOptions = document.querySelectorAll('.tag-option');
+  const dropdownBtn = document.getElementById('category-dropdown-btn');
+  const dropdownMenu = document.getElementById('category-dropdown-menu');
+  const dropdownLabel = document.getElementById('category-dropdown-label');
+  const chevron = document.getElementById('category-chevron');
+  const categoryOptions = document.querySelectorAll('.category-option');
   const postItems = document.querySelectorAll('.blog-post-item');
   const resultCount = document.getElementById('result-count');
   const noResults = document.getElementById('no-results');
   const postsGrid = document.getElementById('posts-grid');
 
-  let activeTag = 'all';
+  let activeCategory = 'all';
   let searchQuery = '';
   let menuOpen = false;
 
@@ -210,19 +210,20 @@ const restPosts = posts.slice(1);
 
   function filterPosts() {
     let visible = 0;
-    const isFiltering = activeTag !== 'all' || searchQuery !== '';
+    const isFiltering = activeCategory !== 'all' || searchQuery !== '';
 
     postItems.forEach((item) => {
       const el = item as HTMLElement;
-      const tags = el.dataset.tags || '';
+      const category = el.dataset.category || '';
+      const silo = el.dataset.silo || '';
       const title = el.dataset.title || '';
       const desc = el.dataset.description || '';
       const isFeatured = el.dataset.isFeatured === 'true';
 
-      const matchesTag = activeTag === 'all' || tags.split(',').includes(activeTag);
-      const matchesSearch = !searchQuery || title.includes(searchQuery) || desc.includes(searchQuery) || tags.toLowerCase().includes(searchQuery);
+      const matchesCategory = activeCategory === 'all' || category === activeCategory;
+      const matchesSearch = !searchQuery || title.includes(searchQuery) || desc.includes(searchQuery) || category.toLowerCase().includes(searchQuery) || silo.toLowerCase().includes(searchQuery);
 
-      if (matchesTag && matchesSearch) {
+      if (matchesCategory && matchesSearch) {
         if (!isFeatured) el.classList.remove('hidden-by-filter');
         visible++;
       } else {
@@ -238,12 +239,12 @@ const restPosts = posts.slice(1);
     if (postsGrid) postsGrid.classList.toggle('hidden', visible === 0);
   }
 
-  tagOptions.forEach((opt) => {
+  categoryOptions.forEach((opt) => {
     opt.addEventListener('click', () => {
-      tagOptions.forEach((o) => o.classList.remove('active'));
+      categoryOptions.forEach((o) => o.classList.remove('active'));
       opt.classList.add('active');
-      activeTag = (opt as HTMLElement).dataset.tag || 'all';
-      if (dropdownLabel) dropdownLabel.textContent = activeTag === 'all' ? 'All Topics' : activeTag.charAt(0).toUpperCase() + activeTag.slice(1);
+      activeCategory = (opt as HTMLElement).dataset.category || 'all';
+      if (dropdownLabel) dropdownLabel.textContent = activeCategory === 'all' ? 'All Categories' : activeCategory;
       toggleMenu(false);
       filterPosts();
     });

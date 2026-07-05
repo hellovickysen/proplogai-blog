@@ -32,11 +32,13 @@ Required fields:
 - `title`
 - `description`
 - `date`
+- `category`
+- `silo`
 
 Recommended fields:
 
 - `author`
-- `tags`
+- `tags` as an empty legacy array only
 - `coverImage`
 - `draft`
 - `seoTitle`
@@ -53,7 +55,12 @@ Recommended fields:
 
 Notes:
 
+- `category` is the public taxonomy shown on cards, post pages, and the blog filter.
+- `silo` defines the strict topical cluster for SEO planning and related-post relevance.
+- Keep `tags: []`. Tags are legacy only and are not used for public display, filtering, or related posts.
+- Related posts prioritize the same `category`, then the same `silo`, then newest posts.
 - `internalLinks` and `externalCitations` are retained for editorial tracking and SEO review, but they are not rendered as public article sections.
+- Add strategic internal links and cross-links naturally inside the article body when they help the reader.
 - Do not add public article body sections titled `Article Guide`, `Educational sources`, `Related PropLog AI resources`, or `Sources and further reading`.
 - The article layout automatically renders up to three related blog cards below the CTA.
 - Every new article should use a unique `coverImage`. Do not reuse an existing cover unless intentionally updating or republishing that same article.

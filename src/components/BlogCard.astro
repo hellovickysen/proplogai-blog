@@ -4,11 +4,11 @@ interface Props {
   description: string;
   date: Date;
   slug: string;
-  tags?: string[];
+  category: string;
   coverImage?: string;
 }
 
-const { title, description, date, slug, tags = [], coverImage } = Astro.props;
+const { title, description, date, slug, category, coverImage } = Astro.props;
 ---
 
 <a href={`/blogs/${slug}`} class="group block h-full">
@@ -25,13 +25,11 @@ const { title, description, date, slug, tags = [], coverImage } = Astro.props;
     )}
 
     <div class="p-6 flex-1 flex flex-col">
-      {tags.length > 0 && (
-        <div class="mb-3">
-          <span class="font-mono text-[10px] uppercase tracking-[0.15em] text-violet font-medium">
-            {tags[0]}
-          </span>
-        </div>
-      )}
+      <div class="mb-3">
+        <span class="font-mono text-[10px] uppercase tracking-[0.15em] text-violet font-medium">
+          {category}
+        </span>
+      </div>
 
       <h3 class="font-display text-[1.05rem] font-semibold text-white leading-snug mb-2.5 group-hover:text-violet/90 transition-colors duration-300 line-clamp-2">
         {title}

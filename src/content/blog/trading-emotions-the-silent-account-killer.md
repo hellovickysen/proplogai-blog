@@ -3,7 +3,9 @@ title: "Trading Emotions: The Silent Account Killer"
 description: "Fear, greed, FOMO, revenge — your emotions are making you lose money. Here's how to identify your emotional patterns and stop them from wrecking your account."
 date: 2025-06-25
 author: "PropLogAI Team"
-tags: ["psychology", "emotions", "discipline"]
+category: "Trading Psychology"
+silo: "Trading Psychology for Prop Firm Forex Traders"
+tags: []
 coverImage: "/blogs/images/cover-emotions.png"
 ---
 

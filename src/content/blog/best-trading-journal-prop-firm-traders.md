@@ -4,7 +4,9 @@ description: "Learn what prop firm traders should track in a trading journal, ho
 date: 2026-07-06
 updatedDate: 2026-07-06
 author: "PropLogAI Team"
-tags: ["journaling", "prop firm", "discipline", "risk awareness"]
+category: "Trading Journaling"
+silo: "Trading Journal for Prop Firm Forex Traders"
+tags: []
 coverImage: "/blogs/images/cover-best-trading-journal.png"
 draft: false
 seoTitle: "Best Trading Journal for Prop Firm Traders: What to Track and Why"

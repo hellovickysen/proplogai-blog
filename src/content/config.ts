@@ -8,7 +8,9 @@ const blog = defineCollection({
     date: z.coerce.date(),
     updatedDate: z.coerce.date().optional(),
     author: z.string().default('PropLogAI Team'),
-    tags: z.array(z.string()).default([]),
+    category: z.string(),
+    silo: z.string(),
+    tags: z.array(z.string()).default([]), // Legacy only. Do not use for public display or filtering.
     coverImage: z.string().optional(),
     draft: z.boolean().default(false),
 

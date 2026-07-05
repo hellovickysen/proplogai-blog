@@ -10,11 +10,13 @@ export async function getStaticPaths() {
     const relatedPosts = posts
       .filter((candidate) => candidate.slug !== post.slug)
       .map((candidate) => {
-        const sharedTags = candidate.data.tags.filter((tag) => post.data.tags.includes(tag)).length;
-        return { post: candidate, sharedTags };
+        const sameCategory = candidate.data.category === post.data.category ? 2 : 0;
+        const sameSilo = candidate.data.silo === post.data.silo ? 1 : 0;
+        const relevance = sameCategory + sameSilo;
+        return { post: candidate, relevance };
       })
       .sort((a, b) => {
-        if (b.sharedTags !== a.sharedTags) return b.sharedTags - a.sharedTags;
+        if (b.relevance !== a.relevance) return b.relevance - a.relevance;
         return b.post.data.date.valueOf() - a.post.data.date.valueOf();
       })
       .slice(0, 3)

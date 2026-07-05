@@ -3,7 +3,9 @@ title: "Why Every Trader Needs a Trading Journal (And How to Actually Use One)"
 description: "Most traders know they should journal. Few actually do it consistently. Here's why a trading journal is your single biggest edge — and how to make it stick."
 date: 2025-07-01
 author: "PropLogAI Team"
-tags: ["journaling", "discipline", "beginner"]
+category: "Trading Journaling"
+silo: "Trading Journal for Prop Firm Forex Traders"
+tags: []
 coverImage: "/blogs/images/cover-journal.png"
 ---
 
