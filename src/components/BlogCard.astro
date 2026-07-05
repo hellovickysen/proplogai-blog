@@ -1,0 +1,61 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  date: Date;
+  slug: string;
+  tags?: string[];
+  coverImage?: string;
+  author?: string;
+}
+
+const { title, description, date, slug, tags = [], coverImage, author = 'PropLogAI Team' } = Astro.props;
+
+const formattedDate = date.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric',
+});
+
+const readingTime = '5 min read';
+---
+
+<a href={`/blogs/${slug}`} class="group block">
+  <article class="rounded-2xl border border-white/[0.08] bg-white/[0.02] overflow-hidden hover:border-white/[0.15] hover:bg-white/[0.04] transition-all duration-300">
+    {coverImage && (
+      <div class="aspect-[16/9] overflow-hidden">
+        <img
+          src={coverImage}
+          alt={title}
+          class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
+          loading="lazy"
+        />
+      </div>
+    )}
+
+    <div class="p-5 sm:p-6">
+      {tags.length > 0 && (
+        <div class="flex flex-wrap gap-2 mb-3">
+          {tags.slice(0, 3).map((tag) => (
+            <span class="font-mono text-[11px] uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-violet/10 text-violet border border-violet/20">
+              {tag}
+            </span>
+          ))}
+        </div>
+      )}
+
+      <h2 class="font-display font-semibold text-lg text-white mb-2 group-hover:bg-gradient-brand group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300 line-clamp-2">
+        {title}
+      </h2>
+
+      <p class="text-sm text-white/50 mb-4 line-clamp-2 leading-relaxed">
+        {description}
+      </p>
+
+      <div class="flex items-center justify-between text-xs text-white/35">
+        <span>{formattedDate}</span>
+        <span class="font-mono">{readingTime}</span>
+      </div>
+    </div>
+  </article>
+</a>
