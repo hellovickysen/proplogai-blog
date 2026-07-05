@@ -4,6 +4,7 @@ description: "Most traders know they should journal. Few actually do it consiste
 date: 2025-07-01
 author: "PropLogAI Team"
 tags: ["journaling", "discipline", "beginner"]
+coverImage: "/blogs/images/cover-journal.jpg"
 ---
 
 You've probably heard it a hundred times: *"Keep a trading journal."*

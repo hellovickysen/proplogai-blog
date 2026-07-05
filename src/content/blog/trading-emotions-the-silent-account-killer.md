@@ -4,6 +4,7 @@ description: "Fear, greed, FOMO, revenge — your emotions are making you lose m
 date: 2025-06-25
 author: "PropLogAI Team"
 tags: ["psychology", "emotions", "discipline"]
+coverImage: "/blogs/images/cover-emotions.jpg"
 ---
 
 You had a perfect setup. You saw the entry, you knew the plan, you even wrote it down. And then you moved your stop loss. Or took profit too early. Or doubled your position because you "felt confident."
