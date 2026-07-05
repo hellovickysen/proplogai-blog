@@ -2,10 +2,8 @@
 title: "The Complete Guide to Tracking Your Prop Firm Expenses"
 description: "Prop firm challenges, resets, activations — the costs add up fast. Here's how to track everything so you know your real profitability."
 date: 2025-06-18
-author: "PropLogAI Team"
 category: "Prop Firm Expenses and ROI"
 silo: "Prop Firm Expenses and ROI Tracking"
-tags: []
 coverImage: "/blogs/images/cover-expenses.png"
 ---
 
@@ -32,7 +30,7 @@ A typical prop firm journey might look like this:
 
 If your first payout was $1,200 — congratulations, you're still $600 in the hole.
 
-This isn't to discourage you. It's to give you a clear picture. **You can't optimize what you don't measure.**
+This isn't to discourage you. It's to give you a clear picture. **You can't optimize what you don't measure.** For a fuller review process, pair expense tracking with a [prop firm trading journal](/blogs/best-trading-journal-prop-firm-traders) so you can compare costs, behavior, and rule adherence together.
 
 ## What to Track
 

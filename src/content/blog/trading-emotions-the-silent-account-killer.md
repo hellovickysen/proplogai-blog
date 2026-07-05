@@ -2,10 +2,8 @@
 title: "Trading Emotions: The Silent Account Killer"
 description: "Fear, greed, FOMO, revenge — your emotions are making you lose money. Here's how to identify your emotional patterns and stop them from wrecking your account."
 date: 2025-06-25
-author: "PropLogAI Team"
 category: "Trading Psychology"
 silo: "Trading Psychology for Prop Firm Forex Traders"
-tags: []
 coverImage: "/blogs/images/cover-emotions.png"
 ---
 
@@ -88,7 +86,7 @@ Once you see the patterns, the fixes are surprisingly simple:
 
 **Take breaks after losses.** Not because you need to "cool down," but because your data shows that your execution quality drops after consecutive losses. It's not emotional advice — it's what your own numbers say.
 
-**Journal the emotion, not just the trade.** Every trade should have an emotion tag. After a month, you'll have a personal emotion heatmap that shows exactly where you leak money.
+**Journal the emotion, not just the trade.** Every trade should have an emotion tag. After a month, you'll have a personal emotion heatmap that shows exactly where you leak money. If you need a structure for this, use a [trading journal workflow that captures context, not just P&L](/blogs/why-every-trader-needs-a-trading-journal).
 
 ## Your Emotions Are Data
 

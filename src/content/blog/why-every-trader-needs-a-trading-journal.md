@@ -2,10 +2,8 @@
 title: "Why Every Trader Needs a Trading Journal (And How to Actually Use One)"
 description: "Most traders know they should journal. Few actually do it consistently. Here's why a trading journal is your single biggest edge — and how to make it stick."
 date: 2025-07-01
-author: "PropLogAI Team"
 category: "Trading Journaling"
 silo: "Trading Journal for Prop Firm Forex Traders"
-tags: []
 coverImage: "/blogs/images/cover-journal.png"
 ---
 
@@ -40,7 +38,7 @@ A spreadsheet won't tell you that you tend to revenge-trade after two consecutiv
 
 **Your journal needs to capture context, not just data.**
 
-That means emotions, confidence levels, setup adherence, session timing, and the story behind each trade. The richer the context, the more powerful the patterns you'll uncover.
+That means emotions, confidence levels, setup adherence, session timing, and the story behind each trade. The richer the context, the more powerful the patterns you'll uncover. If you trade prop firm challenges or funded accounts, the next step is learning [what prop firm traders should track in a journal](/blogs/best-trading-journal-prop-firm-traders).
 
 ## The Three-Minute Journal Method
 
