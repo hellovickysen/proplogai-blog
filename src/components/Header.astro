@@ -2,30 +2,31 @@
 const currentPath = Astro.url.pathname;
 ---
 
-<header class="fixed top-0 left-0 right-0 z-50 border-b border-white/[0.06] bg-surface/80 backdrop-blur-xl">
+<header class="fixed top-0 left-0 right-0 z-50 bg-[#07070b]/70 backdrop-blur-2xl backdrop-saturate-150">
+  <div class="gradient-divider"></div>
   <div class="mx-auto max-w-6xl px-5 h-16 flex items-center justify-between">
     <!-- Logo -->
     <a href="https://proplogai.com" class="flex items-center gap-2.5 group">
-      <div class="w-8 h-8 rounded-lg bg-gradient-brand flex items-center justify-center">
+      <div class="w-8 h-8 rounded-lg bg-gradient-brand flex items-center justify-center shadow-lg shadow-violet/20">
         <span class="text-[#08080f] font-bold text-sm">P</span>
       </div>
-      <span class="font-display font-semibold text-white text-lg">
-        PropLog<span class="bg-gradient-brand bg-clip-text text-transparent">AI</span>
+      <span class="font-display font-semibold text-white text-lg tracking-tight">
+        PropLog<span class="gradient-text">AI</span>
       </span>
     </a>
 
     <!-- Nav -->
     <nav class="hidden md:flex items-center gap-1">
-      <a href="https://proplogai.com" class="px-4 py-2 rounded-lg text-sm text-white/60 hover:text-white hover:bg-white/[0.04] transition-all">
+      <a href="https://proplogai.com" class="px-4 py-2 rounded-lg text-sm text-white/50 hover:text-white transition-all duration-300">
         Home
       </a>
-      <a href="/blogs" class="px-4 py-2 rounded-lg text-sm text-white hover:bg-white/[0.04] transition-all font-medium bg-white/[0.06]">
+      <a href="/blogs" class="px-4 py-2 rounded-lg text-sm text-white font-medium bg-white/[0.06] border border-white/[0.06]">
         Blog
       </a>
-      <a href="https://proplogai.com/#features" class="px-4 py-2 rounded-lg text-sm text-white/60 hover:text-white hover:bg-white/[0.04] transition-all">
+      <a href="https://proplogai.com/#features" class="px-4 py-2 rounded-lg text-sm text-white/50 hover:text-white transition-all duration-300">
         Features
       </a>
-      <a href="https://proplogai.com/#pricing" class="px-4 py-2 rounded-lg text-sm text-white/60 hover:text-white hover:bg-white/[0.04] transition-all">
+      <a href="https://proplogai.com/#pricing" class="px-4 py-2 rounded-lg text-sm text-white/50 hover:text-white transition-all duration-300">
         Pricing
       </a>
     </nav>
@@ -34,15 +35,14 @@ const currentPath = Astro.url.pathname;
     <div class="flex items-center gap-3">
       <a
         href="https://proplogai.com/login"
-        class="hidden sm:inline-flex px-5 py-2 rounded-xl bg-gradient-brand text-[#08080f] text-sm font-semibold hover:opacity-90 transition-opacity"
+        class="hidden sm:inline-flex px-5 py-2 rounded-xl bg-gradient-brand text-[#08080f] text-sm font-semibold hover:shadow-lg hover:shadow-violet/25 transition-all duration-300 hover:-translate-y-0.5"
       >
         Start Trading Journal
       </a>
 
-      <!-- Mobile menu button -->
       <button
         id="mobile-menu-btn"
-        class="md:hidden p-2 rounded-lg text-white/60 hover:text-white hover:bg-white/[0.06] transition-all"
+        class="md:hidden p-2 rounded-lg text-white/50 hover:text-white hover:bg-white/[0.06] transition-all"
         aria-label="Toggle menu"
       >
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -53,23 +53,23 @@ const currentPath = Astro.url.pathname;
   </div>
 
   <!-- Mobile menu -->
-  <div id="mobile-menu" class="hidden md:hidden border-t border-white/[0.06] bg-surface/95 backdrop-blur-xl">
+  <div id="mobile-menu" class="hidden md:hidden border-t border-white/[0.04] bg-[#07070b]/95 backdrop-blur-2xl">
     <div class="px-5 py-4 flex flex-col gap-1">
-      <a href="https://proplogai.com" class="px-4 py-2.5 rounded-lg text-sm text-white/60 hover:text-white hover:bg-white/[0.04] transition-all">
+      <a href="https://proplogai.com" class="px-4 py-2.5 rounded-lg text-sm text-white/50 hover:text-white hover:bg-white/[0.04] transition-all">
         Home
       </a>
       <a href="/blogs" class="px-4 py-2.5 rounded-lg text-sm text-white font-medium bg-white/[0.06]">
         Blog
       </a>
-      <a href="https://proplogai.com/#features" class="px-4 py-2.5 rounded-lg text-sm text-white/60 hover:text-white hover:bg-white/[0.04] transition-all">
+      <a href="https://proplogai.com/#features" class="px-4 py-2.5 rounded-lg text-sm text-white/50 hover:text-white hover:bg-white/[0.04] transition-all">
         Features
       </a>
-      <a href="https://proplogai.com/#pricing" class="px-4 py-2.5 rounded-lg text-sm text-white/60 hover:text-white hover:bg-white/[0.04] transition-all">
+      <a href="https://proplogai.com/#pricing" class="px-4 py-2.5 rounded-lg text-sm text-white/50 hover:text-white hover:bg-white/[0.04] transition-all">
         Pricing
       </a>
       <a
         href="https://proplogai.com/login"
-        class="mt-2 px-5 py-2.5 rounded-xl bg-gradient-brand text-[#08080f] text-sm font-semibold text-center hover:opacity-90 transition-opacity"
+        class="mt-2 px-5 py-2.5 rounded-xl bg-gradient-brand text-[#08080f] text-sm font-semibold text-center"
       >
         Start Trading Journal
       </a>

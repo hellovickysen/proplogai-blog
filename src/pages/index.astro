@@ -9,60 +9,80 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
 
 <BaseLayout title="Blog">
   <!-- Hero -->
-  <section class="mx-auto max-w-6xl px-5 pt-12 sm:pt-20 pb-12">
-    <div class="max-w-2xl">
-      <h1 class="font-display text-4xl sm:text-5xl font-bold text-white mb-4">
-        <span class="bg-gradient-brand bg-clip-text text-transparent">Blog</span>
+  <section class="relative mx-auto max-w-6xl px-5 pt-16 sm:pt-24 pb-16 overflow-hidden">
+    <!-- Background glow -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-gradient-to-b from-violet/[0.07] via-cyan/[0.04] to-transparent rounded-full blur-3xl pointer-events-none" style="animation: pulse-glow 6s ease-in-out infinite;"></div>
+
+    <div class="relative max-w-2xl animate-fade-in-up">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.06] mb-6">
+        <span class="w-1.5 h-1.5 rounded-full bg-profit animate-pulse"></span>
+        <span class="font-mono text-[11px] uppercase tracking-widest text-white/45">PropLogAI Blog</span>
+      </div>
+
+      <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-5 tracking-tight leading-[1.1]">
+        Trading <span class="gradient-text">Insights</span>
       </h1>
-      <p class="text-lg text-white/50 leading-relaxed">
-        Trading psychology, discipline tips, and performance insights to help you become a consistently profitable trader.
+
+      <p class="text-lg sm:text-xl text-white/45 leading-relaxed max-w-xl">
+        Psychology, discipline, and performance — everything you need to become a consistently profitable trader.
       </p>
     </div>
   </section>
 
   <!-- Posts grid -->
-  <section class="mx-auto max-w-6xl px-5 pb-16">
+  <section class="mx-auto max-w-6xl px-5 pb-20">
     {posts.length > 0 ? (
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {posts.map((post) => (
-          <BlogCard
-            title={post.data.title}
-            description={post.data.description}
-            date={post.data.date}
-            slug={post.slug}
-            tags={post.data.tags}
-            coverImage={post.data.coverImage}
-            author={post.data.author}
-          />
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+        {posts.map((post, i) => (
+          <div class={`animate-fade-in-up stagger-${i + 1}`}>
+            <BlogCard
+              title={post.data.title}
+              description={post.data.description}
+              date={post.data.date}
+              slug={post.slug}
+              tags={post.data.tags}
+              coverImage={post.data.coverImage}
+              author={post.data.author}
+            />
+          </div>
         ))}
       </div>
     ) : (
       <div class="text-center py-20">
-        <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-white/[0.04] border border-white/[0.08] flex items-center justify-center">
-          <svg class="w-7 h-7 text-white/25" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-white/[0.03] border border-white/[0.06] flex items-center justify-center">
+          <svg class="w-7 h-7 text-white/20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
           </svg>
         </div>
-        <p class="text-white/40 text-sm">No posts yet. Check back soon!</p>
+        <p class="text-white/35 text-sm">No posts yet. Check back soon!</p>
       </div>
     )}
   </section>
 
-  <!-- Newsletter CTA -->
-  <section class="mx-auto max-w-6xl px-5 pb-16">
-    <div class="rounded-2xl border border-white/[0.08] bg-white/[0.02] p-8 sm:p-10 text-center">
-      <h2 class="font-display text-2xl font-semibold text-white mb-3">
-        Become a better trader
-      </h2>
-      <p class="text-sm text-white/50 mb-6 max-w-lg mx-auto">
-        Start logging your trades with AI-powered insights. Track emotions, identify patterns, and break bad habits with your personal trading coach.
-      </p>
-      <a
-        href="https://proplogai.com/login"
-        class="inline-flex px-6 py-2.5 rounded-xl bg-gradient-brand text-[#08080f] text-sm font-semibold hover:opacity-90 transition-opacity"
-      >
-        Start Free Trading Journal
-      </a>
+  <!-- CTA -->
+  <section class="mx-auto max-w-6xl px-5 pb-20">
+    <div class="relative rounded-2xl overflow-hidden">
+      <!-- Gradient border effect -->
+      <div class="absolute inset-0 bg-gradient-to-r from-violet/20 via-cyan/20 to-violet/20 rounded-2xl"></div>
+      <div class="relative m-[1px] rounded-2xl bg-[#0b0b14] p-8 sm:p-12 text-center">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[300px] h-[200px] bg-gradient-to-b from-violet/[0.06] to-transparent rounded-full blur-3xl pointer-events-none"></div>
+
+        <h2 class="relative font-display text-2xl sm:text-3xl font-bold text-white mb-3 tracking-tight">
+          Ready to trade <span class="gradient-text">smarter</span>?
+        </h2>
+        <p class="relative text-sm sm:text-base text-white/45 mb-7 max-w-lg mx-auto leading-relaxed">
+          Start your AI-powered trading journal. Track emotions, identify patterns, and get personalized coaching from Propol AI.
+        </p>
+        <a
+          href="https://proplogai.com/login"
+          class="relative inline-flex px-7 py-3 rounded-xl bg-gradient-brand text-[#08080f] text-sm font-semibold hover:shadow-lg hover:shadow-violet/25 transition-all duration-300 hover:-translate-y-0.5"
+        >
+          Start Free Trading Journal
+          <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+          </svg>
+        </a>
+      </div>
     </div>
   </section>
 </BaseLayout>

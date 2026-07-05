@@ -2,50 +2,51 @@
 const year = new Date().getFullYear();
 ---
 
-<footer class="border-t border-white/[0.06] mt-24">
-  <div class="mx-auto max-w-6xl px-5 py-12">
+<footer class="mt-24">
+  <div class="gradient-divider"></div>
+  <div class="mx-auto max-w-6xl px-5 py-14">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
       <!-- Brand -->
       <div>
-        <a href="https://proplogai.com" class="flex items-center gap-2.5 mb-4">
-          <div class="w-7 h-7 rounded-lg bg-gradient-brand flex items-center justify-center">
+        <a href="https://proplogai.com" class="flex items-center gap-2.5 mb-4 group">
+          <div class="w-7 h-7 rounded-lg bg-gradient-brand flex items-center justify-center shadow-lg shadow-violet/15">
             <span class="text-[#08080f] font-bold text-xs">P</span>
           </div>
-          <span class="font-display font-semibold text-white">
-            PropLog<span class="bg-gradient-brand bg-clip-text text-transparent">AI</span>
+          <span class="font-display font-semibold text-white tracking-tight">
+            PropLog<span class="gradient-text">AI</span>
           </span>
         </a>
-        <p class="text-sm text-white/45 leading-relaxed max-w-xs">
-          AI-powered trading journal for prop firm traders. Log trades, track emotions, and get personalized coaching.
+        <p class="text-sm text-white/35 leading-relaxed max-w-xs">
+          AI-powered trading journal for prop firm traders. Log trades, track emotions, and get personalized coaching from Propol AI.
         </p>
       </div>
 
       <!-- Product -->
       <div>
-        <h4 class="font-mono text-xs uppercase tracking-wider text-white/55 mb-4">Product</h4>
-        <ul class="space-y-2.5">
-          <li><a href="https://proplogai.com/#features" class="text-sm text-white/50 hover:text-white transition-colors">Features</a></li>
-          <li><a href="https://proplogai.com/#pricing" class="text-sm text-white/50 hover:text-white transition-colors">Pricing</a></li>
-          <li><a href="/blogs" class="text-sm text-white/50 hover:text-white transition-colors">Blog</a></li>
-          <li><a href="https://proplogai.com/login" class="text-sm text-white/50 hover:text-white transition-colors">Login</a></li>
+        <h4 class="font-mono text-[10px] uppercase tracking-[0.2em] text-white/40 mb-5">Product</h4>
+        <ul class="space-y-3">
+          <li><a href="https://proplogai.com/#features" class="text-sm text-white/40 hover:text-white transition-colors duration-300">Features</a></li>
+          <li><a href="https://proplogai.com/#pricing" class="text-sm text-white/40 hover:text-white transition-colors duration-300">Pricing</a></li>
+          <li><a href="/blogs" class="text-sm text-white/40 hover:text-white transition-colors duration-300">Blog</a></li>
+          <li><a href="https://proplogai.com/login" class="text-sm text-white/40 hover:text-white transition-colors duration-300">Login</a></li>
         </ul>
       </div>
 
       <!-- Legal -->
       <div>
-        <h4 class="font-mono text-xs uppercase tracking-wider text-white/55 mb-4">Legal</h4>
-        <ul class="space-y-2.5">
-          <li><a href="https://proplogai.com/privacy" class="text-sm text-white/50 hover:text-white transition-colors">Privacy Policy</a></li>
-          <li><a href="https://proplogai.com/terms" class="text-sm text-white/50 hover:text-white transition-colors">Terms of Service</a></li>
+        <h4 class="font-mono text-[10px] uppercase tracking-[0.2em] text-white/40 mb-5">Legal</h4>
+        <ul class="space-y-3">
+          <li><a href="https://proplogai.com/privacy" class="text-sm text-white/40 hover:text-white transition-colors duration-300">Privacy Policy</a></li>
+          <li><a href="https://proplogai.com/terms" class="text-sm text-white/40 hover:text-white transition-colors duration-300">Terms of Service</a></li>
         </ul>
       </div>
     </div>
 
-    <div class="mt-10 pt-6 border-t border-white/[0.06] flex flex-col sm:flex-row items-center justify-between gap-3">
-      <p class="text-xs text-white/30">
+    <div class="mt-12 pt-6 border-t border-white/[0.04] flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p class="text-xs text-white/25">
         &copy; {year} PropLogAI. All rights reserved.
       </p>
-      <p class="text-xs text-white/25">
+      <p class="text-xs text-white/20">
         PropLogAI does not provide financial or investment advice.
       </p>
     </div>
