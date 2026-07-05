@@ -4,7 +4,7 @@ description: "Prop firm challenges, resets, activations — the costs add up fas
 date: 2025-06-18
 author: "PropLogAI Team"
 tags: ["prop firms", "expenses", "profitability"]
-coverImage: "/blogs/images/cover-expenses.png"
+coverImage: "/blogs/images/cover-expenses.jpg"
 ---
 
 Here's a question most prop firm traders never ask themselves: **"Am I actually profitable after expenses?"**
