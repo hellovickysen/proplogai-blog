@@ -4,54 +4,105 @@ const year = new Date().getFullYear();
 
 <footer class="mt-24">
   <div class="gradient-divider"></div>
-  <div class="mx-auto max-w-6xl px-5 py-14">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-      <!-- Brand -->
+  <div class="mx-auto max-w-6xl px-6 pt-16 pb-8 sm:px-10" style="background:#05050a;">
+
+    <!-- ── Row 1: Branding + Subscribe ── -->
+    <div class="grid grid-cols-1 lg:grid-cols-[1.3fr_1fr] gap-12 items-start">
+      <!-- Left: Logo + big heading -->
       <div>
-        <a href="https://proplogai.com" class="flex items-center gap-2.5 mb-4 group">
-          <span class="grid flex-shrink-0 place-items-center rounded-lg" style="width:28px;height:28px;background:linear-gradient(135deg,#a78bfa,#22d3ee);">
-            <svg width="28" height="28" viewBox="0 0 100 100" aria-hidden="true">
+        <a href="https://proplogai.com" class="inline-flex items-center gap-2.5 group">
+          <span class="grid flex-shrink-0 place-items-center rounded-lg" style="width:32px;height:32px;background:linear-gradient(135deg,#a78bfa,#22d3ee);">
+            <svg width="32" height="32" viewBox="0 0 100 100" aria-hidden="true">
               <polygon points="22,42 50,49 50,75 22,69" fill="#08080f" />
               <polygon points="78,42 50,49 50,75 78,69" fill="#08080f" />
               <polyline points="50,49 63,39 74,27" fill="none" stroke="#08080f" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" />
               <circle cx="74" cy="27" r="4.5" fill="#08080f" />
             </svg>
           </span>
-          <span class="font-display font-bold text-white tracking-tight">
+          <span class="font-display text-base font-semibold text-white tracking-tight">
             PropLog<span class="gradient-text">AI</span>
           </span>
         </a>
-        <p class="text-sm text-white/35 leading-relaxed max-w-xs">
-          AI-powered trading journal for prop firm traders. Log trades, track emotions, and get personalized coaching from Propol AI.
+
+        <h2 class="mt-8 max-w-md text-[26px] sm:text-[30px] font-bold leading-[1.3] tracking-tight text-white/90">
+          Your AI-powered trading performance coach.
+        </h2>
+        <p class="mt-4 max-w-sm text-[13px] leading-relaxed text-white/35">
+          Analyze your journal, track your discipline, and build better trading habits with AI coaching that finds the patterns you can't see.
         </p>
       </div>
 
+      <!-- Right: Subscribe card -->
+      <div class="flex items-start lg:justify-end">
+        <div class="w-full max-w-sm rounded-2xl border border-white/[0.08] bg-white/[0.02] p-6">
+          <p class="font-mono text-[10px] uppercase tracking-[0.15em] text-violet-400/70 mb-2">
+            Weekly Trading Insights
+          </p>
+          <p class="text-[15px] font-semibold text-white leading-snug mb-1.5">
+            One useful read for the week ahead.
+          </p>
+          <p class="text-xs text-white/35 mb-5">
+            Trading psychology tips, discipline strategies, and platform updates.
+          </p>
+          <div class="flex gap-2">
+            <input
+              type="email"
+              placeholder="you@domain.com"
+              class="flex-1 rounded-lg border border-white/10 bg-black/40 px-3.5 py-2.5 text-sm text-white outline-none placeholder:text-white/25 focus:border-violet-400/40"
+            />
+          </div>
+          <button
+            class="mt-3 w-full rounded-lg py-2.5 text-sm font-bold text-[#08080f]"
+            style="background:linear-gradient(120deg,#a78bfa,#22d3ee);"
+          >
+            Subscribe
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Divider ── -->
+    <div class="my-10 border-t border-white/[0.06]"></div>
+
+    <!-- ── Row 2: Link columns ── -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 gap-y-8 gap-x-6">
       <!-- Product -->
       <div>
-        <h4 class="font-mono text-[10px] uppercase tracking-[0.2em] text-white/40 mb-5">Product</h4>
-        <ul class="space-y-3">
-          <li><a href="https://proplogai.com/#features" class="text-sm text-white/40 hover:text-white transition-colors duration-300">Features</a></li>
-          <li><a href="https://proplogai.com/#pricing" class="text-sm text-white/40 hover:text-white transition-colors duration-300">Pricing</a></li>
-          <li><a href="/blogs" class="text-sm text-white/40 hover:text-white transition-colors duration-300">Blog</a></li>
-          <li><a href="https://proplogai.com/login" class="text-sm text-white/40 hover:text-white transition-colors duration-300">Login</a></li>
+        <h4 class="mb-5 font-mono text-[10px] uppercase tracking-[0.18em] text-white/25">Product</h4>
+        <ul class="space-y-3.5">
+          <li><a href="https://proplogai.com/dashboard" class="text-[13px] text-white/50 hover:text-white/80 transition-colors duration-300">Dashboard</a></li>
+          <li><a href="https://proplogai.com/pricing" class="text-[13px] text-white/50 hover:text-white/80 transition-colors duration-300">Pricing</a></li>
+          <li><a href="/blogs" class="text-[13px] text-white/50 hover:text-white/80 transition-colors duration-300">Blog</a></li>
+          <li><a href="https://proplogai.com/login?mode=signup" class="text-[13px] text-white/50 hover:text-white/80 transition-colors duration-300">Sign Up</a></li>
+        </ul>
+      </div>
+
+      <!-- Support -->
+      <div>
+        <h4 class="mb-5 font-mono text-[10px] uppercase tracking-[0.18em] text-white/25">Support</h4>
+        <ul class="space-y-3.5">
+          <li><a href="https://proplogai.com/contact" class="text-[13px] text-white/50 hover:text-white/80 transition-colors duration-300">Contact</a></li>
+          <li><a href="https://proplogai.com/refund-policy" class="text-[13px] text-white/50 hover:text-white/80 transition-colors duration-300">Refund Policy</a></li>
+          <li><a href="mailto:support@proplogai.com" class="text-[13px] text-white/50 hover:text-white/80 transition-colors duration-300">Email Support</a></li>
         </ul>
       </div>
 
       <!-- Legal -->
       <div>
-        <h4 class="font-mono text-[10px] uppercase tracking-[0.2em] text-white/40 mb-5">Legal</h4>
-        <ul class="space-y-3">
-          <li><a href="https://proplogai.com/privacy" class="text-sm text-white/40 hover:text-white transition-colors duration-300">Privacy Policy</a></li>
-          <li><a href="https://proplogai.com/terms" class="text-sm text-white/40 hover:text-white transition-colors duration-300">Terms of Service</a></li>
+        <h4 class="mb-5 font-mono text-[10px] uppercase tracking-[0.18em] text-white/25">Legal</h4>
+        <ul class="space-y-3.5">
+          <li><a href="https://proplogai.com/privacy" class="text-[13px] text-white/50 hover:text-white/80 transition-colors duration-300">Privacy Policy</a></li>
+          <li><a href="https://proplogai.com/terms" class="text-[13px] text-white/50 hover:text-white/80 transition-colors duration-300">Terms of Service</a></li>
         </ul>
       </div>
     </div>
 
-    <div class="mt-12 pt-6 border-t border-white/[0.04] flex flex-col sm:flex-row items-center justify-between gap-3">
-      <p class="text-xs text-white/25">
+    <!-- ── Bottom bar ── -->
+    <div class="mt-10 border-t border-white/[0.06] pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p class="text-xs text-white/20">
         &copy; {year} PropLogAI. All rights reserved.
       </p>
-      <p class="text-xs text-white/20">
+      <p class="text-xs text-white/15">
         PropLogAI does not provide financial or investment advice.
       </p>
     </div>
