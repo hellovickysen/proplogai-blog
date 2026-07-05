@@ -6,16 +6,9 @@ interface Props {
   slug: string;
   tags?: string[];
   coverImage?: string;
-  readTime?: number;
 }
 
-const { title, description, date, slug, tags = [], coverImage, readTime = 5 } = Astro.props;
-
-const formattedDate = date.toLocaleDateString('en-US', {
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric',
-});
+const { title, description, date, slug, tags = [], coverImage } = Astro.props;
 ---
 
 <a href={`/blogs/${slug}`} class="group block h-full">
@@ -44,15 +37,9 @@ const formattedDate = date.toLocaleDateString('en-US', {
         {title}
       </h3>
 
-      <p class="text-[13px] text-white/40 leading-relaxed mb-5 line-clamp-2 flex-1">
+      <p class="text-[13px] text-white/40 leading-relaxed line-clamp-2 flex-1">
         {description}
       </p>
-
-      <div class="flex items-center gap-2 text-[11px] text-white/30 font-mono">
-        <time datetime={date.toISOString()}>{formattedDate}</time>
-        <span class="text-white/15">&bull;</span>
-        <span>{readTime} min read</span>
-      </div>
     </div>
   </article>
 </a>
