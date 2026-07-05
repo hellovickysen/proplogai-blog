@@ -5,7 +5,8 @@ const isBlog = currentPath.startsWith('/blog');
 
 <nav class="relative z-20 px-4 py-4 sm:px-10 sm:py-5">
   <!-- Desktop Nav -->
-  <div class="hidden items-center justify-between sm:flex">
+  <div class="hidden sm:flex justify-center">
+    <div class="flex items-center justify-between gap-2 rounded-full border border-white/[0.08] bg-[#0a0a14]/90 backdrop-blur-md px-5 py-2 shadow-[0_2px_24px_rgba(0,0,0,0.3)]">
     <a href="https://proplogai.com" class="flex items-center gap-2.5">
       <span class="grid flex-shrink-0 place-items-center rounded-lg" style="width:32px;height:32px;background:linear-gradient(135deg,#a78bfa,#22d3ee);">
         <svg width="32" height="32" viewBox="0 0 100 100" aria-hidden="true">
@@ -56,6 +57,7 @@ const isBlog = currentPath.startsWith('/blog');
       >
         Start Free Trial
       </a>
+    </div>
     </div>
   </div>
 
