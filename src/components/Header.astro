@@ -5,7 +5,7 @@ const currentPath = Astro.url.pathname;
 <header class="fixed top-0 left-0 right-0 z-50 bg-[#07070b]/70 backdrop-blur-2xl backdrop-saturate-150">
   <div class="gradient-divider"></div>
   <div class="mx-auto max-w-6xl px-5 h-16 flex items-center justify-between">
-    <!-- Logo (matches PropLogAI Open Journal mark) -->
+    <!-- Logo -->
     <a href="https://proplogai.com" class="flex items-center gap-2.5 group">
       <span class="grid flex-shrink-0 place-items-center rounded-lg" style="width:32px;height:32px;background:linear-gradient(135deg,#a78bfa,#22d3ee);box-shadow:0 0 18px rgba(139,92,246,0.5);">
         <svg width="32" height="32" viewBox="0 0 100 100" aria-hidden="true">
@@ -22,27 +22,38 @@ const currentPath = Astro.url.pathname;
 
     <!-- Nav -->
     <nav class="hidden md:flex items-center gap-1">
-      <a href="https://proplogai.com" class="px-4 py-2 rounded-lg text-sm text-white/50 hover:text-white transition-all duration-300">
-        Home
+      <a href="https://proplogai.com/tools" class="px-4 py-2 rounded-lg text-sm text-white/50 hover:text-white transition-all duration-300">
+        Tools
       </a>
       <a href="/blogs" class="px-4 py-2 rounded-lg text-sm text-white font-medium bg-white/[0.06] border border-white/[0.06]">
         Blog
       </a>
-      <a href="https://proplogai.com/#features" class="px-4 py-2 rounded-lg text-sm text-white/50 hover:text-white transition-all duration-300">
-        Features
-      </a>
       <a href="https://proplogai.com/#pricing" class="px-4 py-2 rounded-lg text-sm text-white/50 hover:text-white transition-all duration-300">
         Pricing
       </a>
+      <a href="https://proplogai.com/about" class="px-4 py-2 rounded-lg text-sm text-white/50 hover:text-white transition-all duration-300">
+        About
+      </a>
+
+      <!-- 14-Day Trial badge -->
+      <span class="flex items-center gap-1.5 rounded-full border border-violet-400/20 bg-violet-500/[0.08] px-3.5 py-1.5 text-xs font-medium text-violet-300/80 ml-1">
+        ✦ 14-Day Trial
+      </span>
     </nav>
 
     <!-- CTA + Mobile -->
     <div class="flex items-center gap-3">
       <a
         href="https://proplogai.com/login"
-        class="hidden sm:inline-flex px-5 py-2 rounded-xl bg-gradient-brand text-[#08080f] text-sm font-semibold hover:shadow-lg hover:shadow-violet/25 transition-all duration-300 hover:-translate-y-0.5"
+        class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/[0.04] text-sm text-white/70 hover:border-white/20 hover:text-white transition-all duration-300"
       >
-        Start Trading Journal
+        Sign In
+      </a>
+      <a
+        href="https://proplogai.com/login?mode=signup"
+        class="hidden sm:inline-flex px-5 py-2 rounded-full bg-gradient-brand text-[#08080f] text-sm font-semibold hover:shadow-lg hover:shadow-violet/25 transition-all duration-300 hover:-translate-y-0.5"
+      >
+        Start Free Trial
       </a>
 
       <button
@@ -60,23 +71,26 @@ const currentPath = Astro.url.pathname;
   <!-- Mobile menu -->
   <div id="mobile-menu" class="hidden md:hidden border-t border-white/[0.04] bg-[#07070b]/95 backdrop-blur-2xl">
     <div class="px-5 py-4 flex flex-col gap-1">
-      <a href="https://proplogai.com" class="px-4 py-2.5 rounded-lg text-sm text-white/50 hover:text-white hover:bg-white/[0.04] transition-all">
-        Home
+      <a href="https://proplogai.com/tools" class="px-4 py-2.5 rounded-lg text-sm text-white/50 hover:text-white hover:bg-white/[0.04] transition-all">
+        Tools
       </a>
       <a href="/blogs" class="px-4 py-2.5 rounded-lg text-sm text-white font-medium bg-white/[0.06]">
         Blog
       </a>
-      <a href="https://proplogai.com/#features" class="px-4 py-2.5 rounded-lg text-sm text-white/50 hover:text-white hover:bg-white/[0.04] transition-all">
-        Features
-      </a>
       <a href="https://proplogai.com/#pricing" class="px-4 py-2.5 rounded-lg text-sm text-white/50 hover:text-white hover:bg-white/[0.04] transition-all">
         Pricing
       </a>
+      <a href="https://proplogai.com/about" class="px-4 py-2.5 rounded-lg text-sm text-white/50 hover:text-white hover:bg-white/[0.04] transition-all">
+        About
+      </a>
+      <div class="flex items-center justify-center rounded-lg border border-violet-400/20 bg-violet-500/[0.08] px-4 py-2.5 text-sm font-medium text-violet-300/80 mt-1">
+        ✦ 14-Day Free Trial
+      </div>
       <a
-        href="https://proplogai.com/login"
+        href="https://proplogai.com/login?mode=signup"
         class="mt-2 px-5 py-2.5 rounded-xl bg-gradient-brand text-[#08080f] text-sm font-semibold text-center"
       >
-        Start Trading Journal
+        Start Free Trial
       </a>
     </div>
   </div>
