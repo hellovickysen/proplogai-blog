@@ -13,8 +13,6 @@ disclaimer: "Educational content only. This article is not trading, investment, 
 
 Prop firm traders operate under constraints that make journaling more important than simple note taking. A normal trading journal records entries and exits. A useful prop firm trading journal also helps a trader review risk behavior, rule adherence, emotional triggers, and the conditions that tend to appear before mistakes.
 
-This article is educational only. It does not provide trading signals, financial advice, investment advice, or any guarantee of trading outcomes. Trading, including forex and leveraged products, involves risk, and past performance does not predict future results.
-
 ## Why prop firm traders need a different kind of journal
 
 Prop firm challenges and funded accounts often include rules around daily loss, maximum drawdown, position sizing, news trading, consistency, or minimum trading days. Because of that, the question is not only whether a trade made or lost money. The more useful question is whether the trader followed a repeatable process while staying inside the account rules.
