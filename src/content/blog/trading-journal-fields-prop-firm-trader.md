@@ -13,8 +13,6 @@ disclaimer: "Educational content only. This article is not trading, investment, 
 
 Prop firm traders need more than a simple list of entries, exits, wins, and losses. Because prop firm accounts often include daily loss limits, maximum drawdown rules, consistency requirements, minimum trading days, and other account-specific constraints, a useful journal should help a trader review both performance and behavior.
 
-This article is educational only. It does not provide trading signals, financial advice, investment advice, or instructions on what to trade. Trading forex, CFDs, futures, and other leveraged products involves risk. Outcomes are never guaranteed, and past performance does not predict future results.
-
 ## Why journal fields matter for prop firm traders
 
 A trading journal is only useful if the data inside it can answer better questions later. A trader who only tracks profit and loss may know whether a day was green or red, but they may not know why a mistake happened, whether a rule was broken, or whether a pattern is repeating.
