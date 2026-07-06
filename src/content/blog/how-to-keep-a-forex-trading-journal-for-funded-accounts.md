@@ -11,8 +11,6 @@ metaTitle: "How to Keep a Forex Trading Journal for Funded Accounts"
 disclaimer: "Educational content only. This article is not trading, investment, or financial advice and does not provide trading signals or guaranteed outcomes."
 ---
 
-Educational disclaimer: This article is for general education only. It does not provide trading signals, financial advice, investment advice, or instructions on what to trade. Forex and leveraged trading involve significant risk, and funded account rules vary by provider. Always read your firm’s current rules and make independent decisions based on your own circumstances.
-
 A funded account can make journaling feel more urgent than a normal demo or personal account. You are not only trying to understand your trading performance. You are also operating inside a rule set: daily loss limits, maximum drawdown, trading-day requirements, consistency rules, restricted strategies, payout conditions, and account review checkpoints.
 
 That means a useful forex trading journal for funded accounts needs to do more than record entries and exits. It should help you answer three practical questions:
