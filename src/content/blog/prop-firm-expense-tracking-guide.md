@@ -3,7 +3,7 @@ title: "The Complete Guide to Tracking Your Prop Firm Expenses"
 description: "Prop firm challenges, resets, activations — the costs add up fast. Here's how to track everything so you know your real profitability."
 date: 2025-06-18
 category: "Prop Firm Expenses and ROI"
-silo: "Prop Firm Expenses and ROI Tracking"
+silo: "Prop Firm Expense Tracker"
 coverImage: "/blogs/images/cover-expenses.png"
 ---
 
