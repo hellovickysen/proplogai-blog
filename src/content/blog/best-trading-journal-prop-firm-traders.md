@@ -125,7 +125,7 @@ A journal is only useful if it can be reviewed. Short structured notes are often
 
 ### Treating P&L as the only score
 
-Profit and loss matters, but it is not the only measure of process. Prop firm traders also need to understand discipline, consistency, and rule adherence.
+Profit and loss matters, but it is not the only measure of process. Prop firm traders also need to understand [discipline](/blogs/trading-discipline-prop-firm-traders-practical-system), consistency, and rule adherence.
 
 ### Using the journal to predict outcomes
 
