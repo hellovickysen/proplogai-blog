@@ -185,7 +185,7 @@ Useful weekly questions include:
 - Did one day create most of the drawdown?
 - Did I trade more after wins or losses?
 
-This is where a P&L calendar becomes helpful. A calendar view can show whether revenge days, overtrading days, or rule-pressure days are clustered in ways that a single trade log would not reveal.
+This is where a [P&L calendar](/blogs/pl-calendar-traders-spot-revenge-days-losing-streaks) becomes helpful. A calendar view can show whether revenge days, overtrading days, or rule-pressure days are clustered in ways that a single trade log would not reveal.
 
 ## How PropLog AI fits into the workflow
 
