@@ -4,7 +4,7 @@ description: "Most traders know they should journal. Few actually do it consiste
 date: 2025-07-01
 category: "Trading Journaling"
 silo: "Trading Journal for Prop Firm Forex Traders"
-coverImage: "https://pub.hyperagent.com/api/published/pbf01KWXFKAYV_6Z2YRWWMZC4ECNFY/cover-journal.webp"
+coverImage: "/blogs/images/cover-journal.webp"
 ---
 
 You've probably heard it a hundred times: *"Keep a trading journal."*
