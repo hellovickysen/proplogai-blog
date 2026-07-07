@@ -77,7 +77,7 @@ A journal becomes more useful when it separates outcome from execution. A winnin
 
 ## Use a simple discipline score
 
-Funded account traders often focus on profit targets, but a process score can be more useful during review. One simple method is to score each trade as either compliant or non-compliant with your written rules.
+Funded account traders often focus on profit targets, but a [trading discipline](/blogs/trading-discipline-prop-firm-traders-practical-system) process score can be more useful during review. One simple method is to score each trade as either compliant or non-compliant with your written rules.
 
 For example:
 
