@@ -15,7 +15,7 @@ Trading discipline is often described as willpower, but willpower is not a relia
 
 ## What trading discipline really means
 
-Trading discipline is the ability to follow a defined process before, during, and after a trade. It is not the same as never feeling fear, frustration, impatience, or excitement. Those emotions still appear. Discipline means the trader has a system that reduces the chance that those emotions control the next decision. Why those emotions surface in the first place is its own subject — trading psychology for prop firm traders — while this article focuses on the behavioral system that holds up regardless of what is happening internally.
+Trading discipline is the ability to follow a defined process before, during, and after a trade. It is not the same as never feeling fear, frustration, impatience, or excitement. Those emotions still appear. Discipline means the trader has a system that reduces the chance that those emotions control the next decision. Why those emotions surface in the first place is its own subject — [trading psychology for prop firm traders](/blogs/trading-psychology-prop-firm-traders-mind-breaks-rules) — while this article focuses on the behavioral system that holds up regardless of what is happening internally.
 
 For prop firm traders, discipline usually includes:
 
@@ -26,7 +26,7 @@ For prop firm traders, discipline usually includes:
 - Following a documented setup instead of improvising
 - Reviewing behavior regularly instead of judging only profit and loss
 
-The goal is not perfection. The goal is to create a feedback loop that makes rule breaks easier to notice and correct.
+The goal is not perfection. The goal is to create a feedback loop that makes rule breaks easier to notice and correct. [Overtrading](/blogs/overtrading-prop-firm-challenges-causes-signs-fixes) is one of the most common patterns that feedback loop is designed to catch.
 
 ## Why prop firm discipline is different
 
@@ -44,7 +44,7 @@ These questions turn discipline into observable behavior. Observable behavior ca
 
 ## Step 1: Write a rulebook that is short enough to follow
 
-Many trading rulebooks fail because they are too long. If a rulebook has dozens of vague rules, it becomes difficult to use in real time. A practical rulebook should focus on the few behaviors that matter most.
+Many trading rulebooks fail because they are too long. If a rulebook has dozens of vague rules, it becomes difficult to use in real time. A practical rulebook should focus on the few behaviors that matter most. For a closer walkthrough of building one, see [how to create a trading rulebook you actually follow](/blogs/how-to-create-a-trading-rulebook-you-actually-follow).
 
 Start with five categories:
 
