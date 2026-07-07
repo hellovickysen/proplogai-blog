@@ -5,7 +5,7 @@ date: 2026-07-06
 updatedDate: 2026-07-06
 category: "Trading Journaling"
 silo: "Trading Journal for Prop Firm Forex Traders"
-coverImage: "https://pub.hyperagent.com/api/published/pbf01KWVVSVVF_P4AAT38HXY6QRWSZ/cover-trading-journal-fields-prop-firm-trader.webp"
+coverImage: "/blogs/images/cover-trading-journal-fields-prop-firm-trader.webp"
 draft: false
 metaTitle: "Trading Journal Fields Every Prop Firm Trader Should Track"
 disclaimer: "Educational content only. This article is not trading, investment, or financial advice and does not provide trading signals or guaranteed outcomes."
