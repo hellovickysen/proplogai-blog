@@ -4,7 +4,7 @@ description: "Fear, greed, FOMO, revenge — your emotions are making you lose m
 date: 2025-06-25
 category: "Trading Psychology"
 silo: "Trading Psychology for Prop Firm Traders"
-coverImage: "/blogs/images/cover-emotions.png"
+coverImage: "https://pub.hyperagent.com/api/published/pbf01KWXFKACK_Q4YV4V3JAWM8R7CH/cover-emotions.webp"
 ---
 
 You had a perfect setup. You saw the entry, you knew the plan, you even wrote it down. And then you moved your stop loss. Or took profit too early. Or doubled your position because you "felt confident."
