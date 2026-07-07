@@ -93,7 +93,7 @@ Rule adherence fields may include:
 - Trading window respected
 - Personal rulebook followed
 
-This section should be factual, not emotional. The trader is not trying to shame themselves. They are creating an audit trail that shows where discipline is strong and where the process needs support.
+This section should be factual, not emotional. The trader is not trying to shame themselves. They are creating an audit trail that shows where [trading discipline](/blogs/trading-discipline-prop-firm-traders-practical-system) is strong and where the process needs support.
 
 ## 6. Emotional state and behavior tags
 
