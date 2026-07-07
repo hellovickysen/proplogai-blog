@@ -5,7 +5,7 @@ date: 2026-07-06
 updatedDate: 2026-07-06
 category: "Trading Journaling"
 silo: "Trading Journal for Prop Firm Forex Traders"
-coverImage: "https://pub.hyperagent.com/api/published/pbf01KWXFK8SN_XH6ZXRFMVCT22VJK/cover-best-trading-journal.webp"
+coverImage: "/blogs/images/cover-best-trading-journal.webp"
 draft: false
 metaTitle: "Best Trading Journal for Prop Firm Traders: What to Track and Why"
 disclaimer: "Educational content only. This article is not trading, investment, or financial advice and does not provide trading signals or guaranteed outcomes."
