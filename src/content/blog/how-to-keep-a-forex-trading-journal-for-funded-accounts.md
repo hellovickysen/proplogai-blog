@@ -180,5 +180,3 @@ This is enough to begin. You can add fields later, but only after the habit is s
 A funded account journal is not about proving that you are a good trader. It is about creating an honest record of decisions under rules and pressure. The most useful journal is not the most complicated one. It is the one you keep consistently, review weekly, and use to make one clear process improvement at a time.
 
 If you are trading a funded account or preparing for one, start with the simplest version today: record the trade, the rule context, the risk, the behavior, and the lesson. Over time, that evidence becomes the foundation for better self-review.
-
-Educational reminder: This article is not financial advice, investment advice, trading advice, or a recommendation to trade forex or join any prop firm. Trading involves risk, and funded account rules vary. Always review official rules and risk disclosures before making trading decisions.
