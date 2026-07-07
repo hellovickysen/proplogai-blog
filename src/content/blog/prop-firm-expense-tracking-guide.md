@@ -4,7 +4,7 @@ description: "Prop firm challenges, resets, activations — the costs add up fas
 date: 2025-06-18
 category: "Prop Firm Expenses and ROI"
 silo: "Prop Firm Expense Tracker"
-coverImage: "/blogs/images/cover-expenses.png"
+coverImage: "https://pub.hyperagent.com/api/published/pbf01KWXFK9Z6_T3PQ3G29HHCAKT0W/cover-expenses.webp"
 ---
 
 Here's a question most prop firm traders never ask themselves: **"Am I actually profitable after expenses?"**
