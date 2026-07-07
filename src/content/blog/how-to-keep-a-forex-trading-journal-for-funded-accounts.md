@@ -5,7 +5,7 @@ date: 2026-07-06
 updatedDate: 2026-07-06
 category: "Trading Journaling"
 silo: "Trading Journal for Prop Firm Forex Traders"
-coverImage: "/blogs/images/cover-how-to-keep-a-forex-trading-journal-for-funded-accounts.png"
+coverImage: "https://pub.hyperagent.com/api/published/pbf01KWXFK9DM_V0WPKRSTTGEQ3J4S/cover-how-to-keep-a-forex-trading-journal-for-funded-accounts.webp"
 draft: false
 metaTitle: "How to Keep a Forex Trading Journal for Funded Accounts"
 disclaimer: "Educational content only. This article is not trading, investment, or financial advice and does not provide trading signals or guaranteed outcomes."
