@@ -107,7 +107,7 @@ A practical weekly review can ask:
 
 The final question is important. Do not try to fix everything at once. If the journal shows that most mistakes came from trading after the daily plan was already complete, the next week’s focus might be: stop trading after two completed setups. If the pattern is oversized trades after a loss, the focus might be: reduce size automatically after a losing trade.
 
-These are process experiments, not promises of profit.
+These are process experiments, not promises of profit. A [P&L calendar](/blogs/pl-calendar-traders-spot-revenge-days-losing-streaks) can make these weekly patterns even easier to see at a glance.
 
 ## Keep screenshots, but do not rely on them alone
 
