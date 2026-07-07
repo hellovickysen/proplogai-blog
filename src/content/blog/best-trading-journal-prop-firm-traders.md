@@ -50,7 +50,7 @@ For prop firm traders, this may be the most important category. A profitable tra
 
 ### Emotional and behavioral tags
 
-Use tags such as rushed, patient, revenge trade, overconfident, hesitant, distracted, or rule-following. Tags help convert vague emotions into patterns that can be reviewed objectively.
+Use tags such as rushed, patient, revenge trade, overconfident, hesitant, distracted, or rule-following. Tags help convert vague emotions into patterns that can be reviewed objectively. The psychology behind why these specific patterns appear is covered in [Trading Psychology for Prop Firm Traders](/blogs/trading-psychology-prop-firm-traders-mind-breaks-rules).
 
 ### Screenshot or chart context
 
@@ -58,7 +58,7 @@ A screenshot can preserve what the trader saw at the time. This is especially us
 
 ## Use a P&L calendar to review trading behavior
 
-A [P&L calendar](/blogs/why-every-trader-needs-a-trading-journal) is useful because trading mistakes often cluster. One losing trade may not reveal much. A sequence of losing days, oversized trades, or late-session decisions can reveal a behavioral pattern.
+A [P&L calendar](/blogs/why-every-trader-needs-a-trading-journal) is useful because trading mistakes often cluster. One losing trade may not reveal much. A sequence of losing days, oversized trades, or late-session decisions can reveal a behavioral pattern. [P&L Calendar for Traders: Spot Revenge Days and Losing Streaks](/blogs/pl-calendar-traders-spot-revenge-days-losing-streaks) walks through this kind of pattern-spotting in more detail.
 
 When reviewing a calendar, look for patterns such as:
 
