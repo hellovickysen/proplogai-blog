@@ -63,7 +63,7 @@ Your **net profitability** is simple:
 
 > Total Payouts − Total Expenses = Net Profit
 
-If that number is negative, you're not profitable yet — regardless of what your trading stats say.
+If that number is negative, you're not profitable yet — regardless of what your trading stats say. For a more complete version of this calculation — one that accounts for every attempt, including the failed ones, rather than just the challenge that eventually passed — see [Prop Firm ROI Calculator: Fees, Payouts, and Failed Challenges](/blogs/prop-firm-roi-calculator-fees-payouts-failed-challenges).
 
 This doesn't mean you're a bad trader. It means you need a clear picture of where your money is going so you can make smarter decisions about which accounts to run and when to cut losses on underperforming firms.
 
