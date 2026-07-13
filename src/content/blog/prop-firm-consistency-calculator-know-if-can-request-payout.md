@@ -81,7 +81,7 @@ Its value is narrow and specific: turning a distribution question that is genuin
 
 A consistency calculator works best alongside the other tracking habits already covered on this site, rather than as a standalone check run once at the end of an evaluation. A [trading journal](/blogs/best-trading-journal-prop-firm-traders) that already logs daily net results makes this calculation almost automatic, since the daily totals needed for the consistency ratio are the same ones already being tracked for other purposes, and the same daily records matter for [tracking prop firm expenses and real ROI](/blogs/prop-firm-expense-tracking-guide) against payouts once they're approved.
 
-This is the first of several practical calculators planned for this part of the site — including a Daily Drawdown Calculator, a Lot Size Calculator, a Risk-to-Reward Calculator, a Profit Target Calculator, a Prop Firm Breach Buffer Calculator, a Trading Discipline Score, a Forex Session Performance Tracker, and a Trade Count Limit Calculator. Each one answers a single, specific numeric question the same way this one does, rather than trying to be a general strategy tool.
+This is the first of several practical calculators planned for this part of the site — including a [Daily Drawdown Calculator](/blogs/daily-drawdown-calculator-prop-firm-traders), a Lot Size Calculator, a Risk-to-Reward Calculator, a Profit Target Calculator, a Prop Firm Breach Buffer Calculator, a Trading Discipline Score, a Forex Session Performance Tracker, and a Trade Count Limit Calculator. Each one answers a single, specific numeric question the same way this one does, rather than trying to be a general strategy tool.
 
 ## How PropLog AI Supports This
 
