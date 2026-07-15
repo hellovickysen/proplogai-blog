@@ -27,7 +27,7 @@ This is the single biggest gap between "I understand forex" and "I'm ready for a
 
 ## Foundational Concept: Risk Management
 
-Risk management is the set of decisions that control how much of an account can be lost on any single trade or in any single day. This is the concept most directly responsible for whether a prop firm account survives long enough to reach a payout, since a challenge's daily and overall loss limits are risk-management constraints by definition. A closer look at what risk management actually means in practice, beyond the general idea, is covered separately in "What Is Risk Management in Forex Trading?"
+Risk management is the set of decisions that control how much of an account can be lost on any single trade or in any single day. This is the concept most directly responsible for whether a prop firm account survives long enough to reach a payout, since a challenge's daily and overall loss limits are risk-management constraints by definition. A closer look at what risk management actually means in practice, beyond the general idea, is covered separately in ["What Is Risk Management in Forex Trading?"](/blogs/what-is-risk-management-in-forex-trading)
 
 ## Foundational Concept: Position Sizing
 
