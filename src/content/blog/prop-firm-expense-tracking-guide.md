@@ -4,7 +4,7 @@ description: "Prop firm challenges, resets, activations — the costs add up fas
 date: 2025-06-18
 category: "Prop Firm Expenses and ROI"
 silo: "Prop Firm Expense Tracker"
-coverImage: "/blogs/images/cover-expenses.webp"
+coverImage: "/blogs/images/cover-prop-firm-expense-tracking-guide.webp"
 ---
 
 Here's a question most prop firm traders never ask themselves: **"Am I actually profitable after expenses?"**
@@ -30,7 +30,7 @@ A typical prop firm journey might look like this:
 
 If your first payout was $1,200 — congratulations, you're still $600 in the hole.
 
-This isn't to discourage you. It's to give you a clear picture. **You can't optimize what you don't measure.** For a fuller review process, pair expense tracking with a [prop firm trading journal](/blogs/best-trading-journal-prop-firm-traders) so you can compare costs, behavior, and rule adherence together.
+This isn't to discourage you. It's to give you a clear picture. **You can't optimize what you don't measure.** For a fuller review process, pair expense tracking with a [prop firm trading journal](/blogs/prop-firm-trading-journal) so you can compare costs, behavior, and rule adherence together.
 
 ## What to Track
 
@@ -63,7 +63,7 @@ Your **net profitability** is simple:
 
 > Total Payouts − Total Expenses = Net Profit
 
-If that number is negative, you're not profitable yet — regardless of what your trading stats say. For a more complete version of this calculation — one that accounts for every attempt, including the failed ones, rather than just the challenge that eventually passed — see [Prop Firm ROI Calculator: Fees, Payouts, and Failed Challenges](/blogs/prop-firm-roi-calculator-fees-payouts-failed-challenges).
+If that number is negative, you're not profitable yet — regardless of what your trading stats say. For a more complete version of this calculation — one that accounts for every attempt, including the failed ones, rather than just the challenge that eventually passed — see [Prop Firm ROI Calculator: Fees, Payouts, and Failed Challenges](/blogs/prop-firm-roi-calculator).
 
 This doesn't mean you're a bad trader. It means you need a clear picture of where your money is going so you can make smarter decisions about which accounts to run and when to cut losses on underperforming firms.
 
