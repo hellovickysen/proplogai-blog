@@ -4,7 +4,7 @@ export async function GET(context) {
   const posts = (await getCollection('blog', ({ data }) => !data.draft))
     .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
-  const site = context.site || 'https://proplogai.com';
+  const site = String(context.site || 'https://proplogai.com').replace(/\/$/, '');
 
   const urls = [
     // Blog listing page
