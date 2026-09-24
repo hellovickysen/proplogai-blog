@@ -15,12 +15,58 @@ const {
   coverImage,
   metaTitle,
   disclaimer,
+  date,
+  updatedDate,
 } = post.data;
 
 const pageTitle = metaTitle || title;
+const publishedDate = date.toISOString().slice(0, 10);
+const modifiedDate = updatedDate?.toISOString().slice(0, 10);
+const canonicalURL = new URL(`/blogs/${post.slug}`, Astro.site).toString();
+const socialImage = coverImage ? new URL(coverImage, Astro.site).toString() : undefined;
+const formatDate = (value: Date) => new Intl.DateTimeFormat('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+  timeZone: 'UTC',
+}).format(value);
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'BlogPosting',
+      '@id': `${canonicalURL}#article`,
+      headline: title,
+      description,
+      datePublished: publishedDate,
+      ...(modifiedDate ? { dateModified: modifiedDate } : {}),
+      ...(socialImage ? { image: socialImage } : {}),
+      mainEntityOfPage: canonicalURL,
+      author: { '@type': 'Organization', name: 'PropLogAI', url: 'https://proplogai.com/' },
+      publisher: { '@type': 'Organization', name: 'PropLogAI', url: 'https://proplogai.com/' },
+    },
+    {
+      '@type': 'BreadcrumbList',
+      '@id': `${canonicalURL}#breadcrumb`,
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://proplogai.com/' },
+        { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://proplogai.com/blogs' },
+        { '@type': 'ListItem', position: 3, name: title, item: canonicalURL },
+      ],
+    },
+  ],
+};
 ---
 
-<BaseLayout title={pageTitle} description={description} ogImage={coverImage} type="article">
+<BaseLayout
+  title={pageTitle}
+  description={description}
+  ogImage={coverImage}
+  type="article"
+  publishedTime={publishedDate}
+  modifiedTime={modifiedDate}
+  structuredData={structuredData}
+>
   <!-- Reading Progress Bar -->
   <div id="progress-bar" class="fixed top-0 left-0 h-[3px] z-[60] transition-none" style="width: 0%; background: linear-gradient(90deg, #8b5cf6, #22d3ee);"></div>
 
@@ -49,6 +95,16 @@ const pageTitle = metaTitle || title;
       <p class="text-base text-white/40 leading-relaxed pb-6 border-b border-white/[0.06]">
         {description}
       </p>
+
+      <div class="flex flex-wrap items-center gap-x-2 gap-y-1 pt-4 text-xs text-white/30">
+        <span>Published <time datetime={publishedDate}>{formatDate(date)}</time></span>
+        {updatedDate && modifiedDate && modifiedDate !== publishedDate && (
+          <>
+            <span aria-hidden="true">•</span>
+            <span>Updated <time datetime={modifiedDate}>{formatDate(updatedDate)}</time></span>
+          </>
+        )}
+      </div>
     </header>
 
     <!-- Cover -->

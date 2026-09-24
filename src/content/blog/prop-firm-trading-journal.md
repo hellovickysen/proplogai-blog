@@ -2,7 +2,7 @@
 title: "Best Trading Journal for Prop Firm Traders: What to Track and Why"
 description: "Learn what prop firm traders should track in a trading journal, how to review behavior patterns, and how journaling supports discipline without promising trading outcomes."
 date: 2026-07-06
-updatedDate: 2026-07-06
+updatedDate: 2026-09-21
 category: "Trading Journaling"
 silo: "Trading Journal for Prop Firm Forex Traders"
 coverImage: "/blogs/images/cover-prop-firm-trading-journal.webp"
@@ -11,13 +11,13 @@ metaTitle: "Best Trading Journal for Prop Firm Traders: What to Track and Why"
 disclaimer: "Educational content only. This article is not trading, investment, or financial advice and does not provide trading signals or guaranteed outcomes."
 ---
 
-Prop firm traders operate under constraints that make journaling more important than simple note taking. A normal trading journal records entries and exits. A useful prop firm trading journal also helps a trader review risk behavior, rule adherence, emotional triggers, and the conditions that tend to appear before mistakes.
+Prop firm traders operate under constraints that make journaling more important than simple note taking. A normal [trading journal](/glossary/trading-journal) records entries and exits. A useful prop firm trading journal also helps a trader review risk behavior, rule adherence, emotional triggers, and the conditions that tend to appear before mistakes.
 
 ## Why prop firm traders need a different kind of journal
 
 Prop firm challenges and funded accounts often include rules around daily loss, maximum drawdown, position sizing, news trading, consistency, or minimum trading days. Because of that, the question is not only whether a trade made or lost money. The more useful question is whether the trader followed a repeatable process while staying inside the account rules.
 
-A strong journal helps answer questions such as. If you are still building the habit, start with the foundation in [why every trader needs a trading journal](/blogs/trading-journal-benefits) before adding more advanced prop firm review fields:
+A strong journal helps answer questions such as:
 
 - Did I take the trade for a documented reason?
 - Was the risk planned before entry?
@@ -58,7 +58,7 @@ A screenshot can preserve what the trader saw at the time. This is especially us
 
 ## Use a P&L calendar to review trading behavior
 
-A [P&L calendar](/blogs/trading-journal-benefits) is useful because trading mistakes often cluster. One losing trade may not reveal much. A sequence of losing days, oversized trades, or late-session decisions can reveal a behavioral pattern. [P&L Calendar for Traders: Spot Revenge Days and Losing Streaks](/blogs/prop-firm-pnl-calendar) walks through this kind of pattern-spotting in more detail.
+A [P&L calendar](/blogs/prop-firm-pnl-calendar) is useful because trading mistakes often cluster. One losing trade may not reveal much. A sequence of losing days, oversized trades, or late-session decisions can reveal a behavioral pattern. The linked guide walks through this kind of pattern-spotting in more detail.
 
 When reviewing a calendar, look for patterns such as:
 
@@ -84,7 +84,7 @@ This keeps the journal practical. A trader does not need to solve every weakness
 
 ## How AI can support journaling without replacing judgment
 
-AI can help organize journal data, surface recurring tags, summarize weekly notes, and suggest reflection questions. This is especially useful when reviewing patterns around [trading emotions](/blogs/trading-emotions-account-killer), because emotional mistakes are often easier to spot after several entries are grouped together. It should not be treated as a source of trading signals or a promise of better outcomes.
+AI can help organize journal data, surface recurring tags, summarize weekly notes, and suggest reflection questions. This is especially useful when [tracking trading emotions](/blogs/tracking-trading-emotions), because behavioral patterns are often easier to spot after several entries are grouped together. It should not be treated as a source of trading signals or a promise of better outcomes.
 
 For example, an AI trading journal assistant can help a trader ask:
 
@@ -113,6 +113,8 @@ A useful template might include:
 
 The one-sentence lesson is important. It forces the trader to turn each trade into a clear observation without overanalyzing.
 
+For a ready-to-use version of these fields, open the [trading journal template](/blogs/trading-journal-template). It includes a downloadable CSV and a practical XAUUSD journal example.
+
 ## Common journaling mistakes to avoid
 
 ### Only journaling losing trades
@@ -131,9 +133,9 @@ Profit and loss matters, but it is not the only measure of process. Prop firm tr
 
 A journal can reveal tendencies and support better reflection, but it cannot guarantee future performance. Avoid any workflow that turns journaling into a promise of profits or funding.
 
-## Where PropLog AI fits
+## Where PropLogAI fits
 
-PropLog AI is designed around the idea that journal data should become a practical feedback system. Trade notes, P&L calendar views, tags, weekly reviews, and AI-assisted reflection can help traders understand their behavior more clearly.
+PropLogAI is designed around the idea that journal data should become a practical feedback system. Trade notes, P&L calendar views, tags, weekly reviews, and AI-assisted reflection can help traders understand their behavior more clearly.
 
 The value is educational: better organization, more consistent review, and clearer questions. It does not remove risk, provide financial advice, or guarantee trading results.
 

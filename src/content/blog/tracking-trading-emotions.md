@@ -9,8 +9,6 @@ draft: false
 metaTitle: "How to Track Trading Emotions Without Turning Your Journal Into a Diary"
 ---
 
-# How to Track Trading Emotions Without Turning Your Journal Into a Diary
-
 Most traders who try to track emotions start the same way: after a rough session, they open their journal and write a paragraph about how the day felt. It might mention frustration, a rushed entry, or a feeling that the market "owed" them a winning trade. A week later, there are pages of narrative and no clear pattern. The journal has become a diary, and a diary is hard to review.
 
 Tracking trading emotions is genuinely useful. It helps a trader connect a specific state of mind to a specific decision, which is far more actionable than remembering "I felt bad that day." The problem is not the idea of tracking emotions. The problem is doing it in a format that cannot be reviewed at scale.
@@ -78,13 +76,13 @@ The next step is narrow, not dramatic. Rather than rewriting the entire trading 
 
 This is the practical payoff of tagging instead of narrating. A diary entry describing a rushed trade might be interesting to reread, but it does not, by itself, produce a comparison across three weeks of trades. A short tag attached consistently to every trade does.
 
-## How PropLog AI Supports This
+## How PropLogAI Supports This
 
-PropLog AI is built to make structured tracking like this easier to maintain and easier to review, rather than replacing the trader's own judgment. Emotion tags can be attached directly to trade entries alongside setup, planned risk, and rule-compliance fields, so the tagging step stays fast enough to survive a live session.
+PropLogAI is built to make structured tracking like this easier to maintain and easier to review, rather than replacing the trader's own judgment. Emotion tags can be attached directly to trade entries alongside setup, planned risk, and rule-compliance fields, so the tagging step stays fast enough to survive a live session.
 
-From there, Propol AI Coach can help surface patterns already present in a trader's own data — for instance, which emotional tags show up most often near rule breaks, or whether a particular tag clusters around specific sessions or setups. This is a reflection tool based on the trader's own journal history, not a source of trading advice, predictions, or signals. It does not tell a trader what to trade next; it helps make existing behavior easier to see.
+From there, PropLogAI Coach can help surface patterns already present in a trader's own data — for instance, which emotional tags show up most often near rule breaks, or whether a particular tag clusters around specific sessions or setups. This is a reflection tool based on the trader's own journal history, not a source of trading advice, predictions, or signals. It does not tell a trader what to trade next; it helps make existing behavior easier to see.
 
-Combined with PropLog AI's broader discipline tracking — [trade journal](/blogs/prop-firm-trading-journal) fields, rule-compliance tags, and P&L review — emotion tracking becomes one more structured input into a trader's own process review, rather than a separate diary kept on the side.
+Combined with PropLogAI's broader discipline tracking — [trade journal](/blogs/prop-firm-trading-journal) fields, rule-compliance tags, and P&L review — emotion tracking becomes one more structured input into a trader's own process review, rather than a separate diary kept on the side.
 
 ## Common Mistakes to Avoid
 

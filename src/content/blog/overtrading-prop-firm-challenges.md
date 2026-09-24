@@ -2,6 +2,7 @@
 title: "Overtrading in Prop Firm Challenges: Causes, Signs, and Fixes"
 description: "Learn why overtrading happens during prop firm challenges, how to spot behavior drift, and practical journal-based review steps to support discipline."
 date: 2026-07-07
+updatedDate: 2026-09-21
 category: "Trading Discipline"
 silo: "Trading Discipline for Prop Firm Traders"
 coverImage: "/blogs/images/cover-overtrading-prop-firm-challenges.webp"
@@ -9,9 +10,7 @@ draft: false
 metaTitle: "Overtrading in Prop Firm Challenges: Causes, Signs, and Fixes"
 ---
 
-# Overtrading in Prop Firm Challenges: Causes, Signs, and Fixes
-
-Prop firm challenges can create a specific kind of pressure. A trader may feel watched by the rules, the clock, the drawdown limits, the profit target, and the idea that every decision matters. In that environment, overtrading can appear quietly. It may start as one extra trade after a loss, one rushed entry after missing a move, or one more setup late in the session.
+Prop firm challenges can create a specific kind of pressure. A trader may feel watched by the rules, the clock, the drawdown limits, the profit target, and the idea that every decision matters. In that environment, [overtrading](/glossary/overtrading) can appear quietly. It may start as one extra trade after a loss, one rushed entry after missing a move, or one more setup late in the session.
 
 ## What overtrading means in a prop firm challenge
 
@@ -156,9 +155,9 @@ This week, unplanned trades appeared most often after the first losing trade of 
 
 That kind of note is specific, measurable, and process-focused.
 
-## How PropLog AI fits into the workflow
+## How PropLogAI fits into the workflow
 
-PropLog AI can help organize the data that makes overtrading easier to review: trade tags, emotional notes, P&L calendar patterns, rule adherence, setup quality, screenshots, and weekly reflections.
+PropLogAI can help organize the data that makes overtrading easier to review: trade tags, emotional notes, P&L calendar patterns, rule adherence, setup quality, screenshots, and weekly reflections.
 
 For example, a trader can tag trades as planned or unplanned, mark emotional states before entry, and review whether overtrading clusters on certain days or after certain outcomes. AI-assisted reflection can help summarize journal patterns and suggest review questions, but it should not be treated as trading advice or a source of signals.
 

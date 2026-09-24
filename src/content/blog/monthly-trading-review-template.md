@@ -9,8 +9,6 @@ draft: false
 metaTitle: "Monthly Trading Review Template for Prop Firm Traders"
 ---
 
-# Monthly Trading Review Template for Prop Firm Traders
-
 A weekly review catches a single habit slipping before it repeats for a month straight. A monthly review answers a different question: looking at four or five of those weeks side by side, was last week's rough patch actually noise, or was it the third week in a row the same mistake showed up? That question is impossible to answer one week at a time — it only becomes visible once a full month is laid out together.
 
 This is a template, not a general encouragement to "review your trading more." The goal is a single sitting, once a month, that turns a month of trades — and ideally a month of weekly notes — into a short list of trend-level observations a single week can't show on its own.
@@ -77,9 +75,9 @@ The second most common mistake is treating a good month's total P&L as proof tha
 
 A personal account can absorb a slow month of eroding discipline and simply have a worse month. A prop firm evaluation, or a funded account with an overall drawdown limit, doesn't get that same room — a trend that would just be "a rough patch" in a personal account can be the difference between staying funded and breaching an account before the pattern gets caught. Reviewing compliance as a monthly trend, not just a single week's number, is one piece of the larger [discipline system](/blogs/trading-discipline-prop-firm) that keeps a slow decline from turning into a sudden one.
 
-## How PropLog AI Supports This
+## How PropLogAI Supports This
 
-Comparing four weeks of numbers by hand means either keeping a separate spreadsheet or trusting memory for exactly the kind of trend that memory tends to smooth over. PropLog AI's journal already stores each week's numbers as they're logged, so pulling win rate, profit factor, and compliance rate side by side across a full month is a lookup rather than a reconstruction — and the same [P&L calendar](/blogs/prop-firm-pnl-calendar) view that helps spot a rough day inside a single week also makes a full month's shape easy to scan at once, month over month. It surfaces the trend; deciding what the trend means for next month's plan stays with the trader.
+Comparing four weeks of numbers by hand means either keeping a separate spreadsheet or trusting memory for exactly the kind of trend that memory tends to smooth over. PropLogAI's journal already stores each week's numbers as they're logged, so pulling win rate, profit factor, and compliance rate side by side across a full month is a lookup rather than a reconstruction — and the same [P&L calendar](/blogs/prop-firm-pnl-calendar) view that helps spot a rough day inside a single week also makes a full month's shape easy to scan at once, month over month. It surfaces the trend; deciding what the trend means for next month's plan stays with the trader.
 
 ## Conclusion
 

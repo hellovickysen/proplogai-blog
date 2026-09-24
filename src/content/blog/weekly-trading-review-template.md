@@ -9,8 +9,6 @@ draft: false
 metaTitle: "Weekly Trading Review Template for Forex Traders"
 ---
 
-# Weekly Trading Review Template for Forex Traders
-
 Most traders review their trading the way they review their diet — occasionally, usually right after something goes wrong, and rarely with the same structure twice. A weekly review breaks that pattern. It's short enough to actually happen every week and structured enough that two consecutive reviews can be compared against each other instead of starting from a blank page every time.
 
 This is a template, not a philosophy. The goal is a repeatable 15-to-20-minute process that turns a week of trades into a short list of specific, checkable observations — not a vague feeling about how the week "went." It works best as a habit layered on top of whatever's already sitting in a [trading journal](/blogs/prop-firm-trading-journal): the review doesn't require new data, just a consistent way of looking at data that's already being logged.
@@ -87,9 +85,9 @@ A weekly review catches drift early — a stop-loss habit slipping, a setup unde
 
 A funded account adds a layer that a personal account doesn't have: a maximum daily loss and a maximum overall loss that don't reset just because a trader feels like they're due for a good week. Rule compliance drift that would just be a bad month in a personal account can end a prop firm evaluation outright. A [structured discipline system](/blogs/trading-discipline-prop-firm) — of which a weekly review is one piece — is what catches that drift while it's still a one-week problem rather than a breached account.
 
-## How PropLog AI Supports This
+## How PropLogAI Supports This
 
-Running this template by hand is possible with a notebook and a calculator, but it's slower and easier to skip. PropLog AI's trading journal already tracks trades, win rate, profit factor, and rule compliance as trades are logged, and its P&L calendar view makes the "day-by-day shape of the week" section of this template a quick visual check rather than a manual reconstruction. Weekly and monthly review templates inside the product are built around the same structure described here — PropLog AI surfaces the numbers; deciding what they mean and what to adjust next week stays with the trader.
+Running this template by hand is possible with a notebook and a calculator, but it's slower and easier to skip. PropLogAI's trading journal already tracks trades, win rate, profit factor, and rule compliance as trades are logged, and its P&L calendar view makes the "day-by-day shape of the week" section of this template a quick visual check rather than a manual reconstruction. Weekly and monthly review templates inside the product are built around the same structure described here — PropLogAI surfaces the numbers; deciding what they mean and what to adjust next week stays with the trader.
 
 ## Conclusion
 

@@ -9,8 +9,6 @@ draft: false
 metaTitle: "How to Know If You Are Ready for a Prop Firm Challenge"
 ---
 
-# How to Know If You Are Ready for a Prop Firm Challenge
-
 Excitement about getting funded is not the same thing as being ready to pay for a challenge attempt. Most traders who fail early challenges aren't missing a "better strategy" — they're missing a handful of specific, checkable readiness signals that have nothing to do with market prediction and everything to do with process. This article turns that vague feeling of "I think I'm ready" into a concrete list worth checking honestly before spending on an attempt.
 
 ## Why "Readiness" Is Not About Confidence
@@ -72,9 +70,9 @@ Meeting every signal above does not guarantee a passed challenge, a specific win
 
 An honest "not yet" on several checklist items isn't a discouraging result — it's a cheaper lesson than a failed challenge fee teaches the same thing. The next step is simply more of what's already been covered: log more trades with real numbers, drill the risk calculation until it stops requiring conscious effort, write the plan that doesn't exist yet, and read the specific firm's rule sheet directly rather than assuming general knowledge of "how prop firms work" applies exactly. None of this needs to take an especially long time; it does need to actually happen before the first paid attempt rather than being learned during it.
 
-## How PropLog AI Supports This
+## How PropLogAI Supports This
 
-PropLog AI's journal and tracking tools are built to make several of these signals directly checkable rather than left to memory or impression: a running trade log to build a real track record, stop-loss adherence tracked trade by trade, and risk figures calculated consistently rather than estimated. It does not decide whether a trader is ready for a challenge attempt — that judgment call, informed by an honest look at the checklist above, stays with the trader.
+PropLogAI's journal and tracking tools are built to make several of these signals directly checkable rather than left to memory or impression: a running trade log to build a real track record, stop-loss adherence tracked trade by trade, and risk figures calculated consistently rather than estimated. It does not decide whether a trader is ready for a challenge attempt — that judgment call, informed by an honest look at the checklist above, stays with the trader.
 
 ## Conclusion
 

@@ -2,7 +2,7 @@
 title: "How to Keep a Forex Trading Journal for Funded Accounts"
 description: "Learn how funded account traders can keep a practical forex trading journal that tracks rules, risk, emotions, and review notes without turning the process into busywork."
 date: 2026-07-06
-updatedDate: 2026-07-06
+updatedDate: 2026-09-21
 category: "Trading Journaling"
 silo: "Trading Journal for Prop Firm Forex Traders"
 coverImage: "/blogs/images/cover-forex-journal-funded-accounts.webp"
@@ -13,7 +13,7 @@ disclaimer: "Educational content only. This article is not trading, investment, 
 
 A funded account can make journaling feel more urgent than a normal demo or personal account. You are not only trying to understand your trading performance. You are also operating inside a rule set: daily loss limits, maximum drawdown, trading-day requirements, consistency rules, restricted strategies, payout conditions, and account review checkpoints.
 
-That means a useful forex trading journal for funded accounts needs to do more than record entries and exits. It should help you answer three practical questions:
+That means a useful forex trading journal for funded accounts needs to do more than record entries and exits. For the broader field set and review framework, start with the [prop firm trading journal guide](/blogs/prop-firm-trading-journal). This funded-account workflow then adds account-rule context. It should help you answer three practical questions:
 
 1. Did I follow my own trading plan?
 2. Did I stay inside the funded account rules?
@@ -136,13 +136,13 @@ That is enough to review later.
 
 Also avoid using the journal to justify trades after the fact. The key question is not “Can I explain why this trade made sense now?” The better question is “Did this trade match the plan before I entered?”
 
-## How PropLog AI can support the workflow
+## How PropLogAI can support the workflow
 
-PropLog AI is designed around structured trading review rather than signal generation. For a funded account trader, that distinction matters. The product can help organize journal entries, trade tags, P&L calendar views, weekly reviews, and AI-assisted reflection based on the trader’s own records.
+PropLogAI is designed around structured trading review rather than signal generation. For a funded account trader, that distinction matters. The product can help organize journal entries, trade tags, P&L calendar views, weekly reviews, and AI-assisted reflection based on the trader’s own records.
 
 That means the journal can become easier to maintain and easier to review. Instead of manually searching through scattered notes, a trader can use structured fields to identify repeated mistakes, review discipline patterns, and prepare weekly summaries.
 
-PropLog AI should not be treated as a source of buy or sell signals, financial advice, or guaranteed results. Its role is to help traders see their own behavior and process more clearly.
+PropLogAI should not be treated as a source of buy or sell signals, financial advice, or guaranteed results. Its role is to help traders see their own behavior and process more clearly.
 
 ## A starter template
 

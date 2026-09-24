@@ -2,7 +2,7 @@
 title: "Trading Journal Fields Every Prop Firm Trader Should Track"
 description: "A practical guide to the trading journal fields prop firm traders can track to review risk, rule adherence, emotions, and weekly patterns without relying on trading signals."
 date: 2026-07-06
-updatedDate: 2026-07-06
+updatedDate: 2026-09-21
 category: "Trading Journaling"
 silo: "Trading Journal for Prop Firm Forex Traders"
 coverImage: "/blogs/images/cover-trading-journal-fields.webp"
@@ -19,7 +19,7 @@ A trading journal is only useful if the data inside it can answer better questio
 
 Prop firm traders have an extra layer of review because the goal is not simply to place trades. The trader also has to operate inside a defined rule set. A profitable trade can still be a poor process trade if it involved too much risk, ignored a rule, or encouraged habits that may become costly later. A losing trade can still be useful if it followed the plan and created clear review data.
 
-The best journal fields help connect the trade result to the trader's decision-making process. If you are still building the foundation, start with [why every trader needs a trading journal](/blogs/trading-journal-benefits) before adding more advanced review fields.
+The best journal fields help connect the trade result to the trader's decision-making process. If you are still building the foundation, start with the [prop firm trading journal guide](/blogs/prop-firm-trading-journal) before adding more advanced review fields.
 
 ## 1. Market, instrument, and session
 
@@ -97,7 +97,7 @@ This section should be factual, not emotional. The trader is not trying to shame
 
 ## 6. Emotional state and behavior tags
 
-Emotional tracking does not have to become a diary. Short tags are often enough. Over time, tags can reveal whether certain emotions or behaviors appear before rule breaks, overtrading, oversized positions, or rushed exits. For a deeper explanation of behavioral tracking, see [trading emotions: the silent account killer](/blogs/trading-emotions-account-killer).
+Emotional tracking does not have to become a diary. Short tags are often enough. Over time, tags can reveal whether certain emotions or behaviors appear before rule breaks, overtrading, oversized positions, or rushed exits. For a deeper explanation, see the guide to [tracking trading emotions before, during, and after a trade](/blogs/tracking-trading-emotions).
 
 Examples of useful tags include:
 
@@ -187,9 +187,9 @@ Useful weekly questions include:
 
 This is where a [P&L calendar](/blogs/prop-firm-pnl-calendar) becomes helpful. A calendar view can show whether revenge days, overtrading days, or rule-pressure days are clustered in ways that a single trade log would not reveal.
 
-## How PropLog AI fits into the workflow
+## How PropLogAI fits into the workflow
 
-PropLog AI can support this kind of journal workflow by helping traders organize trade notes, P&L calendar data, tags, review fields, and weekly reflections in one place. The goal is not to predict trades or promise better outcomes. The goal is to make review easier, more structured, and less dependent on memory.
+PropLogAI can support this kind of journal workflow by helping traders organize trade notes, P&L calendar data, tags, review fields, and weekly reflections in one place. The goal is not to predict trades or promise better outcomes. The goal is to make review easier, more structured, and less dependent on memory.
 
 For example, a trader can use structured tags to identify recurring behaviors, use calendar views to spot difficult periods, and use AI-assisted reflection to summarize patterns from journal data. Any insights should be treated as educational review support, not as trading instructions. For a broader view of what to track, compare this field list with the [best trading journal for prop firm traders](/blogs/prop-firm-trading-journal).
 
@@ -207,6 +207,8 @@ A journal with too many fields can become difficult to maintain. A good starting
 - Review label
 
 Once the habit is consistent, the trader can add more detail. Consistency is more useful than complexity.
+
+When you are ready to put these fields into one repeatable record, use the [copyable trading journal template](/blogs/trading-journal-template). It includes a CSV download and a filled XAUUSD example.
 
 ## Final thoughts
 

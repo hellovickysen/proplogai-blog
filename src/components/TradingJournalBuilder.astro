@@ -1,0 +1,256 @@
+<section class="journal-tool" aria-labelledby="journal-builder-title">
+  <div class="tool-kicker">Interactive example</div>
+  <div class="tool-heading">
+    <div>
+      <h2 id="journal-builder-title">Build a clear journal entry</h2>
+      <p>Choose the market context and record the process. The preview updates as you work.</p>
+    </div>
+    <span class="tool-badge">No sign-up</span>
+  </div>
+
+  <div class="review-flow" aria-label="Trading journal review flow">
+    <div class="flow-step"><span>1</span><strong>Context</strong><small>Instrument + session</small></div>
+    <div class="flow-arrow" aria-hidden="true">→</div>
+    <div class="flow-step"><span>2</span><strong>Plan</strong><small>Setup + confirmation</small></div>
+    <div class="flow-arrow" aria-hidden="true">→</div>
+    <div class="flow-step"><span>3</span><strong>Execution</strong><small>What you did</small></div>
+    <div class="flow-arrow" aria-hidden="true">→</div>
+    <div class="flow-step"><span>4</span><strong>Review</strong><small>One next action</small></div>
+  </div>
+
+  <div class="tool-grid">
+    <form class="journal-form" id="journal-builder-form">
+      <label>
+        <span>Instrument</span>
+        <select name="instrument">
+          <option>XAUUSD</option>
+          <option>EURUSD</option>
+          <option>GBPUSD</option>
+          <option>NAS100</option>
+        </select>
+      </label>
+
+      <label>
+        <span>Trading session</span>
+        <select name="session">
+          <option>Asian session</option>
+          <option selected>London session</option>
+          <option>New York session</option>
+        </select>
+      </label>
+
+      <label>
+        <span>Setup name</span>
+        <select name="setup">
+          <option>Breakout</option>
+          <option selected>Liquidity sweep</option>
+          <option>Breakout and retest</option>
+          <option>Range reversal</option>
+        </select>
+      </label>
+
+      <label>
+        <span>Plan followed?</span>
+        <select name="compliance">
+          <option>Yes</option>
+          <option selected>Partly</option>
+          <option>No</option>
+        </select>
+      </label>
+
+      <label>
+        <span>Trade result</span>
+        <select name="result">
+          <option selected>Profit</option>
+          <option>Loss</option>
+          <option>Breakeven</option>
+        </select>
+      </label>
+
+      <label>
+        <span>P&amp;L amount ($)</span>
+        <input name="amount" type="number" inputmode="decimal" min="0" step="0.01" value="125.00" />
+      </label>
+
+      <label>
+        <span>Emotion before entry</span>
+        <select name="emotion">
+          <option>Calm</option>
+          <option selected>Impatient</option>
+          <option>Hesitant</option>
+          <option>Overconfident</option>
+          <option>Distracted</option>
+        </select>
+      </label>
+
+      <label class="wide-field">
+        <span>What should change next time?</span>
+        <textarea name="lesson" rows="3">Wait for the breakout candle to close before marking the setup as confirmed.</textarea>
+      </label>
+    </form>
+
+    <div class="journal-preview" aria-live="polite">
+      <div class="preview-topline">
+        <span>Journal preview</span>
+        <span class="status-dot">Draft</span>
+      </div>
+      <div class="preview-title"><strong data-preview="instrument">XAUUSD</strong><span data-preview="session">London session</span></div>
+      <dl>
+        <div><dt>Setup</dt><dd data-preview="setup">Liquidity sweep</dd></div>
+        <div><dt>Plan</dt><dd data-preview="compliance">Partly</dd></div>
+        <div><dt>Emotion</dt><dd data-preview="emotion">Impatient</dd></div>
+        <div><dt>Result</dt><dd data-preview="result">Profit</dd></div>
+        <div class="pnl-card"><dt>P&amp;L amount</dt><dd data-preview="pnl" data-outcome="profit">+$125.00</dd></div>
+      </dl>
+      <div class="preview-lesson">
+        <span>Next-time rule</span>
+        <p data-preview="lesson">Wait for the breakout candle to close before marking the setup as confirmed.</p>
+      </div>
+      <div class="preview-actions">
+        <button type="button" data-action="copy">Copy entry</button>
+        <button type="button" class="secondary" data-action="download">Download CSV row</button>
+      </div>
+      <p class="action-note" data-action-note aria-live="polite"></p>
+    </div>
+  </div>
+</section>
+
+<script>
+  const tools = document.querySelectorAll('.journal-tool');
+
+  tools.forEach((tool) => {
+    const form = tool.querySelector('form');
+    const note = tool.querySelector('[data-action-note]');
+    if (!(form instanceof HTMLFormElement) || !(note instanceof HTMLElement)) return;
+
+    const values = () => Object.fromEntries(new FormData(form).entries());
+    const update = () => {
+      const data = values();
+      Object.entries(data).forEach(([key, value]) => {
+        const target = tool.querySelector(`[data-preview="${key}"]`);
+        if (target) target.textContent = String(value);
+      });
+      const pnl = tool.querySelector('[data-preview="pnl"]');
+      if (pnl instanceof HTMLElement) {
+        const result = String(data.result);
+        const amount = Math.abs(Number(data.amount) || 0).toFixed(2);
+        const sign = result === 'Profit' ? '+' : result === 'Loss' ? '−' : '';
+        pnl.textContent = `${sign}$${amount}`;
+        pnl.dataset.outcome = result.toLowerCase();
+      }
+      note.textContent = '';
+    };
+
+    const summary = () => {
+      const data = values();
+      return [
+        `Instrument: ${data.instrument}`,
+        `Session: ${data.session}`,
+        `Setup: ${data.setup}`,
+        `Plan followed: ${data.compliance}`,
+        `Trade result: ${data.result}`,
+        `P&L amount: $${data.amount}`,
+        `Emotion before entry: ${data.emotion}`,
+        `Next-time rule: ${data.lesson}`,
+      ].join('\n');
+    };
+
+    form.addEventListener('input', update);
+
+    tool.querySelector('[data-action="copy"]')?.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(summary());
+        note.textContent = 'Entry copied to your clipboard.';
+      } catch {
+        note.textContent = 'Copy was blocked by the browser. Select the preview text instead.';
+      }
+    });
+
+    tool.querySelector('[data-action="download"]')?.addEventListener('click', () => {
+      const data = values();
+      const escape = (value) => `"${String(value).replaceAll('"', '""')}"`;
+      const headings = ['instrument', 'session', 'setup', 'plan_followed', 'trade_result', 'pnl_amount_usd', 'emotion_before_entry', 'next_time_rule'];
+      const row = [data.instrument, data.session, data.setup, data.compliance, data.result, data.amount, data.emotion, data.lesson];
+      const blob = new Blob([`${headings.join(',')}\n${row.map(escape).join(',')}\n`], { type: 'text/csv;charset=utf-8' });
+      const link = document.createElement('a');
+      const url = URL.createObjectURL(blob);
+      link.href = url;
+      link.download = 'trading-journal-entry.csv';
+      link.hidden = true;
+      document.body.append(link);
+      link.click();
+      link.remove();
+      window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+      note.textContent = 'CSV row downloaded.';
+    });
+  });
+</script>
+
+<style>
+  .journal-tool {
+    margin: 2.25rem 0;
+    padding: clamp(1rem, 3vw, 1.6rem);
+    border: 1px solid rgba(139, 92, 246, .3);
+    border-radius: 1.25rem;
+    background:
+      radial-gradient(circle at 15% 0%, rgba(139, 92, 246, .18), transparent 34%),
+      radial-gradient(circle at 100% 100%, rgba(34, 211, 238, .1), transparent 40%),
+      #0c0c17;
+    box-shadow: 0 28px 80px rgba(0, 0, 0, .3);
+  }
+  .tool-kicker { color: #67e8f9; font: 600 .68rem/1.2 ui-monospace, monospace; letter-spacing: .16em; text-transform: uppercase; }
+  .tool-heading { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin: .55rem 0 1.25rem; }
+  .tool-heading h2 { margin: 0; font-size: clamp(1.35rem, 4vw, 1.8rem); color: #fff; }
+  .tool-heading h2::after { display: none; }
+  .tool-heading p { margin: .35rem 0 0; color: rgba(255,255,255,.55); font-size: .9rem; }
+  .tool-badge { flex: none; border: 1px solid rgba(34,211,238,.25); border-radius: 999px; padding: .35rem .55rem; color: #67e8f9; font-size: .68rem; }
+  .review-flow { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr; gap: .5rem; align-items: center; margin-bottom: 1.3rem; }
+  .flow-step { min-width: 0; border: 1px solid rgba(255,255,255,.08); border-radius: .8rem; padding: .75rem; background: rgba(255,255,255,.025); }
+  .flow-step span { display: grid; place-items: center; width: 1.45rem; height: 1.45rem; margin-bottom: .45rem; border-radius: 50%; background: linear-gradient(135deg,#8b5cf6,#22d3ee); color: #07070d; font-weight: 800; font-size: .7rem; }
+  .flow-step strong, .flow-step small { display: block; }
+  .flow-step strong { color: white; font-size: .78rem; }
+  .flow-step small { margin-top: .12rem; color: rgba(255,255,255,.38); font-size: .65rem; line-height: 1.3; }
+  .flow-arrow { color: rgba(255,255,255,.2); }
+  .tool-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 1rem; }
+  .journal-form { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; }
+  .journal-form label { display: grid; gap: .35rem; }
+  .journal-form label > span { color: rgba(255,255,255,.55); font-size: .73rem; font-weight: 600; }
+  .journal-form select, .journal-form input, .journal-form textarea { width: 100%; border: 1px solid rgba(255,255,255,.1); border-radius: .65rem; background: #11111e; color: #fff; padding: .68rem .72rem; font: inherit; font-size: .82rem; }
+  .journal-form select:focus, .journal-form input:focus, .journal-form textarea:focus { outline: 2px solid rgba(34,211,238,.55); outline-offset: 1px; }
+  .journal-form textarea { resize: vertical; line-height: 1.45; }
+  .wide-field { grid-column: 1 / -1; }
+  .journal-preview { display: flex; flex-direction: column; min-width: 0; border: 1px solid rgba(34,211,238,.18); border-radius: 1rem; background: rgba(2, 6, 23, .72); padding: 1rem; }
+  .preview-topline, .preview-title { display: flex; justify-content: space-between; align-items: center; gap: .8rem; }
+  .preview-topline { color: rgba(255,255,255,.35); font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; }
+  .status-dot { color: #67e8f9; }
+  .status-dot::before { content: ''; display: inline-block; width: .38rem; height: .38rem; margin-right: .35rem; border-radius: 50%; background: #22d3ee; box-shadow: 0 0 10px #22d3ee; }
+  .preview-title { margin: 1rem 0; padding-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,.07); }
+  .preview-title strong { color: #fff; font-size: 1.4rem; }
+  .preview-title span { color: #c4b5fd; font-size: .75rem; }
+  .journal-preview dl { display: grid; grid-template-columns: repeat(3, 1fr); gap: .5rem; margin: 0; }
+  .journal-preview dl div { min-width: 0; border: 1px solid rgba(255,255,255,.06); border-radius: .65rem; padding: .6rem; background: rgba(255,255,255,.02); }
+  .journal-preview dt { color: rgba(255,255,255,.35); font-size: .63rem; }
+  .journal-preview dd { margin: .22rem 0 0; color: #fff; font-size: .74rem; overflow-wrap: anywhere; }
+  .journal-preview [data-preview="pnl"][data-outcome="profit"] { color: #6ee7b7; }
+  .journal-preview [data-preview="pnl"][data-outcome="loss"] { color: #fca5a5; }
+  .journal-preview [data-preview="pnl"][data-outcome="breakeven"] { color: #cbd5e1; }
+  .preview-lesson { margin: .75rem 0; padding: .75rem; border-left: 2px solid #8b5cf6; background: rgba(139,92,246,.08); }
+  .preview-lesson span { color: #c4b5fd; font-size: .67rem; font-weight: 700; text-transform: uppercase; }
+  .preview-lesson p { margin: .35rem 0 0; color: rgba(255,255,255,.68); font-size: .78rem; line-height: 1.5; }
+  .preview-actions { display: flex; flex-wrap: wrap; gap: .55rem; margin-top: auto; }
+  .preview-actions button { border: 0; border-radius: .6rem; background: linear-gradient(135deg,#8b5cf6,#22d3ee); color: #07070d; padding: .62rem .75rem; font-weight: 750; font-size: .72rem; cursor: pointer; }
+  .preview-actions button.secondary { border: 1px solid rgba(255,255,255,.12); background: transparent; color: rgba(255,255,255,.7); }
+  .action-note { min-height: 1rem; margin: .55rem 0 0; color: #67e8f9; font-size: .68rem; }
+  @media (max-width: 760px) {
+    .review-flow { grid-template-columns: 1fr 1fr; }
+    .flow-arrow { display: none; }
+    .tool-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 480px) {
+    .tool-heading { display: block; }
+    .tool-badge { display: inline-block; margin-top: .7rem; }
+    .journal-form { grid-template-columns: 1fr; }
+    .wide-field { grid-column: auto; }
+    .journal-preview dl { grid-template-columns: 1fr; }
+  }
+</style>

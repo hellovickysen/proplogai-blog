@@ -9,8 +9,6 @@ draft: false
 metaTitle: "Trading Discipline for Prop Firm Traders: A Practical System"
 ---
 
-# Trading Discipline for Prop Firm Traders: A Practical System
-
 Trading discipline is often described as willpower, but willpower is not a reliable operating system. Prop firm traders need something more practical: a repeatable structure for planning, executing, reviewing, and correcting behavior while staying inside account rules.
 
 ## What trading discipline really means
@@ -128,9 +126,9 @@ A recovery plan might include:
 
 The purpose is not self-criticism. The purpose is interruption. A recovery plan breaks the chain between one mistake and the next mistake.
 
-## How PropLog AI can support a discipline system
+## How PropLogAI can support a discipline system
 
-PropLog AI can help traders organize the parts of a discipline system: journal entries, tags, P&L calendar views, rulebook notes, daily routines, and AI-assisted reflection prompts.
+PropLogAI can help traders organize the parts of a discipline system: journal entries, tags, P&L calendar views, rulebook notes, daily routines, and AI-assisted reflection prompts.
 
 For example, a trader could review:
 

@@ -9,8 +9,6 @@ draft: false
 metaTitle: "Prop Firm ROI Calculator: Fees, Payouts, and Failed Challenges"
 ---
 
-# Prop Firm ROI Calculator: Fees, Payouts, and Failed Challenges
-
 Most traders judge a prop firm challenge by a single result: pass or fail, payout or no payout. That framing misses the number that actually matters over time, which is return on investment across every attempt, not just the one that worked. A trader who passes on the third try, after two failed challenge fees, has a very different real ROI than the headline "I got funded" suggests.
 
 Calculating this properly is not complicated, but it does require counting things that are easy to leave out of the mental math: reset fees, failed attempts, subscription costs, and the time between paying for a challenge and actually receiving a payout.
@@ -121,11 +119,11 @@ A blended number can hide a lot. A trader might have a strongly positive real RO
 
 This does not need to turn into a large spreadsheet project. The same four-step process — list attempts, total costs, total payouts, calculate the ratio — just gets repeated once per firm, using the same records already being kept for the combined calculation.
 
-## How PropLog AI Supports This
+## How PropLogAI Supports This
 
-PropLog AI's expense tracking is built to make this kind of full-campaign accounting easier to maintain than a running mental estimate. Challenge fees, reset costs, and payouts can be logged as they happen, attached to the specific firm and attempt, so the real ROI calculation reflects actual records rather than memory.
+PropLogAI's expense tracking is built to make this kind of full-campaign accounting easier to maintain than a running mental estimate. Challenge fees, reset costs, and payouts can be logged as they happen, attached to the specific firm and attempt, so the real ROI calculation reflects actual records rather than memory.
 
-This is a bookkeeping and organization tool, not a predictor of future outcomes. PropLog AI does not estimate the odds of passing a future challenge or suggest that any specific approach will produce a particular ROI. Its role is to make the historical numbers a trader already has easy to total up honestly.
+This is a bookkeeping and organization tool, not a predictor of future outcomes. PropLogAI does not estimate the odds of passing a future challenge or suggest that any specific approach will produce a particular ROI. Its role is to make the historical numbers a trader already has easy to total up honestly.
 
 ## Common Mistakes to Avoid
 

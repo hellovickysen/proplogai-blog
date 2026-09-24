@@ -9,8 +9,6 @@ draft: false
 metaTitle: "What Is Risk Management in Forex Trading?"
 ---
 
-# What Is Risk Management in Forex Trading?
-
 "Risk management" is one of those phrases every trading resource mentions and few actually define. It gets treated as a vague virtue — something a disciplined trader supposedly "has" — rather than a specific set of decisions made before a trade, not during or after one. ["Forex Trading for Beginners: What to Learn Before Taking a Prop Firm Challenge"](/blogs/forex-trading-for-beginners) introduces this concept as one of several foundations worth knowing; this article breaks it down into its actual components in full, and is worth understanding properly rather than nodding along to the phrase, especially before a prop firm challenge where risk rules can end an account outright.
 
 ## The Core Idea: Controlling Loss Size, Not Preventing Losses
@@ -65,9 +63,9 @@ In a personal account, poor risk management mainly costs money and time. In a pr
 
 Risk management is not a trade-selection system — it says nothing about which setups to take, only how much to put at stake once a setup has already been chosen some other way. It does not guarantee profitability; a trader can manage risk perfectly and still be net unprofitable if the underlying trading approach doesn't have a genuine edge. And it is not a substitute for having an actual written plan — "What Is a Trading Plan and Why Do Forex Traders Need One?" covers that separately — which is where risk rules connect to the rest of a trader's actual process.
 
-## How PropLog AI Supports This
+## How PropLogAI Supports This
 
-PropLog AI's journal and tracking tools are built to make risk management something that gets tracked consistently rather than estimated after the fact. Planned risk per trade, actual stop-loss placement, and daily totals can be logged alongside every trade in a [trading journal](/blogs/prop-firm-trading-journal), so a trader can see whether calculated risk limits are actually being followed in practice, not just intended in theory. It does not set risk limits on a trader's behalf and does not recommend a specific per-trade or daily risk percentage — those remain decisions for the trader, and where applicable, their prop firm's own rules.
+PropLogAI's journal and tracking tools are built to make risk management something that gets tracked consistently rather than estimated after the fact. Planned risk per trade, actual stop-loss placement, and daily totals can be logged alongside every trade in a [trading journal](/blogs/prop-firm-trading-journal), so a trader can see whether calculated risk limits are actually being followed in practice, not just intended in theory. It does not set risk limits on a trader's behalf and does not recommend a specific per-trade or daily risk percentage — those remain decisions for the trader, and where applicable, their prop firm's own rules.
 
 ## Conclusion
 

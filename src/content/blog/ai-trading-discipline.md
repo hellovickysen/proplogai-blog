@@ -9,8 +9,6 @@ draft: false
 metaTitle: "How to Use AI to Improve Trading Discipline Without Taking Trading Advice"
 ---
 
-# How to Use AI to Improve Trading Discipline Without Taking Trading Advice
-
 Most people hear "use AI to trade better" and picture a signal feed: a tool that tells you when to enter, when to exit, or which pair is about to move. That version of AI-assisted trading is exactly what a prop firm trader should avoid. There is a second, much narrower use of AI that holds up to scrutiny: using it to strengthen trading discipline by analyzing a trader's own behavior, not the market. This article walks through that process step by step, and is just as much about where the process should stop as it is about how to start it.
 
 ## What "Using AI for Discipline" Actually Means
@@ -70,9 +68,9 @@ The trader reviews this manually and decides the cause is fatigue-driven rule-sk
 
 After the next 40 trades, the AI layer reports 88% compliance with the new rule. That number, not the win/loss result of any single trade in that window, is the actual measure of whether discipline improved. The trader can now decide, with real data instead of a feeling, whether the new rule is worth keeping as written, adjusting, or dropping.
 
-## How Propol AI Coach Supports This Process
+## How PropLogAI Coach Supports This Process
 
-Propol AI Coach, built into PropLog AI, is designed to support exactly this loop: surfacing discipline-relevant patterns such as rule-compliance rates by session, setup, or time since a prior loss, and then tracking adherence to whatever specific rule a trader decides to adopt from that pattern. It does not suggest trades, does not issue entry or exit signals, and does not claim that following a surfaced pattern will produce a specific result.
+PropLogAI Coach, built into PropLogAI, is designed to support exactly this loop: surfacing discipline-relevant patterns such as rule-compliance rates by session, setup, or time since a prior loss, and then tracking adherence to whatever specific rule a trader decides to adopt from that pattern. It does not suggest trades, does not issue entry or exit signals, and does not claim that following a surfaced pattern will produce a specific result.
 
 Its role is closer to a compliance tracker built around a trader's own stated rules than a strategy advisor. The trader remains responsible for deciding which pattern matters, what rule to write in response, and whether that rule is working.
 

@@ -9,8 +9,6 @@ draft: false
 metaTitle: "How an AI Trading Coach Finds Patterns in Your Journal Data"
 ---
 
-# How an AI Trading Coach Finds Patterns in Your Journal Data
-
 [AI Trading Coach for Prop Firm Traders: What It Should and Should Not Do](/blogs/ai-trading-coach-prop-firm) covers the boundaries of what an AI coaching tool should and should not claim. This article goes one level deeper into a narrower question: mechanically, how does a tool actually find a pattern in a trader's journal data in the first place? Understanding the mechanics makes it much easier to judge whether a specific pattern claim is trustworthy or just an impressive-sounding guess.
 
 ## The Raw Material: What Data an AI Coach Actually Looks At
@@ -78,11 +76,11 @@ A tool that can answer the first three questions clearly, and that stays firmly 
 
 None of the four methods above involve market data, price forecasting, or any claim about future price direction. They operate entirely on a trader's own historical journal entries. That means this kind of pattern detection cannot tell a trader whether a specific trade idea will work, cannot predict news events or volatility, and cannot guarantee that acting on a surfaced pattern will improve results going forward. It can only describe what has already happened in a trader's own recorded history, as a starting point for the trader's own review.
 
-## How Propol AI Coach Applies This
+## How PropLogAI Coach Applies This
 
-Propol AI Coach, inside PropLog AI, applies these same categories of analysis — correlation, clustering, sequence, and outlier detection — to a trader's own journal entries, tags, and P&L history. Where possible, it is designed to surface the underlying trades behind a pattern rather than only a summary conclusion, so a trader can check the claim rather than simply accept it.
+PropLogAI Coach, inside PropLogAI, applies these same categories of analysis — correlation, clustering, sequence, and outlier detection — to a trader's own journal entries, tags, and P&L history. Where possible, it is designed to surface the underlying trades behind a pattern rather than only a summary conclusion, so a trader can check the claim rather than simply accept it.
 
-It does not issue signals, does not forecast the market, and does not present any pattern as a guarantee of future performance. Its role stops at making a trader's own recorded behavior easier to see clearly — a boundary explored further in a companion piece on why AI trading coaches should not give buy or sell signals, and in a closer look at how Propol AI Coach specifically helps traders find mistakes that are easy to miss on their own. For traders weighing whether an AI layer is worth adding to a spreadsheet-based process, that comparison is also worth exploring separately.
+It does not issue signals, does not forecast the market, and does not present any pattern as a guarantee of future performance. Its role stops at making a trader's own recorded behavior easier to see clearly — a boundary explored further in a companion piece on why AI trading coaches should not give buy or sell signals, and in a closer look at how PropLogAI Coach specifically helps traders find mistakes that are easy to miss on their own. For traders weighing whether an AI layer is worth adding to a spreadsheet-based process, that comparison is also worth exploring separately.
 
 ## Conclusion
 

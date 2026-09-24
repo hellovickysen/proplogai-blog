@@ -2,6 +2,7 @@
 title: "Daily Drawdown Calculator for Prop Firm Traders"
 description: "Learn how prop firm daily drawdown limits work, balance-based vs equity-based calculations, and how to track your own real-time buffer."
 date: 2026-07-13
+updatedDate: 2026-09-21
 category: "Tools and Calculators"
 silo: "Free Prop Firm Trading Tools and Calculators"
 coverImage: "/blogs/images/cover-daily-drawdown-calculator.webp"
@@ -9,15 +10,13 @@ draft: false
 metaTitle: "Daily Drawdown Calculator for Prop Firm Traders"
 ---
 
-# Daily Drawdown Calculator for Prop Firm Traders
-
-Most prop firm traders can recite their profit target from memory. Far fewer can say, at any given moment mid-session, exactly how much of their daily drawdown allowance they've already used. That gap matters, because a daily drawdown breach ends an account instantly, regardless of how good the account's overall statistics look. This article explains what a daily drawdown limit actually measures, the two different ways firms calculate it, and how to track your own number in real time instead of finding out the hard way.
+Most prop firm traders can recite their profit target from memory. Far fewer can say, at any given moment mid-session, exactly how much of their [daily drawdown limit](/glossary/daily-drawdown-limit) they have already used. That gap matters because a breach can end an account under the program’s rules. This article explains what a daily drawdown limit measures, the different ways firms may calculate it, and how to track the relevant number using the rules for your account.
 
 ## What a Daily Drawdown Limit Actually Measures
 
 A daily drawdown limit caps how much an account is allowed to lose within a single trading day, expressed as a percentage of a baseline value for that day. If losses on a given day reach that percentage, the account breaches — typically immediately, and typically regardless of whether the account is otherwise profitable overall.
 
-This is a different rule from the consistency requirement covered in a companion piece on the prop firm consistency calculator: a consistency rule affects whether a payout gets approved after the fact, while a daily drawdown limit can end the account outright, on any day, independent of the account's total profit or loss.
+This is different from an [overall drawdown limit](/glossary/overall-drawdown-limit), which applies across a wider account period, and from the consistency requirement covered in the companion piece on the [prop firm consistency calculator](/blogs/prop-firm-consistency-calculator). Each rule must be checked against the current terms for the specific program.
 
 ## Balance-Based vs Equity-Based Daily Drawdown
 
@@ -90,9 +89,9 @@ Its value is in making a number that changes constantly, and that is genuinely t
 
 This calculator is one of several planned for this part of the site, alongside the [Prop Firm Consistency Calculator](/blogs/prop-firm-consistency-calculator) pillar it supports. Related tools still to come include a Lot Size Calculator, a Risk-to-Reward Calculator, and a Profit Target Calculator — each one answering a single, specific numeric question rather than trying to double as a general strategy guide.
 
-## How PropLog AI Supports This
+## How PropLogAI Supports This
 
-PropLog AI's account tracking is designed to keep a running daily drawdown figure visible throughout the trading day, calculated against whichever baseline method matches the trader's own account rules, rather than requiring a manual recalculation every time a position moves. It shows the remaining buffer as a plain number, so it can be checked before a new position is opened the same way position size or stop distance already would be.
+PropLogAI's account tracking is designed to keep a running daily drawdown figure visible throughout the trading day, calculated against whichever baseline method matches the trader's own account rules, rather than requiring a manual recalculation every time a position moves. It shows the remaining buffer as a plain number, so it can be checked before a new position is opened the same way position size or stop distance already would be.
 
 It does not know a specific firm's exact rule set in advance — that still comes from the trader's own account terms — and it does not forecast how any open position will move next. Its role stops at keeping the math accurate and current, based on the trader's own account activity.
 
