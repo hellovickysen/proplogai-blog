@@ -9,8 +9,6 @@ draft: false
 metaTitle: "P&L Calendar for Traders: Spot Revenge Days and Losing Streaks"
 ---
 
-# P&L Calendar for Traders: How to Spot Revenge Days and Losing Streaks
-
 A P&L calendar can look simple: green days, red days, totals, and maybe a monthly summary. But for traders who review it carefully, the calendar becomes more than a scoreboard. It can show when losses cluster, when decision quality changes, and when a normal losing trade turns into a behavior problem. If you have not built a trading journal yet, [how to keep a forex trading journal for funded accounts](/blogs/forex-journal-funded-accounts) is a good place to start before layering in calendar-level review.
 
 ## What a P&L calendar actually shows
@@ -128,11 +126,11 @@ Stress can change how people evaluate risk. Research published in PNAS found tha
 
 That is why a P&L calendar should not only record results. It should help the trader identify when stress, frustration, or urgency may have changed the process.
 
-## Where PropLog AI fits
+## Where PropLogAI fits
 
-PropLog AI can help traders organize P&L calendar data, trade tags, journal notes, weekly reviews, and AI-assisted reflection in one workflow. Instead of manually scanning scattered notes, a trader can review patterns such as red-day clusters, emotional tags, trade count changes, and rule adherence.
+PropLogAI can help traders organize P&L calendar data, trade tags, journal notes, weekly reviews, and AI-assisted reflection in one workflow. Instead of manually scanning scattered notes, a trader can review patterns such as red-day clusters, emotional tags, trade count changes, and rule adherence.
 
-The value is educational and organizational. PropLog AI does not provide buy or sell signals, financial advice, investment advice, or guaranteed trading results. It helps traders ask clearer review questions based on their own journal data.
+The value is educational and organizational. PropLogAI does not provide buy or sell signals, financial advice, investment advice, or guaranteed trading results. It helps traders ask clearer review questions based on their own journal data.
 
 ## P&L calendar checklist
 

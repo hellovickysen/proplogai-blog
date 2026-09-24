@@ -2,14 +2,13 @@
 title: "Revenge Trading in Prop Firm Challenges: How to Stop the Cycle"
 description: "Learn what revenge trading looks like in prop firm challenges, why it happens after losses, and how to build a safer review routine without relying on trading signals."
 date: 2026-07-07
+updatedDate: 2026-09-21
 category: "Trading Psychology"
 silo: "Trading Psychology for Prop Firm Traders"
 coverImage: "/blogs/images/cover-revenge-trading-prop-firm.webp"
 draft: false
 metaTitle: "Revenge Trading in Prop Firm Challenges: How to Stop the Cycle"
 ---
-
-# Revenge Trading in Prop Firm Challenges: How to Stop the Cycle
 
 Revenge trading is one of the fastest ways for a prop firm challenge to move from controlled risk to emotional damage control. It usually starts with a loss that feels personal: a stop-out just before price moves back, a rule-following trade that fails, a missed setup that becomes a winner without you, or a small mistake that turns into frustration.
 
@@ -19,7 +18,7 @@ The dangerous part is not the first loss. Losses are part of trading. The danger
 
 Revenge trading is the attempt to recover emotionally from a loss by taking trades that are not part of the plan. The trader is not simply looking for the next valid setup. They are trying to undo the previous result.
 
-In a prop firm challenge, revenge trading often appears as:
+In a prop firm challenge, [revenge trading](/glossary/revenge-trading) often appears as:
 
 - Re-entering immediately after a stop-out without a fresh setup
 - Increasing position size to make back a loss faster
@@ -145,9 +144,9 @@ A weekly review can ask:
 
 This turns revenge trading from a character flaw into a measurable behavior pattern.
 
-## How PropLog AI can support the review process
+## How PropLogAI can support the review process
 
-PropLog AI is designed to help traders organize trading behavior, journal data, P&L context, trade tags, and review routines. Used properly, a journal can make revenge trading easier to spot because the trader is no longer relying only on memory.
+PropLogAI is designed to help traders organize trading behavior, journal data, P&L context, trade tags, and review routines. Used properly, a journal can make revenge trading easier to spot because the trader is no longer relying only on memory.
 
 For example, a trader can track:
 

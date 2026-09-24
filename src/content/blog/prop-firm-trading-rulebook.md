@@ -9,8 +9,6 @@ draft: false
 metaTitle: "How to Create a Trading Rulebook You Actually Follow"
 ---
 
-# How to Create a Trading Rulebook You Actually Follow
-
 A trading rulebook sounds simple until the market is moving quickly. Most traders do not break rules because they forgot how to write them. They break rules because the rules are vague, too complicated, or easy to reinterpret in the moment.
 
 A useful trading rulebook should do one job: make the next decision easier before emotion gets involved.
@@ -204,19 +202,19 @@ Use a simple versioning process:
 
 This helps prevent random edits. The rulebook becomes a living document, not an emotional reset button.
 
-## How PropLog AI can support rulebook discipline
+## How PropLogAI can support rulebook discipline
 
-PropLog AI can help traders organize the rulebook workflow by connecting rules to journal entries, tags, P&L calendar views, and weekly reviews. Instead of keeping rules in one place and trade notes somewhere else, a trader can review whether real trades matched the written process.
+PropLogAI can help traders organize the rulebook workflow by connecting rules to journal entries, tags, P&L calendar views, and weekly reviews. Instead of keeping rules in one place and trade notes somewhere else, a trader can review whether real trades matched the written process.
 
-Useful PropLog AI workflows may include:
+Useful PropLogAI workflows may include:
 
 - Tagging trades by setup name
 - Marking rule-compliant and non-compliant trades
 - Reviewing mistakes by day, session, or emotional tag
 - Connecting rule breaks to P&L calendar patterns
-- Using Propol AI Coach for educational reflection on journaled behavior
+- Using PropLogAI Coach for educational reflection on journaled behavior
 
-PropLog AI does not provide buy or sell signals, financial advice, investment advice, or guaranteed outcomes. Its role is to help traders organize their own data and reflect on their own process.
+PropLogAI does not provide buy or sell signals, financial advice, investment advice, or guaranteed outcomes. Its role is to help traders organize their own data and reflect on their own process.
 
 ## A starter trading rulebook template
 

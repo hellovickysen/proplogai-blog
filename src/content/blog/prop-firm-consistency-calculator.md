@@ -2,6 +2,7 @@
 title: "Prop Firm Consistency Calculator: How to Know If You Can Request Payout"
 description: "Learn how prop firm consistency rules work, the exact ratio formula firms use, and how to calculate your own score before requesting a payout."
 date: 2026-07-13
+updatedDate: 2026-09-21
 category: "Tools and Calculators"
 silo: "Free Prop Firm Trading Tools and Calculators"
 coverImage: "/blogs/images/cover-prop-firm-consistency-calculator.webp"
@@ -9,9 +10,7 @@ draft: false
 metaTitle: "Prop Firm Consistency Calculator: How to Know If You Can Request Payout"
 ---
 
-# Prop Firm Consistency Calculator: How to Know If You Can Request Payout
-
-Passing a prop firm's profit target feels like the finish line. For a lot of traders it isn't. Many firms attach a second, quieter requirement to their funded accounts: a consistency rule, which checks not just how much a trader made, but how that profit was distributed across trading days. A trader can hit the profit target and still have a payout delayed, reduced, or rejected if one single day did too much of the work. This article explains what that rule actually checks, how to calculate your own consistency score by hand, and where a calculator like this is useful versus where it stops being useful.
+Passing a prop firm's profit target feels like the finish line. For a lot of traders it isn't. Some firms attach another requirement to certain funded accounts: a [consistency rule](/glossary/consistency-rule), which checks how profit was distributed across trading days. The formula, threshold, and consequences vary by firm and program. This article explains the common best-day calculation, how to calculate it by hand, and where a calculator is useful versus where it stops being useful.
 
 ## What a Prop Firm Consistency Rule Actually Checks
 
@@ -39,7 +38,7 @@ Note what counts as "the period": some firms measure this across the full evalua
 4. **Divide the best day's profit by the total profit**, then multiply by 100 to get a percentage.
 5. **Compare that percentage against your specific firm's stated consistency threshold**, found in the firm's own rules or FAQ for your account type.
 
-This is exactly the kind of repetitive, easy-to-get-wrong-by-hand calculation that a dedicated tool is useful for, especially across a longer evaluation period with dozens of trading days to track.
+This is exactly the kind of repetitive, easy-to-get-wrong-by-hand calculation that a dedicated tool is useful for, especially across a longer evaluation period with dozens of trading days to track. If your program uses this formula, the [consistency calculator](/tools/consistency-calculator) can perform the arithmetic; compare its result with the firm’s current rules before relying on it.
 
 ## A Worked Example
 
@@ -83,9 +82,9 @@ A consistency calculator works best alongside the other tracking habits already 
 
 This is the first of several practical calculators planned for this part of the site — including a [Daily Drawdown Calculator](/blogs/daily-drawdown-calculator), a Lot Size Calculator, a Risk-to-Reward Calculator, a Profit Target Calculator, a Prop Firm Breach Buffer Calculator, a Trading Discipline Score, a Forex Session Performance Tracker, and a Trade Count Limit Calculator. Each one answers a single, specific numeric question the same way this one does, rather than trying to be a general strategy tool.
 
-## How PropLog AI Supports This
+## How PropLogAI Supports This
 
-PropLog AI's account tracking is built to carry this kind of calculation automatically once daily results are logged, rather than requiring a trader to re-total profit by hand partway through an evaluation. It surfaces the same consistency ratio described above, based on a trader's own daily net results, so the number is available continuously rather than only when someone remembers to calculate it.
+PropLogAI's account tracking is built to carry this kind of calculation automatically once daily results are logged, rather than requiring a trader to re-total profit by hand partway through an evaluation. It surfaces the same consistency ratio described above, based on a trader's own daily net results, so the number is available continuously rather than only when someone remembers to calculate it.
 
 It does not know any individual firm's specific consistency threshold in advance — that still has to come from the trader's own account terms — and it does not predict whether a given day is likely to be unusually large. Its role is to keep the running number accurate and visible, so a trader can react early if the ratio starts drifting toward a problem rather than discovering it only when a payout request is filed.
 

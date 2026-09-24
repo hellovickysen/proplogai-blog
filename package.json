@@ -6,6 +6,9 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
+    "validate:content": "node scripts/validate-content.mjs",
+    "validate:build": "node scripts/validate-build.mjs",
+    "check": "npm run validate:content && npm run build && npm run validate:build",
     "preview": "astro preview",
     "astro": "astro"
   },

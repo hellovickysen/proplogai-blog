@@ -10,9 +10,27 @@ const allCategories = [...new Set(posts.map((p) => p.data.category))].sort();
 
 const featuredPost = posts[0];
 const restPosts = posts.slice(1);
+const collectionDescription = 'Trading psychology, discipline, and performance insights from PropLogAI — the AI-powered trading journal for prop firm traders.';
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'PropLogAI Blog',
+  description: collectionDescription,
+  url: 'https://proplogai.com/blogs',
+  mainEntity: {
+    '@type': 'ItemList',
+    numberOfItems: posts.length,
+    itemListElement: posts.map((post, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: post.data.title,
+      url: `https://proplogai.com/blogs/${post.slug}`,
+    })),
+  },
+};
 ---
 
-<BaseLayout title="Blog">
+<BaseLayout title="Blog" description={collectionDescription} structuredData={structuredData}>
   <!-- Hero Section -->
   <section class="mx-auto max-w-6xl px-5 pt-16 sm:pt-20 pb-6">
     <div class="animate-fade-in-up">
@@ -160,7 +178,7 @@ const restPosts = posts.slice(1);
         Start your trading journal
       </h2>
       <p class="text-sm text-white/40 mb-7 max-w-lg mx-auto leading-relaxed">
-        Track trades, understand your psychology, and get personalized coaching from Propol AI.
+        Track trades, understand your psychology, and get personalized coaching from PropLogAI.
       </p>
       <a
         href="https://proplogai.com/login"

@@ -9,8 +9,6 @@ draft: false
 metaTitle: "Forex Trading for Beginners: What to Learn Before Taking a Prop Firm Challenge"
 ---
 
-# Forex Trading for Beginners: What to Learn Before Taking a Prop Firm Challenge
-
 It's tempting to skip straight to a prop firm challenge once forex trading starts to look interesting — the funded-account model is appealing, and the entry cost is low compared to opening a large personal account. The problem isn't ambition. It's that a prop firm challenge adds a second layer of rules on top of ordinary trading, and most beginners fail challenges for reasons that have nothing to do with a lack of a "winning strategy": missing foundations that would have been worth an hour of study before the first live trade. This article covers those foundations in one place, with links to a deeper look at each one.
 
 ## What Forex Trading Actually Involves
@@ -67,9 +65,9 @@ The same applies to the mechanical side of a challenge itself: once trading, che
 
 Reading about pips, position sizing, and risk-to-reward ratios is necessary but not sufficient. None of it substitutes for screen time, a demo account practiced properly, or the specific rules of whichever prop firm a trader eventually chooses. This article, and the ones it links to, describe concepts and how to think about them. They do not predict how any specific trade will perform, do not recommend specific currency pairs or entries, and do not guarantee that understanding these foundations will result in a passed challenge. What they do is remove the excuse of not knowing where to start.
 
-## How PropLog AI Supports This
+## How PropLogAI Supports This
 
-PropLog AI is built for the stage that comes after these foundations: once a trader is actually placing trades, in a demo account or a live challenge, PropLog AI's journal and tracking tools turn planned risk, position sizing, and rule adherence into a running record rather than something remembered loosely after the fact. It does not teach forex trading basics on its own and does not replace the kind of foundational learning this article and its companion pieces are meant to provide — its role starts once there's real trading activity worth tracking.
+PropLogAI is built for the stage that comes after these foundations: once a trader is actually placing trades, in a demo account or a live challenge, PropLogAI's journal and tracking tools turn planned risk, position sizing, and rule adherence into a running record rather than something remembered loosely after the fact. It does not teach forex trading basics on its own and does not replace the kind of foundational learning this article and its companion pieces are meant to provide — its role starts once there's real trading activity worth tracking.
 
 ## Conclusion
 

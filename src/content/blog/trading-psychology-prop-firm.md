@@ -2,14 +2,13 @@
 title: "Trading Psychology for Prop Firm Traders: Why Your Mind Breaks the Rules"
 description: "Trading psychology is why prop firm traders break their own rules. Learn the patterns behind revenge trading, overconfidence, and FOMO, and how to spot yours."
 date: 2026-07-07
+updatedDate: 2026-09-21
 category: "Trading Psychology"
 silo: "Trading Psychology for Prop Firm Traders"
 coverImage: "/blogs/images/cover-trading-psychology-prop-firm.webp"
 draft: false
 metaTitle: "Trading Psychology for Prop Firm Traders: Why Your Mind Breaks the Rules"
 ---
-
-# Trading Psychology for Prop Firm Traders: Why Your Mind Breaks the Rules
 
 Most prop firm traders do not fail because they lack a strategy. They fail because, at some point during a session, they stop following the strategy they already had. The stop loss gets moved. The size gets doubled after a loss. A setup gets taken that was never on the plan. Ask most traders why, and the honest answer is usually "I don't really know — it just happened."
 
@@ -39,7 +38,7 @@ Reviewing journal data across many trades tends to surface the same handful of p
 
 **Struggling after two losing trades.** For many traders, execution quality does not decline gradually — it drops sharply after the second loss of the day, which is often the point where a plan quietly gets abandoned for the rest of the session.
 
-Each of these deserves its own closer look. [Trading Emotions: The Silent Account Killer](/blogs/trading-emotions-account-killer) walks through several of them in more detail, and [Revenge Trading in Prop Firm Challenges: How to Stop the Cycle](/blogs/revenge-trading-prop-firm) goes deeper on that specific pattern, with more articles on overconfidence and FOMO to follow. The starting point for all of them is the same: a pattern that has not been measured is a pattern that cannot be managed.
+Each of these deserves its own closer look. The guide to [tracking trading emotions](/blogs/tracking-trading-emotions) explains how to record them before, during, and after a trade, while [Revenge Trading in Prop Firm Challenges: How to Stop the Cycle](/blogs/revenge-trading-prop-firm) goes deeper on that specific pattern. The starting point for both is the same: a pattern that has not been measured is difficult to review.
 
 ## A quick self-check
 
@@ -71,11 +70,11 @@ Recognizing a pattern is not the same as having a system to interrupt it. "I wil
 
 None of this requires predicting the market more accurately. It requires making the trader's own behavior visible enough that a repeated mistake gets caught before it happens a tenth time instead of after.
 
-## How PropLog AI supports this without replacing your judgment
+## How PropLogAI supports this without replacing your judgment
 
-PropLog AI's Propol AI Coach is built around this idea: your own journal, not a generic rulebook, is the most useful source of information about your trading behavior. Emotion tags, rule-compliance notes, and trade outcomes feed into pattern detection for things like revenge-trading sequences, tilt after consecutive losses, and overconfidence following a strong session — all surfaced from your own history rather than a one-size-fits-all list of trading rules.
+PropLogAI's PropLogAI Coach is built around this idea: your own journal, not a generic rulebook, is the most useful source of information about your trading behavior. Emotion tags, rule-compliance notes, and trade outcomes feed into pattern detection for things like revenge-trading sequences, tilt after consecutive losses, and overconfidence following a strong session — all surfaced from your own history rather than a one-size-fits-all list of trading rules.
 
-Propol AI Coach does not predict markets, issue signals, or promise improved results. Its role is to make patterns in your own data easier to see and review, in the same way a monthly account statement makes spending patterns easier to see than a shoebox of receipts.
+PropLogAI Coach does not predict markets, issue signals, or promise improved results. Its role is to make patterns in your own data easier to see and review, in the same way a monthly account statement makes spending patterns easier to see than a shoebox of receipts.
 
 ## Where to go from here
 

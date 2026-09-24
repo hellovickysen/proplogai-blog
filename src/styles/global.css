@@ -133,6 +133,17 @@
 }
 .prose-blog h3 { font-size: 1.25rem; }
 
+.prose-blog #frequently-asked-questions ~ h3 {
+  font-size: 1.15rem;
+  margin-bottom: 0.45em;
+}
+
+.prose-blog #frequently-asked-questions ~ h3 + p {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.64);
+}
+
 .prose-blog p {
   margin-bottom: 1.35em;
   color: rgba(255, 255, 255, 0.72);
