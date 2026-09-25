@@ -53,7 +53,7 @@ for (const file of articles) {
   if (modified && published && modified < published) {
     failures.push(`${relative(file)}: updatedDate precedes date`);
   }
-  for (const match of body.matchAll(/\[[^\]]+\]\((\/[^)]+)\)/g)) {
+  for (const match of body.matchAll(/(?<!!)\[[^\]]+\]\((\/[^)]+)\)/g)) {
     const href = match[1];
     if (href.length > 1 && href.endsWith('/')) failures.push(`${relative(file)}: internal link has a trailing slash: ${href}`);
     if (href.startsWith('/blogs/downloads/')) {
@@ -98,6 +98,27 @@ for (const [fileName, destinations] of requiredRelationships) {
   const source = await readFile(path.join(contentRoot, fileName), 'utf8');
   for (const destination of destinations) {
     if (!source.includes(`](${destination})`)) failures.push(`${fileName}: missing required relationship ${destination}`);
+  }
+}
+
+const requiredAssets = new Map([
+  ['overtrading-prop-firm-challenges.mdx', [
+    '/blogs/images/overtrading-step-1-plan.webp',
+    '/blogs/images/overtrading-step-2-trade.webp',
+    '/blogs/images/overtrading-step-3-urge.webp',
+    '/blogs/images/overtrading-full-review.webp',
+  ]],
+]);
+for (const [fileName, assets] of requiredAssets) {
+  const source = await readFile(path.join(contentRoot, fileName), 'utf8');
+  for (const asset of assets) {
+    if (!source.includes(`](${asset})`)) failures.push(`${fileName}: missing required teaching image ${asset}`);
+    const assetPath = path.join(root, 'public', asset.slice('/blogs/'.length));
+    try {
+      await readFile(assetPath);
+    } catch {
+      failures.push(`${fileName}: missing teaching image file ${asset}`);
+    }
   }
 }
 
