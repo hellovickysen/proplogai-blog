@@ -29,7 +29,7 @@ const articles = (await filesUnder(contentRoot))
   .filter((file) => /\.(md|mdx)$/i.test(file) && path.basename(file) !== '_template.md');
 const articleSlugs = new Set(articles.map((file) => path.basename(file, path.extname(file))));
 const approvedGlossarySlugs = new Set([
-  'consistency-rule', 'daily-drawdown-limit', 'fomo', 'overall-drawdown-limit', 'overtrading', 'prop-firm-challenge', 'revenge-trading',
+  'consistency-rule', 'daily-drawdown-limit', 'fomo', 'funded-account', 'overall-drawdown-limit', 'overtrading', 'prop-firm-challenge', 'revenge-trading',
   'setup-compliance', 'trade-review', 'trading-journal',
 ]);
 
@@ -77,6 +77,11 @@ for (const file of articles) {
 }
 
 const requiredRelationships = new Map([
+  ['prop-firm-expense-tracking-guide.mdx', [
+    '/glossary/funded-account',
+    '/blogs/prop-firm-trading-journal',
+    '/blogs/prop-firm-roi-calculator',
+  ]],
   ['prop-firm-trading-journal.md', ['/glossary/trading-journal', '/blogs/prop-firm-pnl-calendar', '/blogs/tracking-trading-emotions']],
   ['forex-journal-funded-accounts.md', ['/blogs/prop-firm-trading-journal']],
   ['prop-firm-consistency-calculator.md', ['/glossary/consistency-rule', '/tools/consistency-calculator']],
@@ -102,6 +107,9 @@ for (const [fileName, destinations] of requiredRelationships) {
 }
 
 const requiredAssets = new Map([
+  ['prop-firm-expense-tracking-guide.mdx', [
+    '/blogs/downloads/prop-firm-expense-log-template.csv',
+  ]],
   ['overtrading-prop-firm-challenges.mdx', [
     '/blogs/images/overtrading-step-1-plan.webp',
     '/blogs/images/overtrading-step-2-trade.webp',

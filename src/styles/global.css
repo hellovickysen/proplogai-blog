@@ -241,11 +241,13 @@
 }
 
 .prose-blog table {
+  display: block;
   width: 100%;
+  max-width: 100%;
   border-collapse: collapse;
   margin: 2em 0;
   border-radius: 0.75rem;
-  overflow: hidden;
+  overflow-x: auto;
 }
 
 .prose-blog th {
@@ -265,6 +267,34 @@
 
 .prose-blog tr:hover td {
   background: rgba(255, 255, 255, 0.02);
+}
+
+.prose-blog .expense-example-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.875rem;
+  margin: 2rem 0 1rem;
+}
+
+.prose-blog .expense-example-card {
+  padding: 1rem;
+  border: 1px solid rgba(139, 92, 246, 0.22);
+  border-radius: 0.875rem;
+  background: rgba(139, 92, 246, 0.05);
+}
+
+.prose-blog .expense-example-card p {
+  margin: 0;
+}
+
+.prose-blog .expense-example-card p + p {
+  margin-top: 0.45rem;
+}
+
+@media (max-width: 640px) {
+  .prose-blog .expense-example-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ── Scrollbar ── */
