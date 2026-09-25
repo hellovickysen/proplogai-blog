@@ -248,21 +248,36 @@
   margin: 2em 0;
   border-radius: 0.75rem;
   overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(139, 92, 246, 0.45) rgba(255, 255, 255, 0.04);
+  -webkit-overflow-scrolling: touch;
 }
 
 .prose-blog th {
+  min-width: 13rem;
   font-weight: 600;
   color: white;
   text-align: left;
+  vertical-align: top;
+  line-height: 1.5;
   padding: 0.875em 1em;
   background: rgba(255, 255, 255, 0.04);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .prose-blog td {
+  min-width: 13rem;
+  vertical-align: top;
+  line-height: 1.6;
   padding: 0.875em 1em;
   border-bottom: 1px solid rgba(255, 255, 255, 0.04);
   color: rgba(255, 255, 255, 0.7);
+}
+
+.prose-blog th:first-child,
+.prose-blog td:first-child {
+  min-width: 9rem;
 }
 
 .prose-blog tr:hover td {
