@@ -39,7 +39,7 @@ Moving a stop-loss further away after a trade is already losing is one of the mo
 
 Risk management operates on more than one level at once. Per-trade risk controls a single position. A separate daily risk limit controls how much can be lost across an entire day's trading combined, regardless of how many individual trades that involves. An account-level limit does the same thing across a longer stretch of time.
 
-This layered structure is exactly what prop firm rules are built around — a firm's daily drawdown limit and overall drawdown limit are account-level and daily risk limits, enforced externally rather than self-imposed. A trader who already thinks in terms of daily and account-level risk limits, independent of any firm's specific rules, tends to find those firm rules far less restrictive in practice than a trader encountering the idea of a daily cap for the first time only because a firm requires one.
+This layered structure is also reflected in prop-firm rules. A firm's [daily drawdown limit](/glossary/daily-drawdown-limit) and [overall drawdown limit](/glossary/overall-drawdown-limit) are contractual floors, while a trader's personal risk limits are self-imposed. The rule names can look similar, but the calculation depends on the exact program. The [daily drawdown calculator](/blogs/daily-drawdown-calculator) explains how to compare an official floor with the account value the rule measures.
 
 ## Diversifying Risk Across Trades and Time
 

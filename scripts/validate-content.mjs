@@ -29,7 +29,7 @@ const articles = (await filesUnder(contentRoot))
   .filter((file) => /\.(md|mdx)$/i.test(file) && path.basename(file) !== '_template.md');
 const articleSlugs = new Set(articles.map((file) => path.basename(file, path.extname(file))));
 const approvedGlossarySlugs = new Set([
-  'consistency-rule', 'daily-drawdown-limit', 'fomo', 'funded-account', 'overall-drawdown-limit', 'overtrading', 'prop-firm-challenge', 'revenge-trading',
+  'consistency-rule', 'daily-drawdown-limit', 'drawdown', 'fomo', 'funded-account', 'overall-drawdown-limit', 'overtrading', 'prop-firm-challenge', 'revenge-trading',
   'emotion-tracking', 'setup-compliance', 'trade-review', 'trading-journal',
 ]);
 
@@ -96,7 +96,14 @@ const requiredRelationships = new Map([
     '/blogs/trading-journal-template',
   ]],
   ['revenge-trading-prop-firm.md', ['/glossary/revenge-trading']],
-  ['daily-drawdown-calculator.md', ['/glossary/daily-drawdown-limit', '/glossary/overall-drawdown-limit']],
+  ['daily-drawdown-calculator.mdx', [
+    '/glossary/daily-drawdown-limit',
+    '/glossary/overall-drawdown-limit',
+    '/glossary/drawdown',
+    '/blogs/prop-firm-risk-management',
+    '/glossary/trading-journal',
+    '/blogs/overtrading-prop-firm-challenges',
+  ]],
   ['ai-trading-coach-prop-firm.md', ['/blogs/ai-journal-pattern-detection', '/blogs/ai-trading-discipline']],
 ]);
 for (const [fileName, destinations] of requiredRelationships) {
@@ -129,6 +136,9 @@ const requiredAssets = new Map([
     '/blogs/images/emotion-decision-step-2-result.webp',
     '/blogs/images/emotion-decision-step-3-urge.webp',
     '/blogs/images/emotion-decision-full-review.webp',
+  ]],
+  ['daily-drawdown-calculator.mdx', [
+    '/blogs/images/cover-daily-drawdown-calculator.webp',
   ]],
 ]);
 for (const [fileName, assets] of requiredAssets) {
