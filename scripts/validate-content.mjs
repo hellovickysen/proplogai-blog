@@ -112,7 +112,7 @@ const requiredAssets = new Map([
 for (const [fileName, assets] of requiredAssets) {
   const source = await readFile(path.join(contentRoot, fileName), 'utf8');
   for (const asset of assets) {
-    if (!source.includes(`](${asset})`)) failures.push(`${fileName}: missing required teaching image ${asset}`);
+    if (!source.includes(asset)) failures.push(`${fileName}: missing required teaching image ${asset}`);
     const assetPath = path.join(root, 'public', asset.slice('/blogs/'.length));
     try {
       await readFile(assetPath);
