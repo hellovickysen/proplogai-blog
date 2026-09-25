@@ -242,7 +242,7 @@
 
 .prose-blog table {
   display: block;
-  width: 100%;
+  width: calc(100vw - 2.5rem);
   max-width: 100%;
   border-collapse: collapse;
   margin: 2em 0;

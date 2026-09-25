@@ -64,10 +64,22 @@ if (!collection || collection.mainEntity?.['@type'] !== 'ItemList' || collection
   failures.push('index.html: incomplete CollectionPage or ItemList schema');
 }
 
+const vercelConfig = JSON.parse(await readFile(path.join(process.cwd(), 'vercel.json'), 'utf8'));
+const emotionRedirect = vercelConfig.redirects?.find(
+  (redirect) => redirect.source === '/trading-emotions-account-killer',
+);
+if (
+  !emotionRedirect ||
+  emotionRedirect.destination !== '/how-emotions-affect-trading-decisions' ||
+  emotionRedirect.permanent !== true
+) {
+  failures.push('vercel.json: legacy trading-emotions URL must permanently redirect to the approved keyword-aligned URL');
+}
+
 if (failures.length) {
   console.error(`Build validation failed with ${failures.length} issue(s):`);
   for (const failure of failures) console.error(`- ${failure}`);
   process.exit(1);
 }
 
-console.log(`Build validation passed: blog collection schema plus ${pages.length} article pages with visible dates, article metadata, BlogPosting and BreadcrumbList schema, exactly one H1, and no legacy brand spellings.`);
+console.log(`Build validation passed: blog collection schema plus ${pages.length} article pages with visible dates, article metadata, BlogPosting and BreadcrumbList schema, exactly one H1, no legacy brand spellings, and the approved trading-emotions redirect.`);

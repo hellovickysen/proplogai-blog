@@ -30,7 +30,7 @@ const articles = (await filesUnder(contentRoot))
 const articleSlugs = new Set(articles.map((file) => path.basename(file, path.extname(file))));
 const approvedGlossarySlugs = new Set([
   'consistency-rule', 'daily-drawdown-limit', 'fomo', 'funded-account', 'overall-drawdown-limit', 'overtrading', 'prop-firm-challenge', 'revenge-trading',
-  'setup-compliance', 'trade-review', 'trading-journal',
+  'emotion-tracking', 'setup-compliance', 'trade-review', 'trading-journal',
 ]);
 
 for (const file of articles) {
@@ -110,11 +110,25 @@ const requiredAssets = new Map([
   ['prop-firm-expense-tracking-guide.mdx', [
     '/blogs/downloads/prop-firm-expense-log-template.csv',
   ]],
+  ['how-emotions-affect-trading-decisions.mdx', [
+    '/blogs/trading-psychology-prop-firm',
+    '/blogs/tracking-trading-emotions',
+    '/glossary/emotion-tracking',
+    '/glossary/fomo',
+    '/glossary/revenge-trading',
+    '/blogs/overtrading-prop-firm-challenges',
+  ]],
   ['overtrading-prop-firm-challenges.mdx', [
     '/blogs/images/overtrading-step-1-plan.webp',
     '/blogs/images/overtrading-step-2-trade.webp',
     '/blogs/images/overtrading-step-3-urge.webp',
     '/blogs/images/overtrading-full-review.webp',
+  ]],
+  ['how-emotions-affect-trading-decisions.mdx', [
+    '/blogs/images/emotion-decision-step-1-plan.webp',
+    '/blogs/images/emotion-decision-step-2-result.webp',
+    '/blogs/images/emotion-decision-step-3-urge.webp',
+    '/blogs/images/emotion-decision-full-review.webp',
   ]],
 ]);
 for (const [fileName, assets] of requiredAssets) {
