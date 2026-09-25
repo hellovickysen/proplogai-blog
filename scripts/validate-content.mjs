@@ -29,7 +29,7 @@ const articles = (await filesUnder(contentRoot))
   .filter((file) => /\.(md|mdx)$/i.test(file) && path.basename(file) !== '_template.md');
 const articleSlugs = new Set(articles.map((file) => path.basename(file, path.extname(file))));
 const approvedGlossarySlugs = new Set([
-  'consistency-rule', 'daily-drawdown-limit', 'fomo', 'overall-drawdown-limit', 'overtrading', 'revenge-trading',
+  'consistency-rule', 'daily-drawdown-limit', 'fomo', 'overall-drawdown-limit', 'overtrading', 'prop-firm-challenge', 'revenge-trading',
   'setup-compliance', 'trade-review', 'trading-journal',
 ]);
 
@@ -82,6 +82,7 @@ const requiredRelationships = new Map([
   ['prop-firm-consistency-calculator.md', ['/glossary/consistency-rule', '/tools/consistency-calculator']],
   ['overtrading-prop-firm-challenges.mdx', [
     '/glossary/overtrading',
+    '/glossary/prop-firm-challenge',
     '/blogs/trading-discipline-prop-firm',
     '/glossary/trade-review',
     '/glossary/setup-compliance',

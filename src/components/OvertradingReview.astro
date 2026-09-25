@@ -1,9 +1,9 @@
 <section class="drift-review" aria-labelledby="drift-review-title" data-drift-review>
   <div class="review-header">
     <div>
-      <p class="review-kicker">Interactive process review · fictional example</p>
-      <h2 id="drift-review-title">Audit the second XAUUSD decision</h2>
-      <p>Toggle the evidence that was present. The tool organises a review; it does not judge a setup or provide a signal.</p>
+      <p class="review-kicker">Try this check · fictional example</p>
+      <h2 id="drift-review-title">Check the second XAUUSD trade</h2>
+      <p>Tick each fact that matched the written plan. This helps you review the trade. It does not give a signal.</p>
     </div>
     <span class="review-badge">IST journal</span>
   </div>
@@ -17,7 +17,7 @@
   <div class="review-grid">
     <form class="evidence-form">
       <fieldset>
-        <legend>What matched the written process?</legend>
+        <legend>What still matched the written plan?</legend>
         <label>
           <input type="checkbox" name="setup" checked />
           <span><strong>Setup label existed</strong><small>“Breakout” was defined in the rulebook.</small></span>
@@ -32,7 +32,7 @@
         </label>
         <label>
           <input type="checkbox" name="reason" />
-          <span><strong>Reason was independent</strong><small>The entry followed the chart plan, not the previous result.</small></span>
+          <span><strong>The last result did not drive the entry</strong><small>The entry followed the chart plan, not the previous loss.</small></span>
         </label>
         <label>
           <input type="checkbox" name="size" checked />
@@ -45,11 +45,11 @@
       <p class="output-label">Review summary</p>
       <div class="meter" aria-hidden="true"><span data-meter></span></div>
       <div class="counts">
-        <div><strong data-aligned>2</strong><span>aligned fields</span></div>
-        <div><strong data-flags>3</strong><span>review flags</span></div>
+        <div><strong data-aligned>2</strong><span>checks matched</span></div>
+        <div><strong data-flags>3</strong><span>changes to review</span></div>
       </div>
-      <h3 data-output-title>Process drift needs review</h3>
-      <p data-output-copy>The session, confirmation, and reason changed after the first result. Record those changes before evaluating the trade outcome.</p>
+      <h3 data-output-title>Your plan changed in three places</h3>
+      <p data-output-copy>The session, final check, and reason changed after the first result. Record those changes before you look at the outcome.</p>
       <div class="next-review">
         <span>Next comparison</span>
         <p data-next-step>Filter other post-loss entries by session, setup confirmation, and reason for entry.</p>
@@ -57,7 +57,7 @@
     </div>
   </div>
 
-  <p class="tool-note">There is no universal score for overtrading. Compare the decision with the trader’s own documented process and current account rules.</p>
+  <p class="tool-note">There is no universal score for overtrading. Compare the trade with your own written plan and current account rules.</p>
 </section>
 
 <script>
@@ -78,17 +78,17 @@
       meter.style.width = `${(alignedCount / checks.length) * 100}%`;
 
       if (flagCount === 0) {
-        title.textContent = 'Recorded evidence matches the plan';
-        copy.textContent = 'All five fields align with the documented process. Keep the outcome separate and verify the record during the scheduled review.';
-        nextStep.textContent = 'Compare this entry with other plan-aligned trades using the same setup and session labels.';
+        title.textContent = 'All five checks match your plan';
+        copy.textContent = 'Keep the result separate. Check the record again during your planned review.';
+        nextStep.textContent = 'Compare this trade with other trades that used the same setup and session.';
       } else if (flagCount <= 2) {
-        title.textContent = 'A focused process check is needed';
-        copy.textContent = 'One or two fields changed. Record exactly what changed and whether the same pattern appears in comparable entries.';
-        nextStep.textContent = 'Filter the journal by the unchecked fields and compare the surrounding trade context.';
+        title.textContent = 'One or two parts changed';
+        copy.textContent = 'Write down what changed. Then check whether the same thing happened in similar trades.';
+        nextStep.textContent = 'Filter your journal by the unchecked fields and compare similar trades.';
       } else {
-        title.textContent = 'Process drift needs review';
-        copy.textContent = 'Several fields changed from the written plan. Record those changes before evaluating the trade outcome.';
-        nextStep.textContent = 'Filter other post-loss entries by session, setup confirmation, and reason for entry.';
+        title.textContent = 'Your plan changed in several places';
+        copy.textContent = 'Record the changes before you look at whether the trade won or lost.';
+        nextStep.textContent = 'Check other post-loss trades by session, final confirmation, and reason for entry.';
       }
     };
 
