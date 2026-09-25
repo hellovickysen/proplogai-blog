@@ -29,7 +29,7 @@ const articles = (await filesUnder(contentRoot))
   .filter((file) => /\.(md|mdx)$/i.test(file) && path.basename(file) !== '_template.md');
 const articleSlugs = new Set(articles.map((file) => path.basename(file, path.extname(file))));
 const approvedGlossarySlugs = new Set([
-  'consistency-rule', 'daily-drawdown-limit', 'overall-drawdown-limit', 'overtrading', 'revenge-trading',
+  'consistency-rule', 'daily-drawdown-limit', 'fomo', 'overall-drawdown-limit', 'overtrading', 'revenge-trading',
   'setup-compliance', 'trade-review', 'trading-journal',
 ]);
 
@@ -80,7 +80,15 @@ const requiredRelationships = new Map([
   ['prop-firm-trading-journal.md', ['/glossary/trading-journal', '/blogs/prop-firm-pnl-calendar', '/blogs/tracking-trading-emotions']],
   ['forex-journal-funded-accounts.md', ['/blogs/prop-firm-trading-journal']],
   ['prop-firm-consistency-calculator.md', ['/glossary/consistency-rule', '/tools/consistency-calculator']],
-  ['overtrading-prop-firm-challenges.md', ['/glossary/overtrading']],
+  ['overtrading-prop-firm-challenges.mdx', [
+    '/glossary/overtrading',
+    '/blogs/trading-discipline-prop-firm',
+    '/glossary/trade-review',
+    '/glossary/setup-compliance',
+    '/glossary/revenge-trading',
+    '/glossary/fomo',
+    '/blogs/trading-journal-template',
+  ]],
   ['revenge-trading-prop-firm.md', ['/glossary/revenge-trading']],
   ['daily-drawdown-calculator.md', ['/glossary/daily-drawdown-limit', '/glossary/overall-drawdown-limit']],
   ['ai-trading-coach-prop-firm.md', ['/blogs/ai-journal-pattern-detection', '/blogs/ai-trading-discipline']],

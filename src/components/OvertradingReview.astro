@@ -1,0 +1,240 @@
+<section class="drift-review" aria-labelledby="drift-review-title" data-drift-review>
+  <div class="review-header">
+    <div>
+      <p class="review-kicker">Interactive process review · fictional example</p>
+      <h2 id="drift-review-title">Audit the second XAUUSD decision</h2>
+      <p>Toggle the evidence that was present. The tool organises a review; it does not judge a setup or provide a signal.</p>
+    </div>
+    <span class="review-badge">IST journal</span>
+  </div>
+
+  <div class="scenario-line" aria-label="Fictional session sequence">
+    <div><span>London</span><strong>Planned liquidity sweep</strong><small>Outcome: −$38</small></div>
+    <span class="scenario-arrow" aria-hidden="true">→</span>
+    <div class="drift-node"><span>New York</span><strong>Late breakout entry</strong><small>Reason: recover the loss</small></div>
+  </div>
+
+  <div class="review-grid">
+    <form class="evidence-form">
+      <fieldset>
+        <legend>What matched the written process?</legend>
+        <label>
+          <input type="checkbox" name="setup" checked />
+          <span><strong>Setup label existed</strong><small>“Breakout” was defined in the rulebook.</small></span>
+        </label>
+        <label>
+          <input type="checkbox" name="session" />
+          <span><strong>Session matched the plan</strong><small>The plan covered London, not New York.</small></span>
+        </label>
+        <label>
+          <input type="checkbox" name="confirmation" />
+          <span><strong>Confirmation was complete</strong><small>The breakout candle had not closed.</small></span>
+        </label>
+        <label>
+          <input type="checkbox" name="reason" />
+          <span><strong>Reason was independent</strong><small>The entry followed the chart plan, not the previous result.</small></span>
+        </label>
+        <label>
+          <input type="checkbox" name="size" checked />
+          <span><strong>Size followed the recorded method</strong><small>No result-driven size change was logged.</small></span>
+        </label>
+      </fieldset>
+    </form>
+
+    <div class="review-output" aria-live="polite">
+      <p class="output-label">Review summary</p>
+      <div class="meter" aria-hidden="true"><span data-meter></span></div>
+      <div class="counts">
+        <div><strong data-aligned>2</strong><span>aligned fields</span></div>
+        <div><strong data-flags>3</strong><span>review flags</span></div>
+      </div>
+      <h3 data-output-title>Process drift needs review</h3>
+      <p data-output-copy>The session, confirmation, and reason changed after the first result. Record those changes before evaluating the trade outcome.</p>
+      <div class="next-review">
+        <span>Next comparison</span>
+        <p data-next-step>Filter other post-loss entries by session, setup confirmation, and reason for entry.</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="tool-note">There is no universal score for overtrading. Compare the decision with the trader’s own documented process and current account rules.</p>
+</section>
+
+<script>
+  document.querySelectorAll('[data-drift-review]').forEach((tool) => {
+    const checks = [...tool.querySelectorAll('input[type="checkbox"]')];
+    const aligned = tool.querySelector('[data-aligned]');
+    const flags = tool.querySelector('[data-flags]');
+    const meter = tool.querySelector('[data-meter]');
+    const title = tool.querySelector('[data-output-title]');
+    const copy = tool.querySelector('[data-output-copy]');
+    const nextStep = tool.querySelector('[data-next-step]');
+
+    const update = () => {
+      const alignedCount = checks.filter((check) => check.checked).length;
+      const flagCount = checks.length - alignedCount;
+      aligned.textContent = String(alignedCount);
+      flags.textContent = String(flagCount);
+      meter.style.width = `${(alignedCount / checks.length) * 100}%`;
+
+      if (flagCount === 0) {
+        title.textContent = 'Recorded evidence matches the plan';
+        copy.textContent = 'All five fields align with the documented process. Keep the outcome separate and verify the record during the scheduled review.';
+        nextStep.textContent = 'Compare this entry with other plan-aligned trades using the same setup and session labels.';
+      } else if (flagCount <= 2) {
+        title.textContent = 'A focused process check is needed';
+        copy.textContent = 'One or two fields changed. Record exactly what changed and whether the same pattern appears in comparable entries.';
+        nextStep.textContent = 'Filter the journal by the unchecked fields and compare the surrounding trade context.';
+      } else {
+        title.textContent = 'Process drift needs review';
+        copy.textContent = 'Several fields changed from the written plan. Record those changes before evaluating the trade outcome.';
+        nextStep.textContent = 'Filter other post-loss entries by session, setup confirmation, and reason for entry.';
+      }
+    };
+
+    for (const check of checks) check.addEventListener('change', update);
+    update();
+  });
+</script>
+
+<style>
+  .drift-review {
+    margin: 2.25rem 0;
+    overflow: hidden;
+    border: 1px solid rgba(251, 191, 36, 0.2);
+    border-radius: 1.4rem;
+    background:
+      radial-gradient(circle at 90% 5%, rgba(248, 113, 113, 0.12), transparent 34%),
+      radial-gradient(circle at 4% 100%, rgba(139, 92, 246, 0.14), transparent 38%),
+      #0c0c15;
+    padding: 1.35rem;
+  }
+
+  .review-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .review-kicker,
+  .output-label,
+  .next-review span {
+    margin: 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: rgba(252, 211, 77, 0.72);
+  }
+
+  .review-header h2 {
+    margin: 0.35rem 0 0;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(1.25rem, 3vw, 1.65rem);
+    line-height: 1.25;
+    color: white;
+  }
+
+  .review-header > div > p:last-child {
+    max-width: 39rem;
+    margin: 0.55rem 0 0;
+    font-size: 0.82rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.48);
+  }
+
+  .review-badge {
+    height: fit-content;
+    flex: none;
+    border: 1px solid rgba(34, 211, 238, 0.22);
+    border-radius: 999px;
+    background: rgba(34, 211, 238, 0.06);
+    padding: 0.4rem 0.65rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    color: rgba(165, 243, 252, 0.8);
+  }
+
+  .scenario-line {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    gap: 0.75rem;
+    align-items: center;
+    margin-top: 1.2rem;
+  }
+
+  .scenario-line > div {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 0.9rem;
+    background: rgba(255, 255, 255, 0.025);
+    padding: 0.8rem 0.9rem;
+  }
+
+  .scenario-line .drift-node { border-color: rgba(248, 113, 113, 0.22); background: rgba(248, 113, 113, 0.04); }
+  .scenario-line span, .scenario-line small { display: block; font-size: 0.66rem; color: rgba(255, 255, 255, 0.36); }
+  .scenario-line strong { display: block; margin: 0.2rem 0; font-size: 0.8rem; color: rgba(255, 255, 255, 0.82); }
+  .scenario-arrow { font-size: 1rem !important; color: rgba(255, 255, 255, 0.25) !important; }
+
+  .review-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(260px, 0.85fr);
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .evidence-form,
+  .review-output {
+    border: 1px solid rgba(255, 255, 255, 0.075);
+    border-radius: 1rem;
+    background: rgba(4, 6, 12, 0.56);
+    padding: 1rem;
+  }
+
+  fieldset { display: grid; gap: 0.55rem; margin: 0; border: 0; padding: 0; }
+  legend { margin-bottom: 0.65rem; font-size: 0.78rem; font-weight: 700; color: rgba(255, 255, 255, 0.82); }
+
+  label {
+    display: flex;
+    gap: 0.7rem;
+    align-items: flex-start;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 0.8rem;
+    background: rgba(255, 255, 255, 0.018);
+    padding: 0.7rem;
+    cursor: pointer;
+  }
+
+  label:has(input:checked) { border-color: rgba(34, 211, 238, 0.2); background: rgba(34, 211, 238, 0.035); }
+  input { width: 1rem; height: 1rem; margin-top: 0.15rem; accent-color: #22d3ee; }
+  label span { min-width: 0; }
+  label strong { display: block; font-size: 0.75rem; color: rgba(255, 255, 255, 0.78); }
+  label small { display: block; margin-top: 0.2rem; font-size: 0.65rem; line-height: 1.45; color: rgba(255, 255, 255, 0.38); }
+
+  .meter { height: 0.35rem; margin-top: 0.65rem; overflow: hidden; border-radius: 999px; background: rgba(248, 113, 113, 0.15); }
+  .meter span { display: block; width: 40%; height: 100%; border-radius: inherit; background: linear-gradient(90deg, #a78bfa, #22d3ee); transition: width 180ms ease; }
+  .counts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.6rem; margin-top: 0.8rem; }
+  .counts div { border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 0.75rem; padding: 0.65rem; }
+  .counts strong { display: block; font-family: 'Space Grotesk', sans-serif; font-size: 1.25rem; color: white; }
+  .counts span { display: block; font-size: 0.62rem; color: rgba(255, 255, 255, 0.36); }
+  .review-output h3 { margin: 0.9rem 0 0; font-family: 'Space Grotesk', sans-serif; font-size: 1rem; color: rgba(255, 255, 255, 0.9); }
+  .review-output > p[data-output-copy] { margin: 0.45rem 0 0; font-size: 0.72rem; line-height: 1.55; color: rgba(255, 255, 255, 0.45); }
+  .next-review { margin-top: 0.9rem; border-top: 1px solid rgba(255, 255, 255, 0.07); padding-top: 0.8rem; }
+  .next-review p { margin: 0.35rem 0 0; font-size: 0.68rem; line-height: 1.5; color: rgba(255, 255, 255, 0.48); }
+  .tool-note { margin: 0.85rem 0 0; font-size: 0.65rem; line-height: 1.5; color: rgba(255, 255, 255, 0.33); }
+
+  @media (max-width: 720px) {
+    .review-header { display: block; }
+    .review-badge { display: inline-block; margin-top: 0.75rem; }
+    .review-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 520px) {
+    .drift-review { padding: 1rem; }
+    .scenario-line { grid-template-columns: 1fr; }
+    .scenario-arrow { transform: rotate(90deg); text-align: center; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .meter span { transition: none; }
+  }
+</style>
