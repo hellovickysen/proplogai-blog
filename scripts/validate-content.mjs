@@ -29,7 +29,7 @@ const articles = (await filesUnder(contentRoot))
   .filter((file) => /\.(md|mdx)$/i.test(file) && path.basename(file) !== '_template.md');
 const articleSlugs = new Set(articles.map((file) => path.basename(file, path.extname(file))));
 const approvedGlossarySlugs = new Set([
-  'consistency-rule', 'daily-drawdown-limit', 'drawdown', 'fomo', 'funded-account', 'overall-drawdown-limit', 'overtrading', 'prop-firm-challenge', 'revenge-trading',
+  'consistency-rule', 'daily-drawdown-limit', 'drawdown', 'fomo', 'funded-account', 'overall-drawdown-limit', 'overtrading', 'profit-target', 'prop-firm-challenge', 'revenge-trading',
   'emotion-tracking', 'setup-compliance', 'trade-review', 'trading-journal',
 ]);
 
@@ -84,7 +84,15 @@ const requiredRelationships = new Map([
   ]],
   ['prop-firm-trading-journal.md', ['/glossary/trading-journal', '/blogs/prop-firm-pnl-calendar', '/blogs/tracking-trading-emotions']],
   ['forex-journal-funded-accounts.md', ['/blogs/prop-firm-trading-journal']],
-  ['prop-firm-consistency-calculator.md', ['/glossary/consistency-rule', '/tools/consistency-calculator']],
+  ['prop-firm-consistency-calculator.mdx', [
+    '/glossary/consistency-rule',
+    '/tools/consistency-calculator',
+    '/glossary/profit-target',
+    '/glossary/daily-drawdown-limit',
+    '/glossary/overall-drawdown-limit',
+    '/blogs/prop-firm-challenge-readiness',
+    '/glossary/trading-journal',
+  ]],
   ['overtrading-prop-firm-challenges.mdx', [
     '/glossary/overtrading',
     '/glossary/prop-firm-challenge',
@@ -139,6 +147,10 @@ const requiredAssets = new Map([
   ]],
   ['daily-drawdown-calculator.mdx', [
     '/blogs/images/cover-daily-drawdown-calculator.webp',
+  ]],
+  ['prop-firm-consistency-calculator.mdx', [
+    '/blogs/images/cover-prop-firm-consistency-calculator.webp',
+    '/blogs/images/consistency-ratio-loss-note.webp',
   ]],
 ]);
 for (const [fileName, assets] of requiredAssets) {
