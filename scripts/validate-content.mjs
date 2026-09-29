@@ -155,6 +155,9 @@ const requiredAssets = new Map([
   ['prop-firm-consistency-calculator.mdx', [
     '/blogs/images/cover-prop-firm-consistency-calculator.webp',
     '/blogs/images/consistency-ratio-loss-note.webp',
+    '/blogs/images/consistency-day-vs-trade-note.webp',
+    '/blogs/images/consistency-ratio-change-example.webp',
+    '/blogs/images/consistency-breach-decision-note.webp',
   ]],
 ]);
 for (const [fileName, assets] of requiredAssets) {
