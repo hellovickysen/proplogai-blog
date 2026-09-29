@@ -117,7 +117,11 @@ const requiredRelationships = new Map([
 for (const [fileName, destinations] of requiredRelationships) {
   const source = await readFile(path.join(contentRoot, fileName), 'utf8');
   for (const destination of destinations) {
-    if (!source.includes(`](${destination})`)) failures.push(`${fileName}: missing required relationship ${destination}`);
+    const relativeLink = `](${destination})`;
+    const liveLink = `](https://proplogai.com${destination})`;
+    if (!source.includes(relativeLink) && !source.includes(liveLink)) {
+      failures.push(`${fileName}: missing required relationship ${destination}`);
+    }
   }
 }
 
