@@ -80,7 +80,7 @@ Track the session, major news context if relevant, sleep quality, or distraction
 
 ## A practical review process for the end of each week
 
-A P&L calendar becomes useful when it is reviewed on a schedule. A simple weekly review can take 15 to 20 minutes.
+A P&L calendar becomes useful when it is reviewed on a schedule. A simple weekly review can take 15 to 20 minutes. Read the calendar beside your [trading performance metrics](/blogs/trading-performance-metrics), because the final total cannot show the path, drawdown, or setup-session breakdown by itself.
 
 Use this sequence:
 

@@ -1,8 +1,8 @@
 ---
 title: "Consistency Rule Calculator for Prop Firm Traders"
-description: "Calculate your best-day consistency percentage in USD, understand how losing days affect it, and compare the result with your prop firm's exact rule."
+description: "Calculate a best-day or best-trade consistency percentage in USD, understand what changes the result, and compare it with your prop firm's exact rule."
 date: 2026-07-13
-updatedDate: 2026-09-29
+updatedDate: 2026-10-02
 category: "Tools and Calculators"
 silo: "Prop Firm Rules and Readiness"
 coverImage: "/blogs/images/cover-prop-firm-consistency-calculator.webp"
@@ -23,32 +23,35 @@ $400 best day ÷ $800 total net profit × 100 = 50%
 
 That number is only useful when you compare it with the exact rule for your program.
 
-> **Quick answer:** when a firm uses the best-day formula, consistency percentage = best profit day ÷ total net profit × 100. Copy the limit, calculation window, daily cut-off, and consequence from the firm's current rules before using the result.
+> **Quick answer:** when a firm uses a best-day rule, it divides your most profitable day by your total net profit and multiplies the result by 100. Check the firm's limit, time period, daily cut-off, and what happens when you are over the limit before using the result.
 
 ## Use the consistency rule calculator
 
-Open the [existing PropLogAI consistency rule calculator](https://proplogai.com/tools/consistency-calculator) and enter:
+Open the [PropLogAI consistency rule calculator](https://proplogai.com/tools/consistency-calculator) and enter:
 
-1. your total net profit for the firm's defined period;
-2. your single best profit day in that same period; and
-3. the exact percentage limit stated by your firm.
+1. choose **Largest Day** or **Largest Trade** to match your firm's rule;
+2. enter your total net profit for the firm's defined period;
+3. enter your best profit day or biggest winning trade from that same period; and
+4. enter the exact consistency percentage limit stated by your firm.
 
 The calculator shows the ratio created by those three numbers. It does **not** decide whether your account passed, whether a payout can be requested, or whether you should take another trade.
 
-Use it only when your program uses this formula:
+For **Largest Day**, the calculator uses:
 
 **Consistency percentage = best profit day ÷ total net profit × 100**
 
-If your firm uses a different numerator, denominator, time window, or calculation method, this calculator is not the correct tool for that rule.
+For **Largest Trade**, it uses the same calculation but places your biggest winning trade at the top of the calculation instead of your best day.
+
+If your firm uses a different profit total, checks the largest position, uses a rolling window, or follows another calculation method, this calculator may not match that rule.
 
 ## Best day and best trade are different rules
 
 Before entering a number, read the exact wording used by your program:
 
 - **Best-day rule:** groups all results inside the firm's defined trading day and checks the largest profitable day.
-- **Best-trade rule:** checks one winning trade or trade idea instead of the whole day.
+- **Best-trade rule:** checks the highest single winning trade instead of the whole day.
 
-For example, Instant Funding's current IF1 page describes a **15% best-trade rule**. Tradeify's current Lightning Funded first-payout rule uses the **biggest day** and a 20% limit. Putting a best trade into a best-day calculator would answer the wrong question.
+For example, Instant Funding's current IF1 page describes a **15% best-trade rule**. Choose **Largest Trade** for that method. Tradeify's current Lightning Funded first-payout rule uses the **biggest day** and a 20% limit, so choose **Largest Day**. Selecting the wrong method would answer the wrong question.
 
 <ZoomImage
   src="/blogs/images/consistency-day-vs-trade-note.webp"
@@ -87,7 +90,7 @@ After the loss, total profit fell to $800 while the best day stayed at $400. The
 <ZoomImage
   src="/blogs/images/consistency-ratio-loss-note.webp"
   alt="Handwritten note showing a $400 best day divided by $950 total profit equals 42.1 percent, then the same best day divided by $800 after a minus $150 day equals 50 percent"
-  caption="The best day did not change. The denominator became smaller. Click or tap to enlarge."
+  caption="The best day did not change. Total net profit became smaller. Click or tap to enlarge."
 />
 
 This is why you should include losing days when the official formula uses **total net profit**. Removing them would create a different number.
@@ -98,9 +101,9 @@ Being over the percentage is **not automatically an account breach**. Read the c
 
 Current named examples show different outcomes:
 
-- **Tradeify:** its checked page says an account over the applicable limit does not meet the payout condition yet. It says the trader may continue and that high consistency does not fail or penalise the account.
-- **Apex 50% requirement:** its checked page says the payout option remains unavailable, but the account stays active and trading may continue until the figure is below 50%.
-- **My Funded Futures:** its checked page says exceeding the 30% or 50% evaluation target does not breach the account. The trader needs additional trading days until the condition is met.
+- **Tradeify:** its rules state that traders who do not meet the consistency requirement during the payout period may continue trading until they meet it. This is not considered an account failure or a penalty.
+- **Apex 50% requirement:** its rules state that the payout option is unavailable while the consistency score is over the required limit. However, the account remains active and the trader may continue trading. Verify the exact boundary shown in your dashboard.
+- **My Funded Futures:** its rules state that exceeding the applicable 30% or 50% consistency threshold during evaluation does not breach the account. A trader may need additional trading days before meeting the requirement.
 - **Topstep Trading Combine:** its checked page uses a different consequence: the required profit target can increase when the 55% target is exceeded.
 
 These examples do not prove that every firm lets you continue. If your own rule calls the event a hard breach, stop and follow that rule.
@@ -113,14 +116,14 @@ These examples do not prove that every firm lets you continue. If your own rule 
 
 ## A clear example when the firm allows continued trading
 
-Suppose your best day is $400 and the limit you copied is 40%. The arithmetic says the denominator would need to be at least $1,000 for $400 to represent 40%:
+Suppose your best day is $400 and the limit you copied is 40%. Your total net profit would need to be at least $1,000 for $400 to represent 40%:
 
 ```text
-Minimum denominator for the entered ratio = $400 ÷ 0.40
-                                           = $1,000
+Minimum total net profit for a 40% result = $400 ÷ 0.40
+                                          = $1,000
 ```
 
-If your current total is $800, the mathematical gap is $200. That is **not** an instruction to make another $200, increase size, stay in the market, or force an extra trading day.
+If your current total is $800, the difference in this calculation is $200. That is **not** an instruction to make another $200, increase size, stay in the market, or force an extra trading day.
 
 If the firm says the account remains active, imagine that two later **planned** setups each finish at +$100. Total net profit becomes $1,000 while the best day remains $400:
 
@@ -144,10 +147,10 @@ Current official pages rechecked on 29 September 2026 show why the exact program
 
 - **Trading Combine:** a 55% Consistency Target using best-day profit against total profit. When the target is exceeded, the required profit target can increase.
 - **Express Funded Account Consistency path:** a 40% objective using largest single-day net profit against total net profit. A result above the limit does not satisfy that payout-path requirement, and the calculation resets after a payout request under the published conditions.
-- **Instant Funding IF1:** a 15% best-trade rule. The numerator is one trade, so the best-day calculator on this page is not the correct tool for it.
+- **Instant Funding IF1:** a 15% best-trade rule. It checks one trade rather than a whole trading day, so use the calculator's **Largest Trade** option.
 - **Tradeify Lightning Funded:** 20% for the first payout, 25% for the second, and 30% from the third payout under the current dated program conditions.
 - **My Funded Futures evaluation:** 30% on Rapid EOD and 50% on Rapid Intraday and Pro on the checked page.
-- **Apex cited payout requirement:** the largest profitable day must be below 50% of accumulated net profit for the stated payout condition.
+- **Apex cited payout requirement:** the checked page compares the largest profitable day with accumulated net profit under a 50% payout condition. Verify the exact boundary shown in your dashboard.
 
 These are named examples, not default settings for every prop firm. They also show why a calculator should not label an account “payout ready” from three inputs.
 
@@ -155,9 +158,9 @@ Before calculating, confirm all of these:
 
 - firm and exact program;
 - evaluation or funded stage;
-- best **day**, best trade, or another numerator;
-- total net profit or another denominator;
-- whether losing days reduce the denominator;
+- whether the firm checks your best **day**, best trade, or another result;
+- whether it divides that result by total net profit or another total;
+- whether losing days reduce the total net profit used in the calculation;
 - daily cut-off and timezone;
 - calculation window and reset rule; and
 - the actual consequence when the limit is exceeded.
@@ -168,7 +171,7 @@ These rules answer different questions.
 
 | Rule | What it checks | What the number cannot tell you |
 |---|---|---|
-| Consistency rule | How concentrated profit is under the firm's formula | Whether your next trade is valid |
+| Consistency rule | Whether too much profit came from one day, one trade, or another result under the firm's formula | Whether your next trade is valid |
 | [Profit target](/glossary/profit-target) | Whether the required net-profit objective was reached | Whether every other rule was met |
 | Daily drawdown limit | The permitted account value during the defined day | Whether the overall limit is safe |
 | [Overall drawdown limit](/glossary/overall-drawdown-limit) | The account-wide floor under a static or trailing method | Whether the daily rule is safe |
@@ -212,7 +215,7 @@ A [trading journal](/glossary/trading-journal) also helps you separate the quali
 
 ### What is a prop firm consistency rule?
 
-It is a program-specific calculation used to measure how concentrated a result is. A common form compares the best profit day with total net profit, but the percentage, period, consequence, and account stage come from the exact program rules.
+It is a program-specific calculation that checks whether too much of your total profit came from one day, one trade, or another result. The exact percentage, time period, consequence, and account stage come from the program's current rules.
 
 ### How do I calculate a 40% consistency rule?
 
@@ -220,11 +223,13 @@ Only use 40% when your current program states that limit and uses the best-day f
 
 ### Do losing days affect the calculation?
 
-They do when the firm's denominator is total net profit. A losing day reduces that total, so the same best day can become a larger percentage. Confirm the definition used by your program.
+They do when the firm divides the best day by total net profit. A losing day reduces that total, so the same best day can become a larger percentage. Confirm the calculation used by your program.
 
 ### Does a result under the entered limit mean I can request a payout?
 
 No. It means the entered numbers produced a ratio at or below the limit you entered. Payout eligibility can depend on other rules, account status, timing, and the firm's official review.
+
+Use the [prop firm payout rules checklist](/blogs/prop-firm-payout-rules) to check those other conditions before you submit a request.
 
 ### Should I keep trading to reduce the percentage?
 
@@ -236,7 +241,7 @@ Not automatically. Tradeify, Apex, and My Funded Futures currently describe name
 
 ### Is the best day the same as the best trade?
 
-No. A best day is the net result of the firm's defined trading day. A best trade is one position or transaction. Use this calculator only when the official rule uses a best-day numerator.
+No. A best day is the net result of the firm's defined trading day. A best trade is one position or transaction. Choose **Largest Day** or **Largest Trade** in the calculator to match the exact rule.
 
 ## Sources checked
 

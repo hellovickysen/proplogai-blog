@@ -29,8 +29,8 @@ const articles = (await filesUnder(contentRoot))
   .filter((file) => /\.(md|mdx)$/i.test(file) && path.basename(file) !== '_template.md');
 const articleSlugs = new Set(articles.map((file) => path.basename(file, path.extname(file))));
 const approvedGlossarySlugs = new Set([
-  'consistency-rule', 'daily-drawdown-limit', 'drawdown', 'fomo', 'funded-account', 'overall-drawdown-limit', 'overtrading', 'profit-target', 'prop-firm-challenge', 'revenge-trading',
-  'emotion-tracking', 'setup-compliance', 'trade-review', 'trading-journal',
+  'average-win-vs-average-loss', 'consistency-rule', 'daily-drawdown-limit', 'drawdown', 'equity-curve', 'expectancy', 'fomo', 'funded-account', 'overall-drawdown-limit', 'overtrading', 'performance-report', 'profit-factor', 'profit-target', 'prop-firm-challenge', 'revenge-trading', 'sharpe-ratio', 'win-rate',
+  'emotion-tracking', 'rule-based-trading', 'setup-compliance', 'tilt', 'trade-review', 'trading-journal', 'trading-plan',
 ]);
 
 for (const file of articles) {
@@ -82,7 +82,7 @@ const requiredRelationships = new Map([
     '/blogs/prop-firm-trading-journal',
     '/blogs/prop-firm-roi-calculator',
   ]],
-  ['prop-firm-trading-journal.md', ['/glossary/trading-journal', '/blogs/prop-firm-pnl-calendar', '/blogs/tracking-trading-emotions']],
+  ['prop-firm-trading-journal.mdx', ['/glossary/trading-journal', '/blogs/prop-firm-pnl-calendar', '/glossary/emotion-tracking']],
   ['forex-journal-funded-accounts.md', ['/blogs/prop-firm-trading-journal']],
   ['prop-firm-consistency-calculator.mdx', [
     '/glossary/consistency-rule',
@@ -103,7 +103,19 @@ const requiredRelationships = new Map([
     '/glossary/fomo',
     '/blogs/trading-journal-template',
   ]],
-  ['revenge-trading-prop-firm.md', ['/glossary/revenge-trading']],
+  ['revenge-trading-prop-firm.mdx', [
+    '/glossary/revenge-trading',
+    '/glossary/tilt',
+    '/glossary/overtrading',
+    '/glossary/emotion-tracking',
+    '/glossary/trading-plan',
+    '/glossary/setup-compliance',
+    '/glossary/trade-review',
+    '/blogs/trading-psychology-prop-firm',
+    '/blogs/tracking-trading-emotions',
+    '/blogs/overtrading-prop-firm-challenges',
+    '/blogs/trading-journal-template',
+  ]],
   ['daily-drawdown-calculator.mdx', [
     '/glossary/daily-drawdown-limit',
     '/glossary/overall-drawdown-limit',
@@ -113,6 +125,44 @@ const requiredRelationships = new Map([
     '/blogs/overtrading-prop-firm-challenges',
   ]],
   ['ai-trading-coach-prop-firm.md', ['/blogs/ai-journal-pattern-detection', '/blogs/ai-trading-discipline']],
+  ['trading-performance-metrics.mdx', [
+    '/glossary/win-rate',
+    '/glossary/average-win-vs-average-loss',
+    '/glossary/profit-factor',
+    '/glossary/expectancy',
+    '/glossary/drawdown',
+    '/glossary/equity-curve',
+    '/glossary/performance-report',
+    '/blogs/trading-journal-template',
+    '/blogs/prop-firm-trading-journal',
+    '/blogs/weekly-trading-review-template',
+    '/blogs/monthly-trading-review-template',
+    '/blogs/prop-firm-pnl-calendar',
+  ]],
+  ['trading-expectancy-calculator.mdx', [
+    '/blogs/trading-performance-metrics',
+    '/glossary/expectancy',
+    '/glossary/win-rate',
+    '/glossary/average-win-vs-average-loss',
+    '/glossary/profit-factor',
+    '/blogs/trading-journal-template',
+    '/blogs/prop-firm-trading-journal',
+    '/blogs/weekly-trading-review-template',
+    '/blogs/monthly-trading-review-template',
+  ]],
+  ['trading-discipline-checklist.mdx', [
+    '/blogs/trading-discipline-prop-firm',
+    '/blogs/prop-firm-trading-rulebook',
+    '/blogs/prop-firm-rules-guide',
+    '/blogs/revenge-trading-prop-firm',
+    '/blogs/overtrading-prop-firm-challenges',
+    '/blogs/trading-journal-template',
+    '/glossary/trading-plan',
+    '/glossary/setup-compliance',
+    '/glossary/rule-based-trading',
+    '/glossary/revenge-trading',
+    '/glossary/fomo',
+  ]],
 ]);
 for (const [fileName, destinations] of requiredRelationships) {
   const source = await readFile(path.join(contentRoot, fileName), 'utf8');
@@ -158,6 +208,31 @@ const requiredAssets = new Map([
     '/blogs/images/consistency-day-vs-trade-note.webp',
     '/blogs/images/consistency-ratio-change-example.webp',
     '/blogs/images/consistency-breach-decision-note.webp',
+  ]],
+  ['trading-performance-metrics.mdx', [
+    '/blogs/images/cover-trading-performance-metrics.webp',
+    '/blogs/images/trading-performance-step-1-sample.webp',
+    '/blogs/images/trading-performance-step-2-win-size.webp',
+    '/blogs/images/trading-performance-step-3-metrics.webp',
+    '/blogs/images/trading-performance-final-check.webp',
+  ]],
+  ['trading-expectancy-calculator.mdx', [
+    '/blogs/images/cover-trading-expectancy-calculator.webp',
+    '/blogs/images/trading-expectancy-formula-note.webp',
+  ]],
+  ['trading-discipline-checklist.mdx', [
+    '/blogs/images/cover-trading-discipline-checklist.webp',
+    '/blogs/images/trading-discipline-checklist-step-1-session.webp',
+    '/blogs/images/trading-discipline-checklist-step-2-wait.webp',
+    '/blogs/images/trading-discipline-checklist-step-3-after-loss.webp',
+    '/blogs/images/trading-discipline-checklist-full-outcome-guide.webp',
+  ]],
+  ['revenge-trading-prop-firm.mdx', [
+    '/blogs/images/cover-revenge-trading-prop-firm.webp',
+    '/blogs/images/revenge-trading-step-1-plan.webp',
+    '/blogs/images/revenge-trading-step-2-urge.webp',
+    '/blogs/images/revenge-trading-step-3-check.webp',
+    '/blogs/images/revenge-trading-full-check.webp',
   ]],
 ]);
 for (const [fileName, assets] of requiredAssets) {
