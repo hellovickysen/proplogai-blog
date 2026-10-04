@@ -1,0 +1,153 @@
+<section class="drawdown-tool" aria-labelledby="drawdown-tool-title">
+  <div class="tool-heading">
+    <p class="eyebrow">Use your firm’s official numbers</p>
+    <h2 id="drawdown-tool-title">Daily drawdown buffer calculator</h2>
+    <p>Choose the input your firm gives you. This tool only subtracts your current equity from the official floor. It does not guess the rule.</p>
+  </div>
+
+  <div class="mode-row" role="group" aria-label="Daily floor input method">
+    <button type="button" class="mode-button is-active" data-mode="floor" aria-pressed="true">I know the daily floor</button>
+    <button type="button" class="mode-button" data-mode="derive" aria-pressed="false">Build it from official amounts</button>
+  </div>
+
+  <form class="tool-form" data-drawdown-form>
+    <div class="field-group" data-floor-fields>
+      <label for="daily-floor">Official daily floor ($)</label>
+      <input id="daily-floor" name="dailyFloor" type="number" min="0" step="0.01" value="47500" inputmode="decimal" />
+      <small>Copy this from the firm’s dashboard or current rule calculation.</small>
+    </div>
+
+    <div class="derive-grid" data-derive-fields hidden>
+      <div class="field-group">
+        <label for="reference-value">Official reference value ($)</label>
+        <input id="reference-value" name="referenceValue" type="number" min="0" step="0.01" value="50000" inputmode="decimal" />
+      </div>
+      <div class="field-group">
+        <label for="loss-amount">Official daily loss amount ($)</label>
+        <input id="loss-amount" name="lossAmount" type="number" min="0" step="0.01" value="2500" inputmode="decimal" />
+      </div>
+      <p class="derive-note">Daily floor = official reference value − official daily loss amount. Use this mode only when your program defines the floor this way.</p>
+    </div>
+
+    <div class="field-group">
+      <label for="current-equity">Current equity ($)</label>
+      <input id="current-equity" name="currentEquity" type="number" min="0" step="0.01" value="48300" inputmode="decimal" />
+      <small>Use the figure that includes open profit or loss when your rule measures equity.</small>
+    </div>
+  </form>
+
+  <div class="result-card" aria-live="polite" data-result>
+    <div>
+      <span>Daily floor</span>
+      <strong data-result-floor>$47,500.00</strong>
+    </div>
+    <div>
+      <span>Current equity</span>
+      <strong data-result-equity>$48,300.00</strong>
+    </div>
+    <div class="buffer-result">
+      <span>Buffer above the floor</span>
+      <strong data-result-buffer>$800.00</strong>
+    </div>
+    <p data-result-message>Your current equity is $800.00 above the floor you entered.</p>
+  </div>
+
+  <aside class="tool-limit">
+    <strong>Before you use the result:</strong> confirm the program, account stage, reset time, reference value, open P&amp;L, commissions, swaps, and whether the firm’s own dashboard already shows the official floor. A positive buffer is not permission to take another trade.
+  </aside>
+</section>
+
+<script>
+  const tool = document.querySelector('.drawdown-tool');
+  if (tool instanceof HTMLElement && tool.dataset.ready !== 'true') {
+    tool.dataset.ready = 'true';
+    const form = tool.querySelector('[data-drawdown-form]');
+    const floorFields = tool.querySelector('[data-floor-fields]');
+    const deriveFields = tool.querySelector('[data-derive-fields]');
+    const buttons = Array.from(tool.querySelectorAll('[data-mode]'));
+    const floorInput = tool.querySelector('[name="dailyFloor"]');
+    const referenceInput = tool.querySelector('[name="referenceValue"]');
+    const lossInput = tool.querySelector('[name="lossAmount"]');
+    const equityInput = tool.querySelector('[name="currentEquity"]');
+    const floorOutput = tool.querySelector('[data-result-floor]');
+    const equityOutput = tool.querySelector('[data-result-equity]');
+    const bufferOutput = tool.querySelector('[data-result-buffer]');
+    const messageOutput = tool.querySelector('[data-result-message]');
+    let mode = 'floor';
+
+    const readNumber = (input) => input instanceof HTMLInputElement ? Number(input.value) : NaN;
+    const money = (value) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(value);
+
+    const update = () => {
+      const equity = readNumber(equityInput);
+      const floor = mode === 'floor'
+        ? readNumber(floorInput)
+        : readNumber(referenceInput) - readNumber(lossInput);
+
+      if (!Number.isFinite(floor) || !Number.isFinite(equity) || floor < 0 || equity < 0) {
+        if (messageOutput) messageOutput.textContent = 'Enter valid positive dollar amounts to calculate the buffer.';
+        return;
+      }
+
+      const buffer = equity - floor;
+      if (floorOutput) floorOutput.textContent = money(floor);
+      if (equityOutput) equityOutput.textContent = money(equity);
+      if (bufferOutput) bufferOutput.textContent = money(buffer);
+      if (bufferOutput instanceof HTMLElement) bufferOutput.dataset.state = buffer < 0 ? 'below' : 'above';
+      if (messageOutput) {
+        messageOutput.textContent = buffer < 0
+          ? `The equity entered is ${money(Math.abs(buffer))} below the floor. Check the firm's official account status.`
+          : `Your current equity is ${money(buffer)} above the floor you entered.`;
+      }
+    };
+
+    buttons.forEach((button) => button.addEventListener('click', () => {
+      if (!(button instanceof HTMLButtonElement)) return;
+      mode = button.dataset.mode === 'derive' ? 'derive' : 'floor';
+      buttons.forEach((item) => {
+        const active = item === button;
+        item.classList.toggle('is-active', active);
+        item.setAttribute('aria-pressed', String(active));
+      });
+      if (floorFields instanceof HTMLElement) floorFields.hidden = mode !== 'floor';
+      if (deriveFields instanceof HTMLElement) deriveFields.hidden = mode !== 'derive';
+      update();
+    }));
+
+    form?.addEventListener('input', update);
+    update();
+  }
+</script>
+
+<style>
+  .drawdown-tool { margin: 2.25rem 0; border: 1px solid rgba(139,92,246,.25); border-radius: 1.25rem; background: linear-gradient(145deg,rgba(139,92,246,.08),rgba(34,211,238,.03)); padding: 1.25rem; }
+  .tool-heading .eyebrow { margin: 0 0 .35rem; color: #a78bfa; font: 600 .68rem/1.4 ui-monospace,monospace; letter-spacing: .12em; text-transform: uppercase; }
+  .tool-heading h2 { margin: 0; font-size: 1.45rem; }
+  .tool-heading p:last-child { margin: .65rem 0 0; color: rgba(255,255,255,.6); font-size: .93rem; line-height: 1.65; }
+  .mode-row { display: grid; grid-template-columns: 1fr 1fr; gap: .55rem; margin: 1.25rem 0; }
+  .mode-button { border: 1px solid rgba(255,255,255,.12); border-radius: .75rem; background: rgba(255,255,255,.03); padding: .7rem; color: rgba(255,255,255,.62); font-size: .78rem; cursor: pointer; }
+  .mode-button.is-active { border-color: rgba(167,139,250,.55); background: rgba(139,92,246,.16); color: #fff; }
+  .tool-form { display: grid; gap: 1rem; }
+  .derive-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .derive-grid[hidden], .field-group[hidden] { display: none; }
+  .field-group { display: grid; gap: .4rem; }
+  .field-group label { color: rgba(255,255,255,.88); font-size: .82rem; font-weight: 600; }
+  .field-group input { width: 100%; border: 1px solid rgba(255,255,255,.12); border-radius: .7rem; background: rgba(4,5,12,.65); padding: .78rem .85rem; color: white; font: 600 1rem/1.2 ui-monospace,monospace; }
+  .field-group input:focus { outline: 2px solid rgba(34,211,238,.5); outline-offset: 2px; }
+  .field-group small, .derive-note { margin: 0; color: rgba(255,255,255,.4); font-size: .72rem; line-height: 1.55; }
+  .derive-note { grid-column: 1 / -1; }
+  .result-card { display: grid; grid-template-columns: repeat(3,1fr); gap: .65rem; margin-top: 1.1rem; }
+  .result-card > div { min-width: 0; border: 1px solid rgba(255,255,255,.08); border-radius: .85rem; background: rgba(5,7,15,.64); padding: .85rem; }
+  .result-card span { display: block; color: rgba(255,255,255,.42); font-size: .68rem; line-height: 1.4; }
+  .result-card strong { display: block; margin-top: .35rem; color: white; font: 700 .92rem/1.3 ui-monospace,monospace; overflow-wrap: anywhere; }
+  .result-card .buffer-result { border-color: rgba(34,211,238,.24); }
+  [data-result-buffer][data-state="below"] { color: #fca5a5; }
+  [data-result-message] { grid-column: 1 / -1; margin: 0; border-left: 3px solid #22d3ee; padding: .65rem .8rem; color: rgba(255,255,255,.7); font-size: .82rem; line-height: 1.55; }
+  .tool-limit { margin-top: 1rem; border-radius: .85rem; background: rgba(245,158,11,.07); padding: .85rem; color: rgba(255,255,255,.58); font-size: .76rem; line-height: 1.6; }
+  .tool-limit strong { color: #fbbf24; }
+  @media (max-width: 600px) {
+    .drawdown-tool { padding: 1rem; }
+    .mode-row, .derive-grid, .result-card { grid-template-columns: 1fr; }
+    [data-result-message] { grid-column: auto; }
+  }
+</style>

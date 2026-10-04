@@ -1,0 +1,225 @@
+<section class="expense-tool" aria-labelledby="expense-builder-title">
+  <div class="tool-kicker">Try one record · fictional example</div>
+  <div class="tool-heading">
+    <div>
+      <h2 id="expense-builder-title">Build one clear expense row</h2>
+      <p>Change the fields, then copy the row or download it as a CSV file.</p>
+    </div>
+    <span class="tool-badge">USD · not saved</span>
+  </div>
+
+  <div class="record-flow" aria-label="Expense tracking flow">
+    <div><span>1</span><strong>Payment</strong><small>What happened?</small></div>
+    <i aria-hidden="true">→</i>
+    <div><span>2</span><strong>Context</strong><small>Which firm and attempt?</small></div>
+    <i aria-hidden="true">→</i>
+    <div><span>3</span><strong>Evidence</strong><small>When and how much?</small></div>
+    <i aria-hidden="true">→</i>
+    <div><span>4</span><strong>Review</strong><small>Can you find it later?</small></div>
+  </div>
+
+  <div class="tool-grid">
+    <form class="expense-form" id="expense-log-builder">
+      <label>
+        <span>Record type</span>
+        <select name="recordType">
+          <option selected>Expense</option>
+          <option>Payout</option>
+          <option>Refund</option>
+        </select>
+      </label>
+
+      <label>
+        <span>Category</span>
+        <select name="category">
+          <option selected>Challenge purchase</option>
+          <option>Renewal or reset</option>
+          <option>Activation</option>
+          <option>Platform or data</option>
+          <option>Payout received</option>
+          <option>Refund received</option>
+          <option>Other recorded cost</option>
+        </select>
+      </label>
+
+      <label>
+        <span>Firm</span>
+        <input name="firm" value="Fictional Firm A" autocomplete="off" />
+      </label>
+
+      <label>
+        <span>Account or attempt</span>
+        <input name="reference" value="Challenge 02" autocomplete="off" />
+      </label>
+
+      <label>
+        <span>Date</span>
+        <input name="date" type="date" value="2026-09-25" />
+      </label>
+
+      <label>
+        <span>Amount ($)</span>
+        <input name="amount" type="number" inputmode="decimal" min="0" step="0.01" value="180.00" />
+      </label>
+
+      <label>
+        <span>Status</span>
+        <select name="status">
+          <option selected>Paid</option>
+          <option>Received</option>
+          <option>Pending</option>
+          <option>Refunded</option>
+        </select>
+      </label>
+
+      <label>
+        <span>Receipt reference</span>
+        <input name="receipt" value="Email receipt 2026-09-25" autocomplete="off" />
+      </label>
+
+      <label class="wide-field">
+        <span>Short note</span>
+        <textarea name="notes" rows="3">Second challenge purchase. Keep separate from the first attempt.</textarea>
+      </label>
+    </form>
+
+    <div class="record-preview" aria-live="polite">
+      <div class="preview-topline"><span>Expense-log row</span><span data-preview="recordType">Expense</span></div>
+      <div class="preview-amount" data-preview="amount">−$180.00</div>
+      <dl>
+        <div><dt>Category</dt><dd data-preview="category">Challenge purchase</dd></div>
+        <div><dt>Firm</dt><dd data-preview="firm">Fictional Firm A</dd></div>
+        <div><dt>Account / attempt</dt><dd data-preview="reference">Challenge 02</dd></div>
+        <div><dt>Date</dt><dd data-preview="date">2026-09-25</dd></div>
+        <div><dt>Status</dt><dd data-preview="status">Paid</dd></div>
+        <div><dt>Receipt</dt><dd data-preview="receipt">Email receipt 2026-09-25</dd></div>
+      </dl>
+      <div class="preview-note"><span>Note</span><p data-preview="notes">Second challenge purchase. Keep separate from the first attempt.</p></div>
+      <div class="preview-actions">
+        <button type="button" data-action="copy">Copy row</button>
+        <button type="button" class="secondary" data-action="download">Download CSV row</button>
+      </div>
+      <p class="action-note" data-action-note aria-live="polite"></p>
+    </div>
+  </div>
+
+  <p class="tool-limit">This browser example creates one local row. It does not save records, verify a payment, calculate tax, or replace your invoices and firm dashboard.</p>
+</section>
+
+<script>
+  document.querySelectorAll('.expense-tool').forEach((tool) => {
+    const form = tool.querySelector('form');
+    const actionNote = tool.querySelector('[data-action-note]');
+    if (!(form instanceof HTMLFormElement) || !(actionNote instanceof HTMLElement)) return;
+
+    const values = () => Object.fromEntries(new FormData(form).entries());
+    const escapeCsv = (value) => `"${String(value).replaceAll('"', '""')}"`;
+
+    const update = () => {
+      const data = values();
+      Object.entries(data).forEach(([key, value]) => {
+        if (key === 'amount') return;
+        const target = tool.querySelector(`[data-preview="${key}"]`);
+        if (target) target.textContent = String(value) || '—';
+      });
+
+      const amount = tool.querySelector('[data-preview="amount"]');
+      if (amount instanceof HTMLElement) {
+        const numeric = Math.abs(Number(data.amount) || 0).toFixed(2);
+        const incoming = data.recordType === 'Payout' || data.recordType === 'Refund';
+        amount.textContent = `${incoming ? '+' : '−'}$${numeric}`;
+        amount.dataset.direction = incoming ? 'in' : 'out';
+      }
+      actionNote.textContent = '';
+    };
+
+    const summary = () => {
+      const data = values();
+      return [
+        `Record type: ${data.recordType}`,
+        `Category: ${data.category}`,
+        `Firm: ${data.firm}`,
+        `Account or attempt: ${data.reference}`,
+        `Date: ${data.date}`,
+        `Amount (USD): $${data.amount}`,
+        `Status: ${data.status}`,
+        `Receipt reference: ${data.receipt}`,
+        `Notes: ${data.notes}`,
+      ].join('\n');
+    };
+
+    form.addEventListener('input', update);
+
+    tool.querySelector('[data-action="copy"]')?.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(summary());
+        actionNote.textContent = 'Expense row copied.';
+      } catch {
+        actionNote.textContent = 'Copy was blocked. Select the preview text instead.';
+      }
+    });
+
+    tool.querySelector('[data-action="download"]')?.addEventListener('click', () => {
+      const data = values();
+      const headings = ['record_type', 'category', 'firm', 'account_or_attempt', 'record_date', 'amount_usd', 'status', 'receipt_reference', 'notes'];
+      const row = [data.recordType, data.category, data.firm, data.reference, data.date, data.amount, data.status, data.receipt, data.notes];
+      const blob = new Blob([`${headings.join(',')}\n${row.map(escapeCsv).join(',')}\n`], { type: 'text/csv;charset=utf-8' });
+      const href = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = href;
+      link.download = 'prop-firm-expense-row.csv';
+      link.hidden = true;
+      document.body.append(link);
+      link.click();
+      link.remove();
+      window.setTimeout(() => URL.revokeObjectURL(href), 1000);
+      actionNote.textContent = 'CSV row downloaded.';
+    });
+
+    update();
+  });
+</script>
+
+<style>
+  .expense-tool { margin: 2.3rem 0; padding: clamp(1rem,3vw,1.6rem); border: 1px solid rgba(139,92,246,.3); border-radius: 1.25rem; background: radial-gradient(circle at 10% 0%,rgba(139,92,246,.18),transparent 36%),radial-gradient(circle at 100% 100%,rgba(34,211,238,.1),transparent 42%),#0c0c17; box-shadow: 0 28px 80px rgba(0,0,0,.3); }
+  .tool-kicker { color: #67e8f9; font: 600 .68rem/1.2 ui-monospace,monospace; letter-spacing: .15em; text-transform: uppercase; }
+  .tool-heading { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin: .55rem 0 1.2rem; }
+  .tool-heading h2 { margin: 0; color: white; font-size: clamp(1.35rem,4vw,1.8rem); }
+  .tool-heading h2::after { display: none; }
+  .tool-heading p { margin: .35rem 0 0; color: rgba(255,255,255,.55); font-size: .9rem; }
+  .tool-badge { flex: none; border: 1px solid rgba(34,211,238,.25); border-radius: 999px; padding: .35rem .58rem; color: #67e8f9; font-size: .68rem; }
+  .record-flow { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr; gap: .5rem; align-items: center; margin-bottom: 1.25rem; }
+  .record-flow div { min-width: 0; border: 1px solid rgba(255,255,255,.08); border-radius: .8rem; padding: .72rem; background: rgba(255,255,255,.025); }
+  .record-flow span { display: grid; place-items: center; width: 1.45rem; height: 1.45rem; margin-bottom: .4rem; border-radius: 50%; background: linear-gradient(135deg,#fbbf24,#22d3ee); color: #07070d; font-weight: 800; font-size: .7rem; }
+  .record-flow strong,.record-flow small { display: block; }
+  .record-flow strong { color: white; font-size: .78rem; }
+  .record-flow small { margin-top: .12rem; color: rgba(255,255,255,.38); font-size: .65rem; line-height: 1.3; }
+  .record-flow i { color: rgba(255,255,255,.22); font-style: normal; }
+  .tool-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 1rem; }
+  .expense-form { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; }
+  .expense-form label { display: grid; gap: .35rem; }
+  .expense-form label>span { color: rgba(255,255,255,.55); font-size: .73rem; font-weight: 600; }
+  .expense-form select,.expense-form input,.expense-form textarea { width: 100%; border: 1px solid rgba(255,255,255,.1); border-radius: .65rem; background: #11111e; color: white; padding: .68rem .72rem; font: inherit; font-size: .82rem; }
+  .expense-form select:focus,.expense-form input:focus,.expense-form textarea:focus { outline: 2px solid rgba(34,211,238,.55); outline-offset: 1px; }
+  .expense-form textarea { resize: vertical; line-height: 1.45; }
+  .wide-field { grid-column: 1/-1; }
+  .record-preview { display: flex; flex-direction: column; min-width: 0; border: 1px solid rgba(34,211,238,.18); border-radius: 1rem; background: rgba(2,6,23,.72); padding: 1rem; }
+  .preview-topline { display: flex; justify-content: space-between; gap: .8rem; color: rgba(255,255,255,.4); font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; }
+  .preview-topline span:last-child { color: #c4b5fd; }
+  .preview-amount { margin: .9rem 0; padding-bottom: .8rem; border-bottom: 1px solid rgba(255,255,255,.07); color: #fca5a5; font-size: 1.9rem; font-weight: 800; }
+  .preview-amount[data-direction="in"] { color: #6ee7b7; }
+  .record-preview dl { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; margin: 0; }
+  .record-preview dl div { min-width: 0; border: 1px solid rgba(255,255,255,.06); border-radius: .65rem; padding: .6rem; background: rgba(255,255,255,.02); }
+  .record-preview dt { color: rgba(255,255,255,.35); font-size: .63rem; }
+  .record-preview dd { margin: .22rem 0 0; color: white; font-size: .74rem; overflow-wrap: anywhere; }
+  .preview-note { margin: .75rem 0; padding: .75rem; border-left: 2px solid #8b5cf6; background: rgba(139,92,246,.08); }
+  .preview-note span { color: #c4b5fd; font-size: .67rem; font-weight: 700; text-transform: uppercase; }
+  .preview-note p { margin: .35rem 0 0; color: rgba(255,255,255,.68); font-size: .78rem; line-height: 1.5; }
+  .preview-actions { display: flex; flex-wrap: wrap; gap: .55rem; margin-top: auto; }
+  .preview-actions button { border: 0; border-radius: .6rem; background: linear-gradient(135deg,#fbbf24,#22d3ee); color: #07070d; padding: .62rem .75rem; font-weight: 750; font-size: .72rem; cursor: pointer; }
+  .preview-actions button.secondary { border: 1px solid rgba(255,255,255,.12); background: transparent; color: rgba(255,255,255,.72); }
+  .action-note { min-height: 1rem; margin: .55rem 0 0; color: #67e8f9; font-size: .68rem; }
+  .tool-limit { margin: 1rem 0 0; color: rgba(255,255,255,.4); font-size: .72rem; line-height: 1.5; }
+  @media (max-width:760px) { .record-flow { grid-template-columns: 1fr 1fr; } .record-flow i { display:none; } .tool-grid { grid-template-columns:1fr; } }
+  @media (max-width:480px) { .tool-heading { display:block; } .tool-badge { display:inline-block; margin-top:.7rem; } .expense-form { grid-template-columns:1fr; } .wide-field { grid-column:auto; } .record-preview dl { grid-template-columns:1fr; } }
+</style>

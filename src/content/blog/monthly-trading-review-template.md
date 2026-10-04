@@ -25,7 +25,7 @@ That requirement is worth being specific about, because a monthly review is only
 
 Most of what a monthly review needs is just the same [journal fields](/blogs/trading-journal-fields) a weekly review already uses, rolled up across four or five weeks instead of one:
 
-**The month's numbers, compared against the previous month.** Total trades, win rate, profit factor, and average R mean more in context than in isolation. A profit factor that dropped from the prior month is worth knowing even in a month that was still profitable overall.
+**The month's numbers, compared against the previous month.** Total trades, win rate, profit factor, and average R mean more in context than in isolation. Use the [trading performance metrics guide](/blogs/trading-performance-metrics) if the numbers appear to disagree. A profit factor that dropped from the prior month is worth knowing even in a month that was still profitable overall.
 
 **Rule compliance as a trend line, not a single number.** Four weekly compliance rates laid out together might show a steady decline that no single week's number would flag as a problem on its own. This is the single most useful thing a monthly review adds on top of weekly reviews — the trend, not the snapshot.
 

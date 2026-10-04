@@ -33,7 +33,7 @@ Fourth, they are not measured. A rule that is never checked becomes a preference
 
 A trading rulebook should begin with risk because risk rules define when you are allowed to continue trading and when you must stop.
 
-For a prop firm trader, these rules should be aligned with the firm’s actual requirements. That may include daily drawdown, maximum drawdown, maximum lots, prohibited trading windows, minimum trading days, or consistency rules.
+For a prop firm trader, these rules should be aligned with the firm’s actual requirements. That may include daily drawdown, maximum drawdown, maximum lots, prohibited trading windows, minimum trading days, or consistency rules. First use the [prop firm rules guide](/blogs/prop-firm-rules-guide) to check the exact program and phase; then copy those limits into your personal rulebook in plain English.
 
 Examples of risk-rule categories include:
 

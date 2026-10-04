@@ -23,7 +23,7 @@ Weekly reviews and monthly reviews answer different questions. A weekly review i
 
 A useful weekly review isn't a re-read of every trade in detail. It's a small number of specific checks, done consistently:
 
-**Basic numbers for the week.** Trades taken, win rate, and — more usefully than win rate alone — profit factor and average R. A journal built for [logging funded-account trades](/blogs/forex-journal-funded-accounts) that already tracks these per trade turns this into a quick lookup rather than a recalculation from memory.
+**Basic numbers for the week.** Trades taken, win rate, and — more usefully than win rate alone — profit factor and average R. Read these [trading performance metrics together](/blogs/trading-performance-metrics) before deciding what the week means. A journal built for [logging funded-account trades](/blogs/forex-journal-funded-accounts) that already tracks these per trade turns this into a quick lookup rather than a recalculation from memory.
 
 **Rule compliance, not just outcome.** How many of this week's trades followed the plan's entry criteria, sizing rules, and stop-loss placement, regardless of whether they won or lost? This is the number most traders skip, even though it says more about the health of a process than win rate does on its own.
 

@@ -45,9 +45,11 @@ Placing a sensible stop-loss depends on actually recognizing where a trade idea 
 
 ## Readiness Signal 6: The Specific Firm's Rules Are Actually Understood
 
-["Forex Trading for Beginners: What to Learn Before Taking a Prop Firm Challenge"](/blogs/forex-trading-for-beginners) makes the case that a challenge is a different skill from ordinary trading precisely because of its added rules layer. Readiness signal six is knowing that specific firm's profit target, daily loss limit, overall loss limit, and any minimum trading day requirement cold, not as a general idea of "there are rules" but as exact numbers that apply to the exact account being purchased.
+["Forex Trading for Beginners: What to Learn Before Taking a Prop Firm Challenge"](/blogs/forex-trading-for-beginners) makes the case that a challenge is a different skill from ordinary trading precisely because of its added rules layer. Readiness signal six is knowing that specific firm's profit target, daily loss limit, overall loss limit, and any minimum trading day requirement cold, not as a general idea of "there are rules" but as exact numbers that apply to the exact account being purchased. Use the [prop firm rules guide](/blogs/prop-firm-rules-guide) to turn the current official terms for that exact program into a one-page sheet before you pay.
 
 A trader who would need to look these numbers up mid-challenge hasn't actually internalized the constraints they're about to trade inside of.
+
+If the firm also uses a consistency condition, read the [consistency rule calculator guide](/blogs/prop-firm-consistency-calculator) and test the firm's exact published limit before you start. Do not carry a percentage from another firm or account type into your plan.
 
 ## A Simple Self-Assessment Checklist
 

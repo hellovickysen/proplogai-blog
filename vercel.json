@@ -1,0 +1,14 @@
+{
+  "redirects": [
+    {
+      "source": "/trading-emotions-account-killer",
+      "destination": "/how-emotions-affect-trading-decisions",
+      "permanent": true
+    },
+    {
+      "source": "/trading-journal-benefits",
+      "destination": "/prop-firm-trading-journal",
+      "permanent": true
+    }
+  ]
+}

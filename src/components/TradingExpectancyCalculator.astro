@@ -1,0 +1,258 @@
+<section class="expectancy-tool" aria-labelledby="expectancy-tool-title" data-expectancy-tool>
+  <div class="tool-heading">
+    <p class="eyebrow">Use one clean group of closed trades</p>
+    <h2 id="expectancy-tool-title">Trading expectancy calculator</h2>
+    <p>Enter trade counts and average net results from the same sample. The calculator shows the historical average result per trade.</p>
+  </div>
+
+  <div class="tool-actions" aria-label="Calculator examples">
+    <button type="button" data-use-sample>Use sample</button>
+    <button type="button" data-reset-example>Reset example</button>
+    <button type="button" data-clear-fields>Clear fields</button>
+  </div>
+
+  <form class="tool-form" data-expectancy-form novalidate>
+    <fieldset>
+      <legend>Closed trade counts</legend>
+      <div class="field-grid field-grid--three">
+        <div class="field-group">
+          <label for="expectancy-wins">Winning trades</label>
+          <input id="expectancy-wins" name="wins" type="number" min="0" step="1" value="8" inputmode="numeric" />
+        </div>
+        <div class="field-group">
+          <label for="expectancy-losses">Losing trades</label>
+          <input id="expectancy-losses" name="losses" type="number" min="0" step="1" value="12" inputmode="numeric" />
+        </div>
+        <div class="field-group">
+          <label for="expectancy-breakeven">Breakeven trades</label>
+          <input id="expectancy-breakeven" name="breakeven" type="number" min="0" step="1" value="0" inputmode="numeric" />
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Average net results</legend>
+      <div class="field-grid">
+        <div class="field-group">
+          <label for="expectancy-average-win">Average net win ($)</label>
+          <input id="expectancy-average-win" name="averageWin" type="number" min="0" step="0.01" value="180" inputmode="decimal" />
+          <small>Use winning trades only.</small>
+        </div>
+        <div class="field-group">
+          <label for="expectancy-average-loss">Average net loss ($)</label>
+          <input id="expectancy-average-loss" name="averageLoss" type="number" min="0" step="0.01" value="80" inputmode="decimal" />
+          <small>Enter the loss as a positive amount: 80, not −80.</small>
+        </div>
+      </div>
+    </fieldset>
+
+    <p class="input-note">Use the same account, date range, currency, and cost treatment for every input. If commission, spread, or swap is already included in your net trade results, do not deduct it again.</p>
+    <p class="error-message" role="alert" data-error hidden></p>
+  </form>
+
+  <div class="primary-result" aria-live="polite">
+    <span>Historical expectancy per trade</span>
+    <strong data-expectancy>+$24.00</strong>
+    <p data-summary>This entered sample averaged +$24.00 per closed trade. It does not predict the next trade.</p>
+  </div>
+
+  <div class="result-grid" aria-live="polite">
+    <div>
+      <span>Net sample result</span>
+      <strong data-net-result>+$480.00</strong>
+    </div>
+    <div>
+      <span>Total trades</span>
+      <strong data-total-trades>20</strong>
+    </div>
+    <div>
+      <span>Win / loss / breakeven</span>
+      <strong data-rates>40.00% / 60.00% / 0.00%</strong>
+    </div>
+    <div>
+      <span>Total winning amount</span>
+      <strong data-winning-total>$1,440.00</strong>
+    </div>
+    <div>
+      <span>Total losing amount</span>
+      <strong data-losing-total>$960.00</strong>
+    </div>
+    <div>
+      <span>Profit factor cross-check</span>
+      <strong data-profit-factor>1.50</strong>
+    </div>
+  </div>
+
+  <div class="formula-card">
+    <span>Your calculation</span>
+    <code data-formula>($1,440.00 − $960.00) ÷ 20 = +$24.00 per trade</code>
+    <small data-rate-formula>(40.00% × $180.00) − (60.00% × $80.00) = +$24.00</small>
+  </div>
+
+  <aside class="tool-limit">
+    <strong>Read the result carefully:</strong> this is an average from the trades you entered. It does not prove an edge, predict future profit, confirm a prop-firm rule, or tell you what to trade.
+  </aside>
+</section>
+
+<script>
+  const sample = { wins: 8, losses: 12, breakeven: 0, averageWin: 180, averageLoss: 80 };
+  const tool = document.querySelector('[data-expectancy-tool]');
+
+  if (tool instanceof HTMLElement && tool.dataset.ready !== 'true') {
+    tool.dataset.ready = 'true';
+    const form = tool.querySelector('[data-expectancy-form]');
+    const error = tool.querySelector('[data-error]');
+    const fields = {
+      wins: tool.querySelector('[name="wins"]'),
+      losses: tool.querySelector('[name="losses"]'),
+      breakeven: tool.querySelector('[name="breakeven"]'),
+      averageWin: tool.querySelector('[name="averageWin"]'),
+      averageLoss: tool.querySelector('[name="averageLoss"]'),
+    };
+
+    const outputs = {
+      expectancy: tool.querySelector('[data-expectancy]'),
+      summary: tool.querySelector('[data-summary]'),
+      net: tool.querySelector('[data-net-result]'),
+      total: tool.querySelector('[data-total-trades]'),
+      rates: tool.querySelector('[data-rates]'),
+      winningTotal: tool.querySelector('[data-winning-total]'),
+      losingTotal: tool.querySelector('[data-losing-total]'),
+      profitFactor: tool.querySelector('[data-profit-factor]'),
+      formula: tool.querySelector('[data-formula]'),
+      rateFormula: tool.querySelector('[data-rate-formula]'),
+    };
+
+    const read = (field) => field instanceof HTMLInputElement && field.value.trim() !== '' ? Number(field.value) : NaN;
+    const dollars = (value) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }).format(value);
+    const signedDollars = (value) => `${value > 0 ? '+' : ''}${dollars(value)}`;
+    const percent = (value) => `${(value * 100).toFixed(2)}%`;
+    const setText = (node, value) => { if (node) node.textContent = value; };
+
+    const showError = (message) => {
+      if (!(error instanceof HTMLElement)) return;
+      error.textContent = message;
+      error.hidden = false;
+    };
+
+    const clearError = () => {
+      if (!(error instanceof HTMLElement)) return;
+      error.textContent = '';
+      error.hidden = true;
+    };
+
+    const update = () => {
+      const values = {
+        wins: read(fields.wins),
+        losses: read(fields.losses),
+        breakeven: read(fields.breakeven),
+        averageWin: read(fields.averageWin),
+        averageLoss: read(fields.averageLoss),
+      };
+
+      const counts = [values.wins, values.losses, values.breakeven];
+      if (counts.some((value) => !Number.isFinite(value) || value < 0 || !Number.isInteger(value))) {
+        showError('Enter whole numbers of zero or more for winning, losing, and breakeven trades.');
+        return;
+      }
+
+      const total = values.wins + values.losses + values.breakeven;
+      if (total < 1) {
+        showError('Enter at least one closed trade before calculating expectancy.');
+        return;
+      }
+
+      if ((values.wins > 0 && (!Number.isFinite(values.averageWin) || values.averageWin < 0)) ||
+          (values.losses > 0 && (!Number.isFinite(values.averageLoss) || values.averageLoss < 0))) {
+        showError('Enter non-negative average win and loss amounts for the trade counts provided.');
+        return;
+      }
+
+      if ((Number.isFinite(values.averageWin) && values.averageWin < 0) || (Number.isFinite(values.averageLoss) && values.averageLoss < 0)) {
+        showError('Average win and average loss must be entered as positive dollar amounts.');
+        return;
+      }
+
+      const averageWin = Number.isFinite(values.averageWin) ? values.averageWin : 0;
+      const averageLoss = Number.isFinite(values.averageLoss) ? values.averageLoss : 0;
+      const winRate = values.wins / total;
+      const lossRate = values.losses / total;
+      const breakevenRate = values.breakeven / total;
+      const winningTotal = values.wins * averageWin;
+      const losingTotal = values.losses * averageLoss;
+      const net = winningTotal - losingTotal;
+      const expectancy = net / total;
+      const profitFactor = losingTotal > 0 ? winningTotal / losingTotal : null;
+
+      clearError();
+      setText(outputs.expectancy, signedDollars(expectancy));
+      setText(outputs.net, signedDollars(net));
+      setText(outputs.total, String(total));
+      setText(outputs.rates, `${percent(winRate)} / ${percent(lossRate)} / ${percent(breakevenRate)}`);
+      setText(outputs.winningTotal, dollars(winningTotal));
+      setText(outputs.losingTotal, dollars(losingTotal));
+      setText(outputs.profitFactor, profitFactor === null ? 'Not available' : profitFactor.toFixed(2));
+      setText(outputs.formula, `(${dollars(winningTotal)} − ${dollars(losingTotal)}) ÷ ${total} = ${signedDollars(expectancy)} per trade`);
+      setText(outputs.rateFormula, `(${percent(winRate)} × ${dollars(averageWin)}) − (${percent(lossRate)} × ${dollars(averageLoss)}) = ${signedDollars(expectancy)}`);
+
+      const direction = expectancy > 0 ? 'positive' : expectancy < 0 ? 'negative' : 'zero';
+      if (outputs.expectancy instanceof HTMLElement) outputs.expectancy.dataset.state = direction;
+      setText(outputs.summary, `This entered sample averaged ${signedDollars(expectancy)} per closed trade. It does not predict the next trade.`);
+    };
+
+    const setValues = (values) => {
+      Object.entries(values).forEach(([key, value]) => {
+        const field = fields[key];
+        if (field instanceof HTMLInputElement) field.value = String(value);
+      });
+      update();
+    };
+
+    form?.addEventListener('input', update);
+    tool.querySelector('[data-use-sample]')?.addEventListener('click', () => setValues(sample));
+    tool.querySelector('[data-reset-example]')?.addEventListener('click', () => setValues(sample));
+    tool.querySelector('[data-clear-fields]')?.addEventListener('click', () => setValues({ wins: '', losses: '', breakeven: 0, averageWin: '', averageLoss: '' }));
+    update();
+  }
+</script>
+
+<style>
+  .expectancy-tool { margin: 2.25rem 0; border: 1px solid rgba(34,211,238,.25); border-radius: 1.25rem; background: linear-gradient(145deg,rgba(34,211,238,.07),rgba(139,92,246,.08)); padding: 1.25rem; }
+  .tool-heading .eyebrow { margin: 0 0 .35rem; color: #67e8f9; font: 600 .68rem/1.4 ui-monospace,monospace; letter-spacing: .12em; text-transform: uppercase; }
+  .tool-heading h2 { margin: 0; font-size: 1.45rem; }
+  .tool-heading p:last-child { margin: .65rem 0 0; color: rgba(255,255,255,.62); font-size: .92rem; line-height: 1.65; }
+  .tool-actions { display: flex; flex-wrap: wrap; gap: .55rem; margin: 1.1rem 0; }
+  .tool-actions button { border: 1px solid rgba(255,255,255,.13); border-radius: 999px; background: rgba(255,255,255,.04); padding: .55rem .8rem; color: rgba(255,255,255,.76); font-size: .74rem; cursor: pointer; }
+  .tool-actions button:hover, .tool-actions button:focus-visible { border-color: rgba(34,211,238,.55); color: #fff; outline: none; }
+  .tool-form { display: grid; gap: 1rem; }
+  fieldset { min-width: 0; margin: 0; border: 1px solid rgba(255,255,255,.08); border-radius: .9rem; padding: .9rem; }
+  legend { padding: 0 .35rem; color: rgba(255,255,255,.8); font-size: .78rem; font-weight: 700; }
+  .field-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: .8rem; }
+  .field-grid--three { grid-template-columns: repeat(3,minmax(0,1fr)); }
+  .field-group { min-width: 0; display: grid; gap: .38rem; }
+  .field-group label { color: rgba(255,255,255,.86); font-size: .77rem; font-weight: 600; }
+  .field-group input { width: 100%; min-width: 0; border: 1px solid rgba(255,255,255,.12); border-radius: .7rem; background: rgba(4,5,12,.7); padding: .72rem .78rem; color: white; font: 650 .95rem/1.2 ui-monospace,monospace; }
+  .field-group input:focus { outline: 2px solid rgba(34,211,238,.52); outline-offset: 2px; }
+  .field-group small { color: rgba(255,255,255,.38); font-size: .67rem; line-height: 1.5; }
+  .input-note { margin: 0; border-left: 3px solid #a78bfa; padding: .65rem .8rem; background: rgba(139,92,246,.06); color: rgba(255,255,255,.55); font-size: .75rem; line-height: 1.55; }
+  .error-message { margin: 0; border: 1px solid rgba(248,113,113,.3); border-radius: .75rem; background: rgba(248,113,113,.08); padding: .7rem .8rem; color: #fca5a5; font-size: .78rem; }
+  .primary-result { margin-top: 1.1rem; border: 1px solid rgba(34,211,238,.28); border-radius: 1rem; background: rgba(3,14,22,.72); padding: 1rem; }
+  .primary-result span, .result-grid span, .formula-card span { display: block; color: rgba(255,255,255,.43); font-size: .68rem; line-height: 1.45; }
+  .primary-result strong { display: block; margin-top: .25rem; color: #86efac; font: 800 1.7rem/1.2 ui-monospace,monospace; overflow-wrap: anywhere; }
+  .primary-result strong[data-state="negative"] { color: #fca5a5; }
+  .primary-result strong[data-state="zero"] { color: #fde68a; }
+  .primary-result p { margin: .55rem 0 0; color: rgba(255,255,255,.62); font-size: .79rem; line-height: 1.55; }
+  .result-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: .65rem; margin-top: .75rem; }
+  .result-grid > div { min-width: 0; border: 1px solid rgba(255,255,255,.08); border-radius: .85rem; background: rgba(5,7,15,.64); padding: .8rem; }
+  .result-grid strong { display: block; margin-top: .35rem; color: #fff; font: 700 .82rem/1.35 ui-monospace,monospace; overflow-wrap: anywhere; }
+  .formula-card { margin-top: .75rem; border: 1px solid rgba(167,139,250,.22); border-radius: .85rem; background: rgba(139,92,246,.06); padding: .85rem; }
+  .formula-card code, .formula-card small { display: block; overflow-wrap: anywhere; }
+  .formula-card code { margin-top: .38rem; color: #fff; font: 650 .82rem/1.6 ui-monospace,monospace; }
+  .formula-card small { margin-top: .25rem; color: rgba(255,255,255,.5); font: 500 .72rem/1.55 ui-monospace,monospace; }
+  .tool-limit { margin-top: .9rem; border-radius: .85rem; background: rgba(245,158,11,.07); padding: .85rem; color: rgba(255,255,255,.58); font-size: .75rem; line-height: 1.6; }
+  .tool-limit strong { color: #fbbf24; }
+  @media (max-width: 640px) {
+    .expectancy-tool { padding: 1rem; }
+    .field-grid, .field-grid--three, .result-grid { grid-template-columns: 1fr; }
+  }
+</style>

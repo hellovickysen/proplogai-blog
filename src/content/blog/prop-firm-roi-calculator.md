@@ -2,6 +2,7 @@
 title: "Prop Firm ROI Calculator: Fees, Payouts, and Failed Challenges"
 description: "Calculate your real prop firm ROI by counting every challenge fee, reset, and payout across all attempts, not just the one that passed."
 date: 2026-07-09
+updatedDate: 2026-10-02
 category: "Prop Firm Expenses and ROI"
 silo: "Prop Firm Expense Tracker"
 coverImage: "/blogs/images/cover-prop-firm-roi-calculator.webp"
@@ -67,6 +68,8 @@ This total is the true denominator. It is usually larger than the cost of the si
 Next, total actual payouts received during the same period. Use the amount actually paid out, not the profit shown inside the funded account, since firms may apply profit splits, minimum payout thresholds, or processing delays that change the number that actually arrives.
 
 If a payout is still pending or has not cleared, it is reasonable to track it separately rather than counting it before it is actually received.
+
+The [prop firm payout rules guide](/blogs/prop-firm-payout-rules) explains what to check before requesting a payout and why a dashboard profit figure, an approved request, and money received are different stages.
 
 ## Step 4: Calculate Net ROI Across All Attempts
 
