@@ -31,6 +31,7 @@ const articleSlugs = new Set(articles.map((file) => path.basename(file, path.ext
 const approvedGlossarySlugs = new Set([
   'average-win-vs-average-loss', 'consistency-rule', 'daily-drawdown-limit', 'drawdown', 'equity-curve', 'expectancy', 'fomo', 'funded-account', 'overall-drawdown-limit', 'overtrading', 'performance-report', 'profit-factor', 'profit-target', 'prop-firm-challenge', 'revenge-trading', 'sharpe-ratio', 'win-rate',
   'emotion-tracking', 'rule-based-trading', 'setup-compliance', 'tilt', 'trade-review', 'trading-journal', 'trading-plan',
+  'position-sizing', 'risk-per-trade', 'stop-loss',
 ]);
 
 for (const file of articles) {
@@ -124,6 +125,15 @@ const requiredRelationships = new Map([
     '/glossary/trading-journal',
     '/blogs/overtrading-prop-firm-challenges',
   ]],
+  ['how-to-calculate-position-size-forex.mdx', [
+    '/tools/position-size-calculator',
+    '/glossary/position-sizing',
+    '/glossary/risk-per-trade',
+    '/glossary/stop-loss',
+    '/glossary/daily-drawdown-limit',
+    '/glossary/overall-drawdown-limit',
+    '/blogs/prop-firm-risk-management',
+  ]],
   ['ai-trading-coach-prop-firm.md', ['/blogs/ai-journal-pattern-detection', '/blogs/ai-trading-discipline']],
   ['trading-performance-metrics.mdx', [
     '/glossary/win-rate',
@@ -201,6 +211,10 @@ const requiredAssets = new Map([
   ]],
   ['daily-drawdown-calculator.mdx', [
     '/blogs/images/cover-daily-drawdown-calculator.webp',
+  ]],
+  ['how-to-calculate-position-size-forex.mdx', [
+    '/blogs/images/cover-how-to-calculate-position-size-forex.webp',
+    '/blogs/images/xauusd-position-size-example-note.webp',
   ]],
   ['prop-firm-consistency-calculator.mdx', [
     '/blogs/images/cover-prop-firm-consistency-calculator.webp',
