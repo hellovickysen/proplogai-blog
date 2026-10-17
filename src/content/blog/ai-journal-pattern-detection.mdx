@@ -1,0 +1,77 @@
+---
+title: "How AI Finds Patterns in Your Trading Journal"
+description: "See how to check an AI finding against your own trade records, with a simple XAUUSD example and clear limits on what a pattern can tell you."
+date: 2026-07-13
+updatedDate: 2026-10-10
+category: "AI Trading Coaching"
+silo: "AI Trading Coach for Prop Firm Traders"
+coverImage: "/blogs/images/cover-ai-journal-pattern-detection-k9.webp"
+draft: false
+metaTitle: "How AI Finds Patterns in Your Trading Journal"
+disclaimer: "Educational content only. The journal records below are fictional examples for review, not trading, investment, or financial advice."
+---
+
+import ZoomImage from '../../components/ZoomImage.astro';
+
+You read an AI summary of your [trading journal](/glossary/trading-journal): “You often enter your next trade early after a loss.” It sounds possible. You remember feeling impatient after some losing trades. But **which entries support that sentence?**
+
+Before you change your plan, open the records. An AI summary can help you notice a question. Your notes, setup rules, and chart screenshots help you check whether the summary is fair.
+
+## Ask one question about the trades you recorded
+
+In this **fictional example**, you trade XAUUSD during the London session. Your setup is a breakout: price moves beyond a level you marked. Your written entry check says to wait until the candle **closes** beyond that level. An entry before the close is “early” under *your example plan*. This is a way to review old trades, not a suggestion to take a new one.
+
+You want to know: **“After a loss, did I enter the next planned XAUUSD London breakout before my candle-close check?”** This is [pattern recognition](/glossary/pattern-recognition) in a journal: looking for something that appears more than once in your own recorded decisions. It is different from spotting a pattern on a price chart.
+
+<ZoomImage
+  src="/blogs/images/ai-journal-pattern-step-1-records.webp"
+  alt="Handwritten learning note, step one: eight fictional XAUUSD London breakout records, four after a loss and four without a prior loss, with early-entry labels"
+  caption="Step 1: Put the eight records beside the one question you want to answer. Tap to zoom."
+/>
+
+## Count the records before accepting the summary
+
+Here are the eight **fictional** entries. “After loss” means the previous trade lost; “Other” means it did not. “Early?” is the label originally written in the journal. Keep the columns readable by swiping the table sideways on a small screen.
+
+| Record | Previous trade | Early entry as first logged? |
+|---|---|---|
+| A1 | After loss | Yes |
+| A2 | After loss | Yes |
+| A3 | After loss | Yes — check this note |
+| A4 | After loss | No |
+| B1 | Other | Yes |
+| B2 | Other | No |
+| B3 | Other | No |
+| B4 | Other | No |
+
+At first, the journal says **3 of 4** after-loss entries were early. In the other group, **1 of 4** was early. Now you can see exactly what the AI summary may be referring to. You still cannot tell from these eight records *why* any entry was early.
+
+<ZoomImage
+  src="/blogs/images/ai-journal-pattern-step-2-count.webp"
+  alt="Handwritten learning note, step two: three of four after-loss entries versus one of four other entries initially marked early"
+  caption="Step 2: Compare the counts, not just the AI sentence. Tap to zoom."
+/>
+
+## Check the original note when a label looks wrong
+
+Open A3's trade note and chart screenshot. In this **fictional record**, the candle had already closed beyond the marked level before entry. A3 was marked “early” by mistake. Change A3 from **Yes** to **No** in the journal.
+
+The corrected count is **2 of 4** after-loss entries marked early, compared with **1 of 4** in the other group. The difference is smaller now. The AI may have summarised what was recorded, but it cannot make a wrong label true. A useful [trade review](/glossary/trade-review) means checking the original entry, not only the summary.
+
+<ZoomImage
+  src="/blogs/images/ai-journal-pattern-step-3-correct.webp"
+  alt="Handwritten learning note, step three: A3's early label is corrected from yes to no, changing the after-loss count from three of four to two of four while the other group remains one of four"
+  caption="Step 3: Correct A3. The revised count is 2 of 4 versus 1 of 4. Tap to zoom."
+/>
+
+## What should you check before calling it a pattern?
+
+Look for missing trades and empty labels. Check that “breakout” meant the same setup in every row. Were all eight trades from the same account and review period? Did your candle-close rule stay the same? If one trade used a different plan, putting it in this group could mislead you.
+
+Your journal should record the plan, what you did, and the result separately. [IG's journal guide](https://www.ig.com/ae/ig-academy/tools-for-traders/important-metrics) explains why trade history alone does not capture what you were thinking or whether you followed your plan. If you did not record a detail, mark it **not recorded** until you can check it. Do not guess a label to fill the gap.
+
+The careful conclusion is: **“In this small corrected sample, 2 of 4 after-loss trades and 1 of 4 other trades were marked early.”** Eight records are too few to settle a cause or predict your next decision. Even a larger link between two recorded facts would not prove that the loss *caused* the early entry; [NIST explains this difference](https://www.itl.nist.gov/div898/handbook/ppc/section1/ppc136.htm).
+
+An AI finding should give you a question you can check against your own records. It is not an XAUUSD signal, a price forecast, or proof of what you felt. Save the question and corrected count in your journal. As you record more trades, check whether the same observation still appears.
+
+PropLogAI lets you record trade details, emotions, notes, and whether your setup was followed. Its [AI trading coach](/glossary/ai-trading-coach) can help you review the information you entered. Your written plan and original notes remain the place to check a finding. For the wider boundary between coaching and trade signals, read [what an AI trading coach should and should not do](/blogs/ai-trading-coach-prop-firm). For a separate example of checking plan-following against trade results, see [how AI can help you review trading discipline](/blogs/ai-trading-discipline). Current features and plan limits are listed on the [pricing page](https://proplogai.com/pricing).

@@ -1,0 +1,105 @@
+---
+title: "Prop Firm ROI Calculator: Count Every Fee and Payout"
+description: "Add your prop firm fees, resets and payouts in USD. See a simple ROI example that counts failed challenges too, and learn what the number leaves out."
+date: 2026-07-09
+updatedDate: 2026-10-16
+category: "Prop Firm Expenses and ROI"
+silo: "Prop Firm Expense Tracker"
+coverImage: "/blogs/images/cover-prop-firm-roi-calculator-k23.webp"
+draft: false
+metaTitle: "Prop Firm ROI Calculator: Fees vs Payouts"
+disclaimer: "Educational cash-flow example only. Fees, refunds and payout conditions vary by firm and program. This worksheet is not tax, accounting, investment or financial advice."
+---
+
+import PropFirmRoiCalculator from '../../components/PropFirmRoiCalculator.astro';
+import ZoomImage from '../../components/ZoomImage.astro';
+
+You got a **$600 payout**. Before you call it profit, what did the earlier challenges cost you?
+
+If you paid for two failed attempts and a reset, that money belongs in the same calculation as the payout. **Add the costs you paid, subtract fee refunds you actually received, and compare the result with payouts that actually reached you.** That gives you a return on the costs you counted. It does not tell you what will happen on your next challenge.
+
+You can try the numbers below. The starting amounts are **fictional**. Nothing you enter here is saved.
+
+<PropFirmRoiCalculator />
+
+## First, decide what you are counting
+
+Choose a firm, a group of attempts, and a time period. For that scope, gather:
+
+1. **Fees paid:** challenge purchases, activation fees and renewals, including failed attempts.
+2. **Resets paid:** another payment to restart an attempt.
+3. **Other related costs:** subscriptions or data you choose to count. Use the same choice when comparing two firms or periods.
+4. **Fee refunds received:** money returned for one of those costs. Keep a pending refund separate.
+5. **Payouts received:** money that reached you. An account profit figure, payout request or approval is not money received yet.
+
+If your records are scattered, the [prop firm expense tracking guide](/blogs/prop-firm-expense-tracking-guide) shows how to give each payment, refund and payout its own row. That guide owns the record; this page does the calculation.
+
+For a [funded account](https://proplogai.com/glossary/funded-account)—the account stage after an evaluation—read the firm's current payout terms too. The [prop firm payout rules guide](/blogs/prop-firm-payout-rules) explains why passing a challenge, seeing account profit and receiving a payout are different events. Neither this article nor its calculator checks your firm's rules.
+
+## Step 1: Add the costs from every attempt
+
+Imagine this fictional history with one firm. All amounts are in USD:
+
+| Event | Money paid | What happened |
+| --- | ---: | --- |
+| Challenge 1 | $150 | Failed |
+| Challenge 2 | $150 | Failed |
+| Reset for challenge 2 | $75 | Paid, then that attempt ended |
+| Challenge 3 | $200 | Passed |
+| **Total paid costs** | **$575** | **All three attempts count** |
+
+On a phone, swipe the table sideways if you need to. The first two attempts and the reset cost **$375** before the third challenge began. Leaving them out would make the later payout look much better than this full history shows.
+
+<ZoomImage
+  src="/blogs/images/prop-firm-roi-step-1-costs.webp"
+  alt="Handwritten step one note listing three fictional prop firm challenge fees and one reset, adding to 575 dollars of paid costs"
+  caption="Step 1: Keep the failed attempts in the cost total. Tap to zoom."
+/>
+
+## Step 2: Count money that arrived
+
+The trader later receives **$600** from challenge 3's funded account. There is no received refund or other related cost in this example. The counted cost stays **$575**.
+
+Suppose the firm has also approved a **second $300 payout**, but it is still pending. The calculator stays at $600 received. If that $300 later arrives, the trader can update the record and calculate again. Do not count it early just to make the return look stronger.
+
+<ZoomImage
+  src="/blogs/images/prop-firm-roi-step-2-payout.webp"
+  alt="Handwritten step two note showing 600 dollars received, 300 dollars pending and 575 dollars of counted costs"
+  caption="Step 2: Received and pending are two different amounts. Tap to zoom."
+/>
+
+## Step 3: Find net cash and ROI
+
+First find the cash left after the counted costs:
+
+**$600 received − $575 counted costs = +$25 net cash.**
+
+Then compare that $25 with the $575 spent:
+
+**ROI = $25 ÷ $575 × 100 = 4.35%** after rounding to two decimals.
+
+That is a **4.35% return on the costs counted in this example**. It is not a return on the headline account size, and it does not prove that the trader has a repeatable edge. The $200 third challenge alone would have suggested $400 net cash, because it would have hidden the earlier $375.
+
+<ZoomImage
+  src="/blogs/images/prop-firm-roi-step-3-result.webp"
+  alt="Handwritten final note showing 600 dollars received minus 575 dollars counted costs equals 25 dollars net cash and 4.35 percent ROI"
+  caption="Step 3: Finish the calculation only after both sides are complete. Tap to zoom."
+/>
+
+### What if a refund arrives?
+
+Subtract a **received fee refund** from the fees it returned. For example, if this trader later receives a **$75 fee refund**, net counted costs become **$500**. With the same $600 received payout, net cash is **$100**, and ROI on those net counted costs is **20%**. The refund changes the calculation when it arrives, not when it is promised. Do not subtract more in refunds than the paid costs you entered; check the rows if that happens.
+
+### What if counted costs are zero?
+
+You can still see the payout and net cash, but **ROI percentage is not defined when counted costs are $0**. Dividing by zero cannot give a useful percentage. The worksheet says “Not defined” in that case rather than showing 0% or an infinite return.
+
+## Use the number without asking it to decide for you
+
+If you try more than one firm, calculate each firm separately using the **same cost categories and time boundary**. A combined number can hide that one firm cost you more in repeated attempts. Keep each firm's records visible before comparing them.
+
+The result is only as complete as your entries. It leaves out time spent, opportunity cost, taxes, currency conversion and charges you did not record. Even a positive ROI does not tell you whether to buy another challenge, change account size or expect another payout. For those decisions, review your own records and the firm's current program rules.
+
+PropLogAI lets you enter prop-firm expenses and payouts and see per-firm totals from those entries in its signed-in expense tracker. That is a place to keep your history. The small calculator on this page is a **browser worksheet**; it does not save your numbers or change your PropLogAI records.
+
+**Next time you see a payout, start with the full cost history.** Keep pending money separate, calculate what actually arrived, and write down which costs you chose to include. Then the number means something clear.

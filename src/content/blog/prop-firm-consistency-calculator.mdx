@@ -2,7 +2,7 @@
 title: "Consistency Rule Calculator for Prop Firm Traders"
 description: "Calculate a best-day or best-trade consistency percentage in USD, understand what changes the result, and compare it with your prop firm's exact rule."
 date: 2026-07-13
-updatedDate: 2026-10-02
+updatedDate: 2026-10-17
 category: "Tools and Calculators"
 silo: "Prop Firm Rules and Readiness"
 coverImage: "/blogs/images/cover-prop-firm-consistency-calculator.webp"
@@ -51,7 +51,7 @@ Before entering a number, read the exact wording used by your program:
 - **Best-day rule:** groups all results inside the firm's defined trading day and checks the largest profitable day.
 - **Best-trade rule:** checks the highest single winning trade instead of the whole day.
 
-For example, Instant Funding's current IF1 page describes a **15% best-trade rule**. Choose **Largest Trade** for that method. Tradeify's current Lightning Funded first-payout rule uses the **biggest day** and a 20% limit, so choose **Largest Day**. Selecting the wrong method would answer the wrong question.
+For example, Instant Funding's IF Starter page (formerly IF1) describes a **15% best-trade rule**. Choose **Largest Trade** for that method. Tradeify's current Lightning Funded first-payout rule uses the **biggest day** and a 20% limit, so choose **Largest Day**. Selecting the wrong method would answer the wrong question.
 
 <ZoomImage
   src="/blogs/images/consistency-day-vs-trade-note.webp"
@@ -143,11 +143,11 @@ The example now meets a 40% limit. It does not mean you should chase $200. You m
 
 A [consistency rule](/glossary/consistency-rule) does not have one universal percentage or consequence.
 
-Current official pages rechecked on 29 September 2026 show why the exact program matters:
+Official pages checked on 17 October 2026 show why the exact program matters:
 
 - **Trading Combine:** a 55% Consistency Target using best-day profit against total profit. When the target is exceeded, the required profit target can increase.
 - **Express Funded Account Consistency path:** a 40% objective using largest single-day net profit against total net profit. A result above the limit does not satisfy that payout-path requirement, and the calculation resets after a payout request under the published conditions.
-- **Instant Funding IF1:** a 15% best-trade rule. It checks one trade rather than a whole trading day, so use the calculator's **Largest Trade** option.
+- **Instant Funding IF Starter (formerly IF1):** a 15% best-trade rule. It checks one trade rather than a whole trading day, so use the calculator's **Largest Trade** option.
 - **Tradeify Lightning Funded:** 20% for the first payout, 25% for the second, and 30% from the third payout under the current dated program conditions.
 - **My Funded Futures evaluation:** 30% on Rapid EOD and 50% on Rapid Intraday and Pro on the checked page.
 - **Apex cited payout requirement:** the checked page compares the largest profitable day with accumulated net profit under a 50% payout condition. Verify the exact boundary shown in your dashboard.
@@ -245,11 +245,11 @@ No. A best day is the net result of the firm's defined trading day. A best trade
 
 ## Sources checked
 
-- [Topstep: Consistency at Topstep](https://help.topstep.com/en/articles/8284208-consistency-at-topstep), rechecked 29 September 2026.
-- [Tradeify: Consistency Rule](https://help.tradeify.co/en/articles/10468320-rules-consistency-rule), rechecked 29 September 2026.
-- [Instant Funding: IF1](https://instantfunding.com/help/if1/), rechecked 29 September 2026.
-- [Apex Trader Funding: 50% Consistency Requirement](https://apextraderfunding.com/help-center/additional-helpful-items/50-consistency-requirement/), rechecked 29 September 2026.
-- [My Funded Futures: Consistency Rule](https://help.myfundedfutures.com/en/articles/11994562-consistency-rule-at-my-fundedfutures), rechecked 29 September 2026.
+- [Topstep: Consistency at Topstep](https://help.topstep.com/en/articles/8284208-consistency-at-topstep), checked 17 October 2026.
+- [Tradeify: Consistency Rule](https://help.tradeify.co/en/articles/10468320-rules-consistency-rule), checked 17 October 2026.
+- [Instant Funding: IF Starter (formerly IF1)](https://instantfunding.com/help/if1/), checked 17 October 2026.
+- [Apex Trader Funding: 50% Consistency Requirement](https://apextraderfunding.com/help-center/additional-helpful-items/50-consistency-requirement/), checked 17 October 2026.
+- [My Funded Futures: Consistency Rule](https://help.myfundedfutures.com/en/articles/11994562-consistency-rule-at-my-fundedfutures), checked 17 October 2026.
 - [PropLogAI consistency calculator](https://proplogai.com/tools/consistency-calculator), reviewed locally for the calculation and wording used in this guide.
 
 Rules can change. Recheck the official source for your exact account before relying on any threshold, formula, reset, or consequence.

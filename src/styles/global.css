@@ -296,6 +296,37 @@
   background: rgba(255, 255, 255, 0.02);
 }
 
+.prose-blog .weekly-review-template,
+.prose-blog .monthly-review-template {
+  margin: 1.75rem 0 2rem;
+  padding: clamp(1rem, 3vw, 1.5rem);
+  border: 1px solid rgba(34, 211, 238, 0.28);
+  border-left: 4px solid #22d3ee;
+  border-radius: 0.9rem;
+  background: linear-gradient(140deg, rgba(34, 211, 238, 0.09), rgba(139, 92, 246, 0.06));
+}
+
+.prose-blog .weekly-review-template--filled,
+.prose-blog .monthly-review-template--filled {
+  border-color: rgba(139, 92, 246, 0.32);
+  border-left-color: #a78bfa;
+  background: linear-gradient(140deg, rgba(139, 92, 246, 0.11), rgba(34, 211, 238, 0.04));
+}
+
+.prose-blog .weekly-review-template p,
+.prose-blog .monthly-review-template p {
+  margin: 0;
+  padding: 0.7rem 0;
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+
+.prose-blog .weekly-review-template p + p,
+.prose-blog .monthly-review-template p + p {
+  border-top: 1px solid rgba(255, 255, 255, 0.09);
+}
+
 .prose-blog .expense-example-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
