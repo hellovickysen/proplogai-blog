@@ -1,0 +1,87 @@
+<section class="roi-tool" aria-labelledby="roi-tool-title" data-roi-calculator>
+  <div class="roi-tool-head">
+    <div>
+      <p class="roi-kicker">Try the numbers · USD</p>
+      <h2 id="roi-tool-title">Prop firm ROI calculator</h2>
+      <p>Start with the fictional example. Replace it with amounts from your own records.</p>
+    </div>
+    <span class="roi-badge">In your browser · not saved</span>
+  </div>
+
+  <form class="roi-form" novalidate>
+    <fieldset>
+      <legend>Money you paid</legend>
+      <label><span>Challenge, activation and renewal fees ($)</span><input name="fees" type="number" min="0" step="0.01" inputmode="decimal" value="500" required /></label>
+      <label><span>Reset fees ($)</span><input name="resets" type="number" min="0" step="0.01" inputmode="decimal" value="75" required /></label>
+      <label><span>Other related costs you chose to include ($)</span><input name="other" type="number" min="0" step="0.01" inputmode="decimal" value="0" required /></label>
+    </fieldset>
+    <fieldset>
+      <legend>Money you received</legend>
+      <label><span>Fee refunds received ($)</span><input name="refunds" type="number" min="0" step="0.01" inputmode="decimal" value="0" required /></label>
+      <label><span>Payouts received ($)</span><input name="payouts" type="number" min="0" step="0.01" inputmode="decimal" value="600" required /></label>
+    </fieldset>
+    <p class="roi-form-note">Leave pending payouts and refunds out until the money arrives. Use the same cost categories when you compare periods or firms.</p>
+    <button type="submit">Calculate ROI</button>
+  </form>
+
+  <div class="roi-result" aria-live="polite" aria-atomic="true" data-roi-result>
+    <p class="roi-result-kicker">Fictional example</p>
+    <dl>
+      <div><dt>Paid costs</dt><dd data-roi="paid">$575.00</dd></div>
+      <div><dt>After received refunds</dt><dd data-roi="costs">$575.00</dd></div>
+      <div><dt>Payouts received</dt><dd data-roi="payouts">$600.00</dd></div>
+      <div class="roi-emphasis"><dt>Net cash</dt><dd data-roi="net">+$25.00</dd></div>
+      <div class="roi-emphasis"><dt>ROI on counted costs</dt><dd data-roi="percent">4.35%</dd></div>
+    </dl>
+    <p data-roi-message>$600 received − $575 counted costs = $25. ROI is $25 ÷ $575 × 100 = 4.35%.</p>
+  </div>
+  <p class="roi-limit">This is a simple cash-flow worksheet, not a firm-rule check, tax calculation, performance forecast or saved PropLogAI record.</p>
+</section>
+
+<script>
+  import { calculatePropFirmRoi } from '../lib/propFirmRoi.js';
+
+  const money = (cents) => '$' + (Math.abs(cents) / 100).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  document.querySelectorAll('[data-roi-calculator]').forEach((root) => {
+    if (!(root instanceof HTMLElement)) return;
+    const form = root.querySelector('form');
+    const result = root.querySelector('[data-roi-result]');
+    if (!(form instanceof HTMLFormElement) || !(result instanceof HTMLElement)) return;
+
+    const set = (key, value) => { const element = result.querySelector(`[data-roi="${key}"]`); if (element) element.textContent = value; };
+    const message = result.querySelector('[data-roi-message]');
+    const kicker = result.querySelector('.roi-result-kicker');
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const values = Object.fromEntries(new FormData(form).entries());
+      const answer = calculatePropFirmRoi(values);
+      if (!(message instanceof HTMLElement)) return;
+      if ('error' in answer) {
+        message.textContent = answer.error;
+        result.dataset.state = 'error';
+        if (kicker) kicker.textContent = 'Check the amounts';
+        return;
+      }
+      result.dataset.state = 'ready';
+      if (kicker) kicker.textContent = 'Your entered amounts';
+      const sign = answer.netCashCents > 0 ? '+' : answer.netCashCents < 0 ? '−' : '';
+      set('paid', money(answer.paidCostsCents));
+      set('costs', money(answer.netCostsCents));
+      set('payouts', money(answer.payoutsCents));
+      set('net', `${sign}${money(answer.netCashCents)}`);
+      set('percent', answer.roiPercent === null ? 'Not defined' : `${answer.roiPercent.toFixed(2)}%`);
+      message.textContent = answer.roiPercent === null
+        ? 'Counted costs are $0. ROI percent needs a cost greater than $0; review the cash totals instead.'
+        : `${money(answer.payoutsCents)} received − ${money(answer.netCostsCents)} counted costs = ${sign}${money(answer.netCashCents)}. ROI is ${answer.roiPercent.toFixed(2)}% for these entered amounts.`;
+    });
+  });
+</script>
+
+<style>
+  .roi-tool{margin:2rem 0;padding:clamp(1rem,3vw,1.6rem);border:1px solid rgba(34,211,238,.28);border-radius:1.2rem;background:radial-gradient(circle at top left,rgba(34,211,238,.12),transparent 40%),#0d1020;color:#e9f0f7;max-width:100%;overflow:hidden}
+  .roi-tool-head{display:flex;justify-content:space-between;gap:1rem;align-items:flex-start}.roi-tool-head h2{margin:.2rem 0 .4rem;color:#fff;font-size:clamp(1.3rem,4vw,1.8rem)}.roi-tool-head h2::after{display:none}.roi-tool-head p{margin:.2rem 0;color:#b9c5d4;font-size:.9rem}.roi-kicker{color:#7de4ef!important;text-transform:uppercase;letter-spacing:.12em;font-size:.68rem!important;font-weight:700}.roi-badge{border:1px solid rgba(125,228,239,.3);border-radius:100px;padding:.35rem .6rem;color:#9ee8ed;font-size:.7rem;white-space:nowrap}
+  .roi-form{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.2rem}.roi-form fieldset{min-width:0;display:grid;gap:.8rem;margin:0;padding:1rem;border:1px solid rgba(255,255,255,.12);border-radius:.85rem}.roi-form legend{padding:0 .35rem;color:#fff;font-size:.85rem;font-weight:700}.roi-form label{display:grid;gap:.25rem;font-size:.77rem;color:#c8d1de}.roi-form input{width:100%;padding:.67rem .7rem;border:1px solid rgba(255,255,255,.2);border-radius:.55rem;background:#151a2b;color:#fff;font:inherit;font-size:1rem}.roi-form input:focus-visible,.roi-form button:focus-visible{outline:3px solid #7de4ef;outline-offset:2px}.roi-form-note{grid-column:1/-1;margin:0;color:#b9c5d4;font-size:.76rem}.roi-form button{justify-self:start;border:0;border-radius:.6rem;padding:.72rem 1.1rem;background:#71e1e6;color:#06131e;font-size:.88rem;font-weight:700;cursor:pointer}
+  .roi-result{margin-top:1.2rem;padding:1rem;border:1px solid rgba(255,255,255,.12);border-radius:.85rem;background:#111729}.roi-result[data-state=error]{border-color:#fca5a5}.roi-result[data-state=error] dl{display:none}.roi-result-kicker{margin:0 0 .7rem!important;color:#87dce9!important;text-transform:uppercase;letter-spacing:.1em;font-size:.67rem!important}.roi-result dl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.55rem;margin:0}.roi-result dl>div{min-width:0;padding:.7rem;border:1px solid rgba(255,255,255,.08);border-radius:.6rem;background:#171e30}.roi-result dt{font-size:.7rem;color:#b9c5d4}.roi-result dd{margin:.15rem 0 0;font-size:1.13rem;font-weight:700;color:#fff;overflow-wrap:anywhere}.roi-result .roi-emphasis{border-color:rgba(113,225,230,.28)}.roi-result .roi-emphasis dd{color:#a9f0cf}.roi-result>p:last-child{margin:.8rem 0 0;color:#d6e1ed;font-size:.82rem}.roi-limit{margin:.8rem 0 0;color:#aebacd;font-size:.72rem;line-height:1.5}
+  @media(max-width:650px){.roi-tool-head{display:block}.roi-badge{display:inline-block;margin-top:.6rem}.roi-form{grid-template-columns:1fr}.roi-result dl{grid-template-columns:1fr 1fr}}
+  @media(max-width:380px){.roi-result dl{grid-template-columns:1fr}}
+</style>

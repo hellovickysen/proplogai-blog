@@ -1,0 +1,88 @@
+---
+title: "Forex Risk Management: What to Check Before a Trade"
+description: "Plan risk for each forex trade, check your daily loss room, and understand what a stop-loss can and cannot do. See a clear fictional XAUUSD example."
+date: 2026-07-15
+updatedDate: 2026-10-11
+category: "Risk Management"
+silo: "Risk Management for Prop Firm Traders"
+coverImage: "/blogs/images/cover-prop-firm-risk-management-k12.webp"
+draft: false
+metaTitle: "Forex Risk Management: What to Check Before a Trade"
+disclaimer: "Educational content only. The XAUUSD amounts are fictional and are not a suggested risk amount or a typical execution result. Your broker's symbol details and your firm's exact current rules decide how your account is measured. This is not trading, investment or financial advice."
+---
+
+import ZoomImage from '../../components/ZoomImage.astro';
+
+You see an XAUUSD breakout during the London session. It matches the setup you wrote in your plan, and you want to enter. Before you click, ask yourself three questions:
+
+1. **What loss am I planning for this trade?**
+2. **What is already at risk today?**
+3. **What does my exact account allow?**
+
+That is forex risk management in plain English. You decide what you can put at risk, check what is already happening in the account, and compare both with the rules that apply to you. None of these checks tells you whether this trade will win.
+
+## Keep the three checks on one note
+
+Copy this before a trade. If you do not know an answer, write **“not checked”**. An unknown rule is a reason to pause and find the official answer, not a number to guess.
+
+<div class="weekly-review-template" aria-label="Copyable three-level forex risk note">
+  <p><strong>One trade:</strong> My setup ______; planned entry ______; planned stop ______; estimated loss in USD ______</p>
+  <p><strong>Today:</strong> Closed result so far ______; other open positions and their risk ______; room under my own daily plan ______</p>
+  <p><strong>Exact account:</strong> Firm and program ______; official rule page ______; daily and overall methods ______; reset time and time zone ______</p>
+</div>
+
+<ZoomImage
+  src="/blogs/images/risk-management-step-1-questions.webp"
+  alt="Handwritten note with three questions before an XAUUSD trade: planned loss, what is already at risk today, and what the exact account allows"
+  caption="Step 1: Ask the three questions before the order. Tap to zoom."
+/>
+
+## First: plan the loss for this trade
+
+Your planned [risk per trade](https://proplogai.com/glossary/risk-per-trade) is the USD loss you estimate **before** entry if your planned [stop-loss](https://proplogai.com/glossary/stop-loss) is reached. It is a plan, not a guarantee of the final loss.
+
+For an XAUUSD trade, write down the entry, the stop, your intended size, and the value of that price move for your broker's symbol. Include the expected spread (the gap between buy and sell prices) and commission (the broker's fee). Check the contract size, meaning how many units one lot represents, and the account currency. If price jumps past your stop or the order fills at another price, the loss can change. If you need the calculation, follow the [position-size guide](/blogs/how-to-calculate-position-size-forex), then check the inputs in the [forex position size calculator](https://proplogai.com/tools/position-size-calculator). [Position sizing](https://proplogai.com/glossary/position-sizing) has its own short definition. No fixed percentage or lot size fits every account.
+
+Here is a **fictional** XAUUSD London-breakout journal entry. The trader planned a **$50** loss at the stop. The order filled worse than planned, adding **$5** to the loss, and costs added **$3**. The recorded loss became **$58**: $50 + $5 + $3. These amounts teach the difference between planned and actual loss. They are not typical slippage or costs.
+
+<ZoomImage
+  src="/blogs/images/risk-management-step-2-planned-actual.webp"
+  alt="Handwritten fictional XAUUSD note showing 50 dollars planned loss plus 5 dollars from a worse fill plus 3 dollars of costs equals 58 dollars actual recorded loss"
+  caption="Step 2: The plan was $50; the recorded result was -$58. Tap to zoom."
+/>
+
+A stop-loss is an instruction to exit when its trigger is reached. An ordinary stop does **not** promise the exact exit price. [FTMO explains how slippage can change a stop-loss fill](https://ftmo.com/en/blog/slippage-order-execution/). Your broker and account terms determine how your own orders work.
+
+Before entry, record the intended stop and estimated USD loss. After exit, compare the actual fill and all recorded costs. If the original stop was not saved, do not assume a later value proves where it was first placed.
+
+## Second: add up what is already at risk today
+
+One trade can look small while the account has other open positions. Check today's closed losses **and** every open trade. If two positions depend on the same XAUUSD move, treating them as two unrelated bets can hide how much you stand to lose together.
+
+For example, suppose your own journal shows **-$120** in closed trades today. You are considering one trade with **$50** planned loss while another open trade has **$50** planned loss. Your simple planning total is **$220**: $120 + $50 + $50. This is a **fictional planning estimate**, before further costs or different fills. It is not automatically the number your prop firm uses. Your firm may measure the account's changing value, including profit or loss on open trades, on a different clock.
+
+Your personal daily limit is a rule you choose for yourself. A firm's [daily drawdown limit](https://proplogai.com/glossary/daily-drawdown-limit) is defined by its own contract. For a worked rule calculation, use the [daily drawdown calculator guide](/blogs/daily-drawdown-calculator). Do not substitute the $220 planning total for the firm's official formula.
+
+## Third: check the exact account rule
+
+If you trade a prop-firm account, open the current rules for your **firm, program, stage and account**. Check what counts toward the daily and [overall drawdown limit](https://proplogai.com/glossary/overall-drawdown-limit), when the daily clock resets, and what happens if a condition is missed. Your clock in India may show a different date from the firm's reset clock.
+
+For example, [FTMO's Trading Objectives](https://ftmo.com/en/trading-objectives/) show that its 1-Step and 2-Step programs do not use identical conditions and that open positions and costs can matter. That is an example of why you must check **your exact program**; it is not a rule for every firm. The [prop firm rules guide](/blogs/prop-firm-rules-guide) helps you turn the official terms into a short rule sheet.
+
+<div class="weekly-review-template weekly-review-template--filled" aria-label="Fictional filled risk note with an unchecked firm rule">
+  <p><strong>One trade:</strong> Fictional XAUUSD London breakout; planned loss $50; actual recorded loss -$58 after a worse fill and costs</p>
+  <p><strong>Today:</strong> Add all closed results and open exposure before another entry; do not rely on the per-trade number alone</p>
+  <p><strong>Exact account:</strong> Daily reset time: not checked. Next action: read the current official program page before trading</p>
+</div>
+
+<ZoomImage
+  src="/blogs/images/risk-management-step-3-account.webp"
+  alt="Handwritten final three-level risk note with 50 dollars planned XAUUSD loss, 58 dollars actual recorded loss, and the prop firm's daily reset time marked not checked"
+  caption="Step 3: Finish the note and leave unknown rules marked as unknown. Tap to zoom."
+/>
+
+## A calm check before your next trade
+
+You do not need a complicated score. Check the setup in your [trading plan](https://proplogai.com/glossary/trading-plan), verify the order inputs, count other open trades and today's recorded result, then read the current official rule for your exact account. After the trade, record what actually happened. Risk checks can reduce avoidable surprises, but they cannot guarantee a fill, a fixed maximum loss, or that an account will survive.
+
+PropLogAI can keep the trade details you enter, notes, rule-following tags and screenshots together. Its dashboard measures and P&amp;L calendar can help you review your records. They do not automatically certify that you followed a risk limit or prove where your original stop was. If you need a simple place to start recording, use the [trading journal template](/blogs/trading-journal-template).
