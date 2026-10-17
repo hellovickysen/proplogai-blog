@@ -70,10 +70,20 @@ const emotionRedirect = vercelConfig.redirects?.find(
 );
 if (
   !emotionRedirect ||
-  emotionRedirect.destination !== '/how-emotions-affect-trading-decisions' ||
+  emotionRedirect.destination !== 'https://proplogai.com/blogs/how-emotions-affect-trading-decisions' ||
   emotionRedirect.permanent !== true
 ) {
   failures.push('vercel.json: legacy trading-emotions URL must permanently redirect to the approved keyword-aligned URL');
+}
+const journalRedirect = vercelConfig.redirects?.find(
+  (redirect) => redirect.source === '/trading-journal-benefits',
+);
+if (
+  !journalRedirect ||
+  journalRedirect.destination !== 'https://proplogai.com/blogs/prop-firm-trading-journal' ||
+  journalRedirect.permanent !== true
+) {
+  failures.push('vercel.json: legacy journal URL must permanently redirect to the public /blogs/ canonical URL');
 }
 
 if (failures.length) {
@@ -82,4 +92,4 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log(`Build validation passed: blog collection schema plus ${pages.length} article pages with visible dates, article metadata, BlogPosting and BreadcrumbList schema, exactly one H1, no legacy brand spellings, and the approved trading-emotions redirect.`);
+console.log(`Build validation passed: blog collection schema plus ${pages.length} article pages with visible dates, article metadata, BlogPosting and BreadcrumbList schema, exactly one H1, no legacy brand spellings, and both public-canonical legacy redirects.`);

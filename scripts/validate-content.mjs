@@ -32,7 +32,7 @@ const approvedGlossarySlugs = new Set([
   'average-win-vs-average-loss', 'consistency-rule', 'daily-drawdown-limit', 'drawdown', 'equity-curve', 'expectancy', 'fomo', 'funded-account', 'overall-drawdown-limit', 'overtrading', 'performance-report', 'profit-factor', 'profit-target', 'prop-firm-challenge', 'revenge-trading', 'sharpe-ratio', 'win-rate',
   'emotion-tracking', 'rule-based-trading', 'setup-compliance', 'tilt', 'trade-review', 'trading-journal', 'trading-plan',
   'position-sizing', 'risk-per-trade', 'stop-loss', 'ai-trading-coach', 'pattern-recognition',
-  'loss-aversion', 'overconfidence',
+  'loss-aversion', 'overconfidence', 'trade-management',
 ]);
 
 for (const file of articles) {
